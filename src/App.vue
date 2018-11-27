@@ -2,7 +2,6 @@
   <div id="app">
     <Header v-if="$route.meta.plainLayout"></Header>
     <router-view/>
-    <Footer v-if="$route.meta.plainLayout"></Footer>
   </div>
 </template>
 

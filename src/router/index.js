@@ -19,7 +19,10 @@ export default new Router({
     {
       path: '/sub2',
       name: 'Sub2',
-      component: Sub2
+      component: Sub2,
+      meta: {
+        plainLayout: true
+      }
     }
   ]
 })
