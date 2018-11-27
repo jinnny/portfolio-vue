@@ -6,13 +6,12 @@
 
 <script>
 export default {
-    name: 'sub1'
+  name: 'sub1'
 }
 </script>
 
 <style scoped>
-  .sub {
-    background: #f74242;
-  }
-
+.sub {
+  background: #f74242;
+}
 </style>
