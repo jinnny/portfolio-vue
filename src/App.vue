@@ -78,7 +78,7 @@ export default {
     background-color: $purple;
     box-shadow: 3px 5px 10px 0px rgba(0, 0, 0, 0.18);
     img {
-      width: 15px;
+      width: 15px !important;
     }
   }
 </style>

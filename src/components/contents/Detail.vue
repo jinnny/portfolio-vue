@@ -24,7 +24,7 @@
       <!--<router-link :to="" >GO SITE</router-link>-->
       <div class="detail-img-area">
         <button class="close__btn btn" @click="close()">
-          <img src="../../assets/images/icon_plus.png" alt="더보기">
+          <img src="../../assets/images/icon_plus.png" alt="더보기" width="15">
         </button>
         <img :src="require('../../assets/images/detail/detail_bg_'+ slide.index + '.png')" alt="" class="bg">
       </div>

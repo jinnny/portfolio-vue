@@ -21,7 +21,7 @@
           <div class="portfolio--hover" v-on:click="show(slide)">
             <div class="hover-content">
               <button class="portfolio__more-btn btn" >
-                <img src="../../assets/images/icon_plus.png" alt="더보기">
+                <img src="../../assets/images/icon_plus.png" alt="더보기" width="15">
               </button>
               <strong class="portfolio__date">{{slide.date}}</strong>
               <h1 class="portfolio__title">{{slide.title}}</h1>
