@@ -1,7 +1,7 @@
 <template>
   <slider-layout>
     <slot name="list">
-      <img src="../../assets/images/thumnail_1.png" alt="">
+      <img src="../../assets/images/list/thumnail_1.png" alt="">
     </slot>
   </slider-layout>
 </template>

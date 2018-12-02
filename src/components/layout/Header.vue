@@ -5,10 +5,17 @@
     </h1>
     <nav class="menu">
       <ul>
-        <li><router-link to="/" >MAIN</router-link></li>
-        <li><router-link to="/sub2">PORTFOLIO</router-link></li>
-        <li><router-link to="/profile">PROFILE</router-link></li>
+        <li><router-link to="/" class="menu__link">PORTFOLIO</router-link></li>
+        <li><router-link to="/about" class="menu__link">ABOUT</router-link></li>
       </ul>
+      <p class="contact">
+        <a href="mailto:jinny920311@gmail.com">
+          <img src="../../assets/images/icon_email.png" alt="">
+        </a>
+        <a href="tel:01057521440">
+          <img src="../../assets/images/icon_call.png" alt="">
+        </a>
+      </p>
     </nav>
   </header>
 </template>
@@ -21,6 +28,7 @@ export default {
 
 <style scoped lang="scss">
   .hd {
+    position: relative;
     border-right: 1px solid #f3f3f3;
     width: 290px;
     height: 100vh;
@@ -43,16 +51,13 @@ export default {
       li {
         margin-bottom: 15px;
       }
-      a {
+      .menu__link {
         color: $lgrey;
         display: block;
         padding: 10px 75px;
         position: relative;
         overflow: hidden;
         &:after {
-          -webkit-transition: all 0.2s ease;
-          -moz-transition: all 0.2s ease;
-          -o-transition: all 0.2s ease;
           transition: all 0.2s ease;
           content: '';
           position: absolute;
@@ -72,6 +77,23 @@ export default {
             left: 0;
             top: 19px;
           }
+        }
+      }
+    }
+    .contact {
+      position: absolute;
+      bottom: 80px;
+      width: 100%;
+      text-align: center;
+      a {
+        display: inline-block;
+        padding: 10px 20px;
+        opacity: .9;
+        filter: grayscale(40);
+        transition: all 0.2s ease;
+        &:hover {
+          opacity: 1;
+          filter: grayscale(0);
         }
       }
     }

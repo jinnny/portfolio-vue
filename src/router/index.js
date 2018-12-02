@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Main from '@/components/contents/Main'
-import Sub2 from '@/components/contents/Sub2'
+import About from '@/components/contents/Profile'
 
 Vue.use(Router)
 
@@ -17,9 +17,9 @@ export default new Router({
       }
     },
     {
-      path: '/sub2',
-      name: 'Sub2',
-      component: Sub2,
+      path: '/about',
+      name: 'About',
+      component: About,
       meta: {
         plainLayout: true
       }
