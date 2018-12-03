@@ -14,9 +14,26 @@
         2016~2018
       </p>
     </div>
-    <carousel-3d :perspective="0" :space="400" :width="360" :height="465" :display="5" :border="0" :controlsVisible="true">
-      <slide v-for="(slide, i) in slides" :index="i" :key="i">
-        <router-link to="" class="portfolio-content">
+    <!--<carousel-3d :perspective="0" :space="400" :width="360" :height="465" :display="5" :border="0" :controlsVisible="true" :dir="rtl">-->
+      <!--<slide v-for="(slide, i) in slides" :index="i" :key="i">-->
+        <!--<router-link to="" class="portfolio-content">-->
+          <!--<img :src="require('../../assets/images/list/thumnail_' + i+ '.png')" alt="" class="portfolio__thumnail">-->
+          <!--<div class="portfolio&#45;&#45;hover" v-on:click="show(slide)">-->
+            <!--<div class="hover-content">-->
+              <!--<button class="portfolio__more-btn btn" >-->
+                <!--<img src="../../assets/images/icon_plus.png" alt="더보기" width="15">-->
+              <!--</button>-->
+              <!--<strong class="portfolio__date">{{slide.date}}</strong>-->
+              <!--<h1 class="portfolio__title">{{slide.title}}</h1>-->
+              <!--<mark class="portfolio__category">{{slide.category}}</mark>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</router-link>-->
+      <!--</slide>-->
+    <!--</carousel-3d>-->
+    <vue-glide>
+      <vue-glide-slide v-for="(slide, i) in slides" :index="i" :key="i">
+        <article class="portfolio-content">
           <img :src="require('../../assets/images/list/thumnail_' + i+ '.png')" alt="" class="portfolio__thumnail">
           <div class="portfolio--hover" v-on:click="show(slide)">
             <div class="hover-content">
@@ -28,23 +45,28 @@
               <mark class="portfolio__category">{{slide.category}}</mark>
             </div>
           </div>
-        </router-link>
-      </slide>
-    </carousel-3d>
+        </article>
+      </vue-glide-slide>
+      <template slot="control">
+        <button data-glide-dir="<">prev</button>
+        <button data-glide-dir=">">next</button>
+      </template>
+    </vue-glide>
     <Detail :slide="slide" :detailShow.sync="detailShow"></Detail>
   </main>
 </template>
 
 <script>
-import { Carousel3d, Slide } from 'vue-carousel-3d'
+// import { Carousel3d, Slide } from 'vue-carousel-3d'
+import { Glide, GlideSlide } from 'vue-glide-js'
 import Detail from './Detail.vue'
 
 export default {
   name: 'Main',
   components: {
     Detail,
-    Carousel3d,
-    Slide
+    Glide,
+    GlideSlide
   },
   data () {
     return {
@@ -258,9 +280,10 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .portfolio-content {
   display: block;
+  overflow: hidden;
   position: relative;
   .portfolio__thumnail {
     transition: all 0.4s ease;
@@ -309,6 +332,29 @@ export default {
     color: $lgrey;
     font-family: $square;
     font-weight: 600;
+  }
+}
+.carousel-3d-controls {
+  height: 55px !important;
+  top: auto !important;
+  bottom: 0;
+  .next,
+  .prev {
+    line-height: 20px !important;
+    text-align: center !important;
+    border: 1px solid $lgrey;
+    span {
+      color: $lgrey;
+      font-size: 24px;
+    }
+  }
+  .prev {
+    left: 0;
+    border-right: 0;
+  }
+  .next {
+    right: auto;
+    left: 50px;
   }
 }
 </style>

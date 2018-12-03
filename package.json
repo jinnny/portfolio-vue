@@ -18,7 +18,7 @@
     "style-resources-loader": "^1.2.1",
     "vue": "^2.5.2",
     "vue-carousel-3d": "^0.1.23",
-    "vue-glide-js": "^1.1.1",
+    "vue-glide-js": "^1.2.0",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

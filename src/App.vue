@@ -23,7 +23,7 @@ export default {
   @import "assets/style/base/_reset.scss";
   @import "assets/style/base/_fonts.scss";
   body {
-    /*background: url("../src/assets/images/bg.png");*/
+    background: url("../src/assets/images/bg_pattern.png") 100% 100% no-repeat;
   }
   html, body {
     height: 100%;
@@ -38,7 +38,6 @@ export default {
     position: relative;
     padding: 5em 4em;
     overflow: hidden;
-    background: url("./assets/images/bg_line.png") 100% 100% no-repeat;
     .content__title {
       font-size: 60px;
     }
