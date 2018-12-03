@@ -8,6 +8,7 @@ import 'vue-glide-js/dist/vue-glide.css'
 import router from './router'
 
 Vue.use(VueGlide)
+// Vue.use(Carousel3d)
 
 Vue.config.productionTip = false
 

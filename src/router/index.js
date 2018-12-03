@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Main from '@/components/contents/Main'
-import About from '@/components/contents/Profile'
+import About from '@/components/contents/About'
+import Slider from '@/components/contents/Slider'
 
 Vue.use(Router)
 
@@ -20,6 +21,14 @@ export default new Router({
       path: '/about',
       name: 'About',
       component: About,
+      meta: {
+        plainLayout: true
+      }
+    },
+    {
+      path: '/slider',
+      name: 'Slider',
+      component: Slider,
       meta: {
         plainLayout: true
       }

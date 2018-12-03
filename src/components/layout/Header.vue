@@ -7,6 +7,7 @@
       <ul>
         <li><router-link to="/" class="menu__link">PORTFOLIO</router-link></li>
         <li><router-link to="/about" class="menu__link">ABOUT</router-link></li>
+        <li><router-link to="/slider" class="menu__link">Slider2</router-link></li>
       </ul>
       <p class="contact">
         <a href="mailto:jinny920311@gmail.com">

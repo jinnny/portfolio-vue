@@ -88,13 +88,8 @@
 </template>
 
 <script>
-import Slider from './Slider'
-
 export default {
-  name: 'Sub2',
-  components: {
-    Slider
-  }
+  name: 'About'
 }
 </script>
 

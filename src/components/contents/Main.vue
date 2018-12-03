@@ -31,7 +31,7 @@
         <!--</router-link>-->
       <!--</slide>-->
     <!--</carousel-3d>-->
-    <vue-glide :perView="perView" :focusAt="focusAt" :peek="peek" :startAt="startAt" :type="type">
+    <vue-glide :perView="perView" :focusAt="focusAt" :peek="peek" :startAt="startAt">
       <vue-glide-slide v-for="(slide, i) in slides" :index="i" :key="i">
         <article class="portfolio-content">
           <img :src="require('../../assets/images/list/thumnail_' + i+ '.png')" alt="" class="portfolio__thumnail">
