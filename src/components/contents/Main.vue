@@ -32,7 +32,7 @@
       <!--</slide>-->
     <!--</carousel-3d>-->
     <vue-glide>
-      <vue-glide-slide v-for="(slide, i) in slides" :index="i" :key="i">
+      <vue-glide-slide v-for="(slide, i) in slides" :index="i" :key="i" perView="4">
         <article class="portfolio-content">
           <img :src="require('../../assets/images/list/thumnail_' + i+ '.png')" alt="" class="portfolio__thumnail">
           <div class="portfolio--hover" v-on:click="show(slide)">
@@ -48,8 +48,12 @@
         </article>
       </vue-glide-slide>
       <template slot="control">
-        <button data-glide-dir="<">prev</button>
-        <button data-glide-dir=">">next</button>
+        <button data-glide-dir="<" class="prev slide-controls__btn">
+          <img src="../../assets/images/icon_prev.png" alt="" width="14">
+        </button>
+        <button data-glide-dir=">" class="next slide-controls__btn">
+          <img src="../../assets/images/icon_next.png" alt="" width="14">
+        </button>
       </template>
     </vue-glide>
     <Detail :slide="slide" :detailShow.sync="detailShow"></Detail>
@@ -58,15 +62,20 @@
 
 <script>
 // import { Carousel3d, Slide } from 'vue-carousel-3d'
-import { Glide, GlideSlide } from 'vue-glide-js'
+// import { Glide, GlideSlide } from 'vue-glide-js'
+import Slider from './Slider.vue'
 import Detail from './Detail.vue'
 
 export default {
   name: 'Main',
   components: {
     Detail,
-    Glide,
-    GlideSlide
+    Slider
+    // Glide,
+    // GlideSlide
+  },
+  props: {
+    perView: 4
   },
   data () {
     return {
@@ -281,6 +290,9 @@ export default {
 </script>
 
 <style lang="scss">
+.glide {
+  margin-top: 3em;
+}
 .portfolio-content {
   display: block;
   overflow: hidden;
@@ -334,27 +346,26 @@ export default {
     font-weight: 600;
   }
 }
-.carousel-3d-controls {
-  height: 55px !important;
-  top: auto !important;
-  bottom: 0;
-  .next,
-  .prev {
+.slide-controls__btn {
+  height: 50px;
+  width: 65px;
+  margin-top: 8px;
+  &.next,
+  &.prev {
     line-height: 20px !important;
     text-align: center !important;
-    border: 1px solid $lgrey;
-    span {
-      color: $lgrey;
-      font-size: 24px;
+    border: 1px solid #bbbbbb;
+    opacity: .8;
+    &:hover {
+      border-color: #b1b1b1;
+      opacity: 1;
     }
   }
-  .prev {
-    left: 0;
+  &.prev {
     border-right: 0;
   }
-  .next {
-    right: auto;
-    left: 50px;
+  &.next {
+    margin-left: -6px;
   }
 }
 </style>
