@@ -31,8 +31,8 @@
         <!--</router-link>-->
       <!--</slide>-->
     <!--</carousel-3d>-->
-    <vue-glide>
-      <vue-glide-slide v-for="(slide, i) in slides" :index="i" :key="i" perView="4">
+    <vue-glide :perView="perView" :focusAt="focusAt" :peek="peek" :startAt="startAt" :type="type">
+      <vue-glide-slide v-for="(slide, i) in slides" :index="i" :key="i">
         <article class="portfolio-content">
           <img :src="require('../../assets/images/list/thumnail_' + i+ '.png')" alt="" class="portfolio__thumnail">
           <div class="portfolio--hover" v-on:click="show(slide)">
@@ -62,23 +62,27 @@
 
 <script>
 // import { Carousel3d, Slide } from 'vue-carousel-3d'
-// import { Glide, GlideSlide } from 'vue-glide-js'
-import Slider from './Slider.vue'
+import { Glide, GlideSlide } from 'vue-glide-js'
 import Detail from './Detail.vue'
 
 export default {
   name: 'Main',
   components: {
     Detail,
-    Slider
-    // Glide,
-    // GlideSlide
+    Glide,
+    GlideSlide
   },
   props: {
-    perView: 4
   },
   data () {
     return {
+      focusAt: 0,
+      perView: 4,
+      startAt: 0,
+      peek: {
+        before: 0,
+        after: 100
+      },
       detailShow: false,
       slide: {},
       slides: [
@@ -299,6 +303,8 @@ export default {
   position: relative;
   .portfolio__thumnail {
     transition: all 0.4s ease;
+    width: 100%;
+    height: 100%;
   }
   .portfolio--hover {
     position: absolute;
@@ -310,8 +316,8 @@ export default {
     padding: 1em;
     .hover-content {
       position: absolute;
-      bottom: 5em;
-      left: 2em;
+      bottom: 2em;
+      left: 1.5em;
     }
   }
   &:hover {
@@ -344,6 +350,18 @@ export default {
     color: $lgrey;
     font-family: $square;
     font-weight: 600;
+  }
+}
+//slider
+.glide__track,
+.glide__slides {
+  overflow: inherit;
+  .glide__slide {
+    transition: all 0.4s ease;
+    &.glide__slide--active {
+      width: 380px !important;
+      margin-top: -30px;
+    }
   }
 }
 .slide-controls__btn {
