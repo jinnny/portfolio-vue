@@ -14,7 +14,8 @@
         2016~2018
       </p>
     </div>
-    <carousel-3d :perspective="0" :space="400" :width="400" :height="550" :display="7" :border="0" :controlsVisible="true" :dir="ltr">
+    <carousel-3d :perspective="0" :space="300" :width="280" :height="390"
+                 :display="7" :border="0" :loop="false" :controlsVisible="true">
       <slide v-for="(slide, i) in slides" :index="i" :key="i">
         <router-link to="" class="portfolio-content">
           <img :src="require('../../assets/images/list/thumnail_' + i+ '.png')" alt="" class="portfolio__thumnail">

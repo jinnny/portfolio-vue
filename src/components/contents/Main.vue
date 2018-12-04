@@ -80,8 +80,8 @@ export default {
       perView: 4,
       startAt: 0,
       peek: {
-        before: 0,
-        after: 100
+        before: 10,
+        after: 200
       },
       detailShow: false,
       slide: {},
@@ -359,14 +359,14 @@ export default {
   .glide__slide {
     transition: all 0.4s ease;
     &.glide__slide--active {
-      width: 380px !important;
+      width: 330px !important;
       margin-top: -30px;
     }
   }
 }
 .slide-controls__btn {
   height: 50px;
-  width: 65px;
+  width: 55px;
   margin-top: 8px;
   &.next,
   &.prev {
