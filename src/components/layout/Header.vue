@@ -7,7 +7,7 @@
       <ul>
         <li><router-link to="/" class="menu__link">PORTFOLIO</router-link></li>
         <li><router-link to="/about" class="menu__link">ABOUT</router-link></li>
-        <li><router-link to="/slider" class="menu__link">Slider2</router-link></li>
+        <!--<li><router-link to="/slider" class="menu__link">Slider2</router-link></li>-->
       </ul>
       <p class="contact">
         <a href="mailto:jinny920311@gmail.com">
@@ -18,13 +18,41 @@
         </a>
       </p>
     </nav>
+    <div class="notification" v-if="notify">
+      이 페이지는
+      <a href="https://www.microsoft.com/en-us/windows/microsoft-edge">Microsoft Edge</a>나
+      <a href="https://www.google.com/chrome/">Google Chrome,</a>
+      <a href="https://mozilla.org/firefox/">Firefox</a>
+      에 최적화 되어있습니다.
+    </div>
   </header>
 </template>
 
 <script>
+import { detect } from 'detect-browser'
+const browser = detect()
+
 export default {
-  name: 'Header'
+  name: 'Header',
+  data () {
+    return {
+      notify: false
+    }
+  },
+  methods: {
+    notifyShow: function () {
+      this.notify = true
+    }
+  },
+  created () {
+    if (browser && browser.name === 'ie') {
+      this.notify = true
+    } else {
+      this.notify = false
+    }
+  }
 }
+
 </script>
 
 <style scoped lang="scss">
@@ -96,6 +124,18 @@ export default {
           opacity: 1;
           filter: grayscale(0);
         }
+      }
+    }
+    .notification {
+      position: fixed;
+      top: 25px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 17px;
+      z-index: 1;
+      a {
+        color: $purple;
       }
     }
   }

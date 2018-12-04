@@ -49,10 +49,10 @@
       </vue-glide-slide>
       <template slot="control">
         <button data-glide-dir="<" class="prev slide-controls__btn">
-          <img src="../../assets/images/icon_prev.png" alt="" width="14">
+          <img src="../../assets/images/icon_prev.png" alt="" width="12">
         </button>
         <button data-glide-dir=">" class="next slide-controls__btn">
-          <img src="../../assets/images/icon_next.png" alt="" width="14">
+          <img src="../../assets/images/icon_next.png" alt="" width="12">
         </button>
       </template>
     </vue-glide>
@@ -62,22 +62,19 @@
 
 <script>
 // import { Carousel3d, Slide } from 'vue-carousel-3d'
-import { Glide, GlideSlide } from 'vue-glide-js'
 import Detail from './Detail.vue'
 
 export default {
   name: 'Main',
   components: {
-    Detail,
-    Glide,
-    GlideSlide
+    Detail
   },
   props: {
   },
   data () {
     return {
       focusAt: 0,
-      perView: 4,
+      perView: 4.5,
       startAt: 0,
       peek: {
         before: 10,
@@ -91,7 +88,7 @@ export default {
           title: 'Blockchain explorer',
           path: 'http://block.starcoin.tv',
           date: '2018.11',
-          feature1: '웹표준, 반응형',
+          feature1: '웹표준, Responsive Web',
           feature2: '크로스브라우징(IE11, Safari, Opera, Chrome, Firefox)',
           feature3: 'Sass 사용, Vuetify custom',
           role1: '전 페이지 퍼블리싱',
@@ -104,7 +101,7 @@ export default {
           title: 'contentdeal IR',
           path: 'http://contentsdeal.net/#/',
           date: '2018.10',
-          feature1: '웹표준, 반응형',
+          feature1: '웹표준, Responsive Web',
           feature2: '크로스브라우징(IE9, Safari, Opera, Chrome, Firefox)',
           feature3: 'Sass 사용, 다국어(한,영,중)',
           role1: '스타일 가이드 및 레이아웃 설계',
@@ -117,7 +114,7 @@ export default {
           title: 'KSTAR 티켓몰 홈페이지',
           path: 'https://www.kstar.tv/#!/home',
           date: '2018.05',
-          feature1: '웹표준, 반응형',
+          feature1: '웹표준, Responsive Web',
           feature2: '크로스브라우징(IE1Q, Safari, Opera, Chrome, Firefox)',
           feature3: 'Sass 사용, Semantic UI custom, 다국어(한,영,중,일)',
           role1: '스타일 가이드 설계',
@@ -130,7 +127,7 @@ export default {
           title: 'STARPAY 홈페이지',
           path: 'https://www.starpay.tv/',
           date: '2018.03',
-          feature1: '웹표준, 반응형',
+          feature1: '웹표준, Responsive Web',
           feature2: '크로스브라우징(IE10, Safari, Opera, Chrome, Firefox, UC brower)',
           feature3: 'Sass 사용, Semantic UI custom, 다국어(한,영,중,일)',
           role1: '스타일 가이드 및 레이아웃 설계',
@@ -143,7 +140,7 @@ export default {
           title: 'STARCOIN 홈페이지',
           path: 'https://www.starcoin.tv/',
           date: '2017.11',
-          feature1: '웹표준, 반응형',
+          feature1: '웹표준, Responsive Web',
           feature2: '크로스브라우징(IE10, Safari, Opera, Chrome, Firefox)',
           feature3: 'Sass 사용, 다국어(한,영,중)',
           role1: '퍼블리싱(70%) 및 퍼블리싱 총괄',
@@ -156,7 +153,7 @@ export default {
           title: '부산광역시 동구청 홈페이지 (동구청, 문화관광, 보건소, 의회, 도서관, 통합예약, 주민센터, 외국어 포함)',
           path: 'http://www.bsdonggu.go.kr/index.donggu',
           date: '2017.10',
-          feature1: '웹표준, 웹접근성, 반응형',
+          feature1: '웹표준, 웹접근성, Responsive Web',
           feature2: '크로스브라우징(IE9, Safari, Opera, Chrome, Firefox)',
           feature3: '',
           role1: '스타일 가이드 및 레이아웃 설계',
@@ -195,7 +192,7 @@ export default {
           title: '부산 교육청 홈페이지(교육감, 외국어  포함)',
           path: 'http://www.pen.go.kr/index.pen',
           date: '2017.07',
-          feature1: '웹표준, 웹접근성, 반응형',
+          feature1: '웹표준, 웹접근성, Responsive Web',
           feature2: '크로스브라우징(IE9, Safari, Opera, Chrome, Firefox)',
           feature3: '',
           role1: '스타일 가이드 및 레이아웃 설계',
@@ -208,7 +205,7 @@ export default {
           title: '부산광역시 동래구청 홈페이지',
           path: 'http://www.dongnae.go.kr/index.dongnae',
           date: '2017.06',
-          feature1: '웹표준, 웹접근성, 반응형',
+          feature1: '웹표준, 웹접근성, Responsive Web',
           feature2: '크로스브라우징(IE9, Safari, Opera, Chrome, Firefox)',
           feature3: '',
           role1: '웹표준/웹접근성 최적화 작업',
@@ -234,7 +231,7 @@ export default {
           title: '부산광역시 남구청 홈페이지',
           path: 'http://www.bsnamgu.go.kr/index.namgu',
           date: '2017.04',
-          feature1: '웹표준, 웹접근성, 반응형',
+          feature1: '웹표준, 웹접근성, Responsive Web',
           feature2: '크로스브라우징(IE9, Safari, Opera, Chrome, Firefox)',
           feature3: '',
           role1: '웹표준/웹접근성 최적화',
@@ -247,7 +244,7 @@ export default {
           title: '프랜차이즈 식당 단물곤물 홈페이지',
           path: 'http://www.xn--46-0c2iv2ruslba.com/',
           date: '2017.01',
-          feature1: '웹표준, 반응형',
+          feature1: '웹표준, Responsive Web',
           feature2: '크로스브라우징(IE10,Safari, Opera, Chrome, Firefox)',
           feature3: 'Bootstrap custom',
           role1: '기획, 레이아웃 설계',
@@ -260,7 +257,7 @@ export default {
           title: '올커넥시온 홈페이지',
           path: 'http://allconnexion.com',
           date: '2016.11',
-          feature1: '웹표준, 반응형',
+          feature1: '웹표준, Responsive Web',
           feature2: '크로스브라우징(IE9, Safari, Opera, Chrome, Firefox), 다국어(한,영)',
           feature3: 'Bootstrap custom',
           role1: '기획, 레이아웃 설계',
@@ -273,7 +270,7 @@ export default {
           title: '베이비파스텔 홈페이지',
           path: 'http://babypastel.com/main.php',
           date: '2016.07',
-          feature1: '웹표준, 반응형',
+          feature1: '웹표준, Responsive Web',
           feature2: '크로스브라우징(IE10, Safari, Opera, Chrome, Firefox)',
           feature3: '그누보드 custom',
           role1: '기획, 레이아웃 설계',
@@ -301,6 +298,7 @@ export default {
   display: block;
   overflow: hidden;
   position: relative;
+  height: 390px;
   .portfolio__thumnail {
     transition: all 0.4s ease;
     width: 100%;
@@ -312,7 +310,7 @@ export default {
     left: 0;
     height: 100%;
     width: 100%;
-    background: rgba(0, 0, 0, 0.42);
+    background: rgba(0, 0, 0, 0.3);
     padding: 1em;
     .hover-content {
       position: absolute;
@@ -339,15 +337,16 @@ export default {
   }
   .portfolio__title {
     color: $white;
-    font-size: 24px;
+    font-size: 22px;
     margin-top: 7px;
+    letter-spacing: -.3px;
     margin-bottom: 6px;
     font-family: $square;
     text-transform: uppercase;
   }
   .portfolio__category {
     background: none;
-    color: $lgrey;
+    color: #d6d6d6;
     font-family: $square;
     font-weight: 600;
   }
@@ -358,15 +357,28 @@ export default {
   overflow: inherit;
   .glide__slide {
     transition: all 0.4s ease;
+    height: 390px;
     &.glide__slide--active {
-      width: 330px !important;
-      margin-top: -30px;
+      width: 300px !important;
+      margin-top: -19px;
+      height: 427px;
+      .portfolio-content {
+        height: 100%;
+      }
+      .portfolio__thumnail {
+        transform: scale(1.1);
+      }
+      .portfolio--hover {
+        left: 0;
+        top: 0;
+        transition: all 0.4s ease;
+      }
     }
   }
 }
 .slide-controls__btn {
-  height: 50px;
-  width: 55px;
+  height: 45px;
+  width: 45px;
   margin-top: 8px;
   &.next,
   &.prev {
@@ -381,6 +393,7 @@ export default {
   }
   &.prev {
     border-right: 0;
+    margin-left: 10px;
   }
   &.next {
     margin-left: -6px;

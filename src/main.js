@@ -3,7 +3,6 @@
 import Vue from 'vue'
 import App from './App'
 import VueGlide from 'vue-glide-js'
-// import Carousel3d from 'vue-carousel-3d'
 import 'vue-glide-js/dist/vue-glide.css'
 import router from './router'
 

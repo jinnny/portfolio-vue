@@ -14,7 +14,7 @@
         2016~2018
       </p>
     </div>
-    <carousel-3d :perspective="0" :space="300" :width="280" :height="390"
+    <carousel-3d :perspective="0" :space="340" :width="320" :height="405"
                  :display="7" :border="0" :loop="false" :controlsVisible="true">
       <slide v-for="(slide, i) in slides" :index="i" :key="i">
         <router-link to="" class="portfolio-content">
@@ -310,6 +310,16 @@ export default {
       color: $lgrey;
       font-family: $square;
       font-weight: 600;
+    }
+  }
+  .current {
+    .portfolio__thumnail {
+      transform: scale(1.1);
+    }
+    .portfolio--hover {
+      left: 0;
+      top: 0;
+      transition: all 0.4s ease;
     }
   }
   .carousel-3d-controls {
