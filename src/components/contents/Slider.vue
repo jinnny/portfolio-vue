@@ -259,8 +259,8 @@ export default {
 }
 </script>
 
-<style lang="scss">
-  .portfolio-content {
+<style lang="scss" scoped>
+  /*.portfolio-content {
     display: block;
     position: relative;
     .portfolio__thumnail {
@@ -344,5 +344,5 @@ export default {
       right: auto;
       left: 50px;
     }
-  }
+  }*/
 </style>

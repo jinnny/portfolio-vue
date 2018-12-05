@@ -315,7 +315,7 @@ export default {
     .hover-content {
       position: absolute;
       bottom: 2em;
-      left: 1.5em;
+      left: 1em;
     }
   }
   &:hover {

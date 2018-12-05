@@ -59,7 +59,7 @@ export default {
   .hd {
     position: relative;
     border-right: 1px solid #f3f3f3;
-    width: 290px;
+    width: 15%;
     height: 100vh;
     padding-top: 84px;
     background: rgba(255, 255, 255, 0.6);
