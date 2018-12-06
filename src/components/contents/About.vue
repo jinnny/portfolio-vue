@@ -19,7 +19,7 @@
         <div class="content-info about-info career-info">
           <strong class="content-info__title about">CAREER</strong>
           <ul class="about-list">
-            <li>케이스타그룹 - 스타케이페이 (2018년 06월 ~ ) 팀장</li>
+            <li>케이스타그룹 - 케이스타페이 (2018년 06월 ~ ) 팀장</li>
             <li>케이스타그룹 - 스타케이에스티 (2017년 11월 ~ 2018년 06월) 매니저</li>
             <li>유비텍 (2017년 4월 ~ 2017년 11월) 사원</li>
             <li>아이웹소프트 (2016년 6월~ 2017년 4월) 주임</li>
