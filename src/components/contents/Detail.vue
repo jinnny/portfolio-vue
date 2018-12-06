@@ -21,6 +21,14 @@
       <a :href="slide.path"  class="go-site__btn" target="_blank">
         GO SITE
       </a>
+      <!--<div class="detail-btns">-->
+        <!--<button class="btn prev" v-if="slide.index != '0'">-->
+          <!--<img src="../../assets/images/icon_prev.png" alt="이전" width="14">-->
+        <!--</button>-->
+        <!--<button class="btn next" v-if="slide.index != '14'"  @click="next()">-->
+          <!--<img src="../../assets/images/icon_next.png" alt="다음" width="14">-->
+        <!--</button>-->
+      <!--</div>-->
       <!--<router-link :to="" >GO SITE</router-link>-->
       <div class="detail-img-area">
         <button class="close__btn btn" @click="close()">
@@ -43,6 +51,9 @@ export default {
   methods: {
     close () {
       this.$emit('update:detailShow', false)
+    },
+    next () {
+      // this.index = i
     }
   }
 }
@@ -121,6 +132,16 @@ export default {
       font-weight: 700;
       padding: 10px 25px;
       border-radius: 8px;
+    }
+    .detail-btns {
+      margin-top: 30px;
+      .btn {
+        background: #e4e4e4;
+        box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.18);
+        &.prev {
+          margin-right: 10px;
+        }
+      }
     }
   }
 </style>

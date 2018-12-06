@@ -49,10 +49,10 @@
       </vue-glide-slide>
       <template slot="control">
         <button data-glide-dir="<" class="prev slide-controls__btn">
-          <img src="../../assets/images/icon_prev.png" alt="" width="12">
+          <img src="../../assets/images/icon_prev.png" alt="이전" width="12">
         </button>
         <button data-glide-dir=">" class="next slide-controls__btn">
-          <img src="../../assets/images/icon_next.png" alt="" width="12">
+          <img src="../../assets/images/icon_next.png" alt="다음" width="12">
         </button>
       </template>
     </vue-glide>
@@ -105,7 +105,7 @@ export default {
           date: '2018.10',
           feature1: '웹표준준수, 웹접근성 준수, Responsive Web',
           feature2: '크로스브라우징(IE9, Safari, Opera, Chrome, Firefox)',
-          feature3: 'Sass 사용, 다국어(한,영,중)',
+          feature3: 'Less 를 사용한 Semantic UI custom, Sass 사용, 다국어(한,영,중)',
           role1: '스타일 가이드 및 레이아웃 설계',
           role2: '퍼블리싱(50%) 및 퍼블리싱 총괄',
           de: 'Vue.js 협업',

@@ -71,7 +71,7 @@ export default {
     width: 50px;
     height: 50px;
     line-height: 55px;
-    display: block;
+    display: inline-block;
     border-radius: 50%;
     text-align: center;
     background-color: $purple;
