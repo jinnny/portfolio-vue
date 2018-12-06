@@ -34,7 +34,7 @@
     <vue-glide :perView="perView" :focusAt="focusAt" :peek="peek" :startAt="startAt">
       <vue-glide-slide v-for="(slide, i) in slides" :index="i" :key="i">
         <article class="portfolio-content">
-          <img :src="require('../../assets/images/list/thumnail_' + i+ '.png')" alt="" class="portfolio__thumnail">
+          <img :src="require('../../assets/images/list/thumnail_' + i+ '.png')"  class="portfolio__thumnail" :alt="slide.alt">
           <div class="portfolio--hover" v-on:click="show(slide)">
             <div class="hover-content">
               <button class="portfolio__more-btn btn" >
@@ -86,6 +86,7 @@ export default {
         {
           category: 'Responsive Web',
           title: 'Blockchain explorer',
+          alt: '동전형태의 비트코인, 이더리움이 놓여있는 이미지',
           path: 'http://block.starcoin.tv',
           date: '2018.11',
           feature1: '웹표준준수, 웹접근성 준수, Responsive Web',
@@ -99,6 +100,7 @@ export default {
         {
           category: 'Responsive Web',
           title: 'contentdeal IR',
+          alt: '레코드 이미지',
           path: 'http://contentsdeal.net/#/',
           date: '2018.10',
           feature1: '웹표준준수, 웹접근성 준수, Responsive Web',
@@ -112,6 +114,7 @@ export default {
         {
           category: 'Responsive Web',
           title: 'KSTAR 티켓몰 홈페이지',
+          alt: '밤, 여러명의 사람이 공연을 보며 열광하는 이미지',
           path: 'https://www.kstar.tv/#!/home',
           date: '2018.05',
           feature1: '웹표준준수, 웹접근성 준수, Responsive Web',
@@ -125,6 +128,7 @@ export default {
         {
           category: 'Responsive Web',
           title: 'STARPAY 홈페이지',
+          alt: 'PAY 라는 글자가 적힌 화면이 휴대폰에 띄워져 있는 이미지',
           path: 'https://www.starpay.tv/',
           date: '2018.03',
           feature1: '웹표준준수, 웹접근성 준수, Responsive Web',
@@ -138,6 +142,7 @@ export default {
         {
           category: 'Responsive Web',
           title: 'STARCOIN 홈페이지',
+          alt: '동전형태의 비트코인이 갈색 책상에 놓여있는 이미지',
           path: 'https://www.starcoin.tv/',
           date: '2017.11',
           feature1: '웹표준준수, 웹접근성 준수, Responsive Web',
@@ -151,6 +156,7 @@ export default {
         {
           category: 'Responsive Web',
           title: '부산광역시 동구청 홈페이지 (동구청, 문화관광, 보건소, 의회, 도서관, 통합예약, 주민센터, 외국어 포함)',
+          alt: '건물을 아래서 위로 찍었을때(건물과 하늘이 보이는) 이미지',
           path: 'http://www.bsdonggu.go.kr/index.donggu',
           date: '2017.10',
           feature1: '웹표준준수, 웹접근성마크획득, Responsive Web',
@@ -164,6 +170,7 @@ export default {
         {
           category: 'Hybrid APP',
           title: '서부산 스탬프투어 앱',
+          alt: '열기구를 타고 여행을 다니는 이미지',
           path: 'https://play.google.com/store/apps/details?id=com.ubitec.stamp&hl=ko',
           date: '2017.08',
           feature1: '웹표준준수',
@@ -177,6 +184,7 @@ export default {
         {
           category: 'Web',
           title: '부산 문화관광 홈페이지',
+          alt: '바닷가에서 액자모양(네모에 가운데가 비어있는 모양)의 종이를 들고있는 이미지',
           path: 'http://tour.busan.go.kr/index.busan',
           date: '2017.07',
           feature1: '웹표준준수, 웹접근성마크획득',
@@ -190,6 +198,7 @@ export default {
         {
           category: 'Responsive Web',
           title: '부산 교육청 홈페이지(교육감, 외국어  포함)',
+          alt: '노란색 종이 위에 연필 두 자루가 대각선으로 놓여있는 이미지',
           path: 'http://www.pen.go.kr/index.pen',
           date: '2017.07',
           feature1: '웹표준준수, 웹접근성마크획득, Responsive Web',
@@ -203,6 +212,7 @@ export default {
         {
           category: 'Responsive Web',
           title: '부산광역시 동래구청 홈페이지',
+          alt: '아래에서 위로 찍은 새파란 하늘에 흰색 관공서 이미지',
           path: 'http://www.dongnae.go.kr/index.dongnae',
           date: '2017.06',
           feature1: '웹표준준수, 웹접근성마크획득, Responsive Web',
@@ -216,6 +226,7 @@ export default {
         {
           category: 'Mobile WEB',
           title: '부산 문화관광 모바일 홈페이지',
+          alt: '눈이 덮인 산과 도로의 가운데 이미지',
           path: 'http://mtour.busan.go.kr/main.htm',
           date: '2017.05',
           feature1: '웹표준준수',
@@ -229,6 +240,7 @@ export default {
         {
           category: 'Responsive Web',
           title: '부산광역시 남구청 홈페이지',
+          alt: '아래에서 위로 찍은 남색에 가까운 하늘에 상아색 관공서 이미지',
           path: 'http://www.bsnamgu.go.kr/index.namgu',
           date: '2017.04',
           feature1: '웹표준, 웹접근성마크획득, Responsive Web',
@@ -242,6 +254,7 @@ export default {
         {
           category: 'Responsive Web',
           title: '프랜차이즈 식당 단물곤물 홈페이지',
+          alt: '흰 벽에, 주황색 의자 8개와 테이블 2개 놓여있는 이미지',
           path: 'http://www.xn--46-0c2iv2ruslba.com/',
           date: '2017.01',
           feature1: '웹표준준수, 웹접근성준수, Responsive Web',
@@ -255,6 +268,7 @@ export default {
         {
           category: 'Responsive Web',
           title: '올커넥시온 홈페이지',
+          alt: '진한 파란색 컨테이너박스 3개가 교차되어있고, 아래에서 위로 찍어 맑은 하늘(하늘색)이 보이는 이미지',
           path: 'http://allconnexion.com',
           date: '2016.11',
           feature1: '웹표준준수, 웹접근성준수, Responsive Web',
@@ -268,6 +282,7 @@ export default {
         {
           category: 'Responsive Web',
           title: '베이비파스텔 홈페이지',
+          alt: '조명이 천장에, 바닥에 각각 1개씩 놓여있고 반사판이 준비되어있는 이미지',
           path: 'http://babypastel.com/main.php',
           date: '2016.07',
           feature1: '웹표준준수, 웹접근성준수, Responsive Web',
@@ -310,7 +325,7 @@ export default {
     left: 0;
     height: 100%;
     width: 100%;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.65);
     padding: 1em;
     .hover-content {
       position: absolute;
@@ -326,6 +341,7 @@ export default {
       left: 0;
       top: 0;
       transition: all 0.4s ease;
+      cursor: pointer;
     }
   }
   .portfolio__date {
@@ -369,6 +385,7 @@ export default {
         transform: scale(1.1);
       }
       .portfolio--hover {
+        cursor: pointer;
         left: 0;
         top: 0;
         transition: all 0.4s ease;

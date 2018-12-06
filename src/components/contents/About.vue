@@ -34,6 +34,7 @@
               <strong class="skill__title">HTML5 & 웹표준& 웹접근성</strong>
               <ul>
                 <li>- W3C HTML5 기술표준명세서 준수</li>
+                <li>- W3C 웹콘텐츠 접근성 지침 2.0 준수</li>
                 <li>- 크로스브라우징 이슈 핸들링</li>
                 <li><small>( Ie8 / Firefox / Chrome / Opera / Safari )</small></li>
               </ul>
@@ -41,6 +42,7 @@
             <div class="skill-contnet">
               <strong class="skill__title">CSS/전처리기</strong>
               <ul>
+                <li>- BEM 방법론의 네이밍</li>
                 <li>- CSS3</li>
                 <li>- Sass</li>
                 <li>- Less</li>
@@ -126,7 +128,6 @@ export default {
     }
     .about-list {
       * {
-        font-weight: 500;
         font-family: $square;
         color: $grey;
       }
@@ -159,10 +160,10 @@ export default {
       }
     }
     .about-info {
-      margin-top: 6em;
+      margin-top: 5em;
     }
     .career-info {
-      margin-top: 190px;
+      margin-top: 215px;
     }
     .skill-contnet {
       margin-top: 20px;

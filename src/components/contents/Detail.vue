@@ -58,6 +58,7 @@ export default {
     right: -100%;
     opacity: 0;
     overflow: hidden;
+    z-index: 2;
     &.active {
       right: 0;
       opacity: 1;
@@ -83,7 +84,6 @@ export default {
       li {
         color: $grey;
         font-family: $square;
-        font-weight: 500;
         margin-bottom: 4px;
         padding-left: 3px;
       }
@@ -109,6 +109,7 @@ export default {
         right: 1em;
         top: 1em;
         background: #333;
+        z-index: 2;
         img {
           transform: rotate(45deg);
         }
