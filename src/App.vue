@@ -29,14 +29,13 @@ export default {
     height: 100%;
   }
   #app {
-    height: 100%;
-    display: flex;
+    /*height: 100%;*/
   }
   .content {
-    width: calc(100% - 290px);
+    width: 100%;
     height: 100%;
     position: relative;
-    padding: 5em 4em;
+    padding: 3em 0 0 9em;
     overflow: hidden;
     .content__title {
       font-size: 60px;
@@ -50,7 +49,7 @@ export default {
     transform: rotate(180deg);
     top: -30px;
     position: absolute;
-    left: 35px;
+    left: 120px;
     cursor: default;
   }
   .content-info-wrap {

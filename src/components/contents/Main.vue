@@ -31,31 +31,33 @@
         <!--</router-link>-->
       <!--</slide>-->
     <!--</carousel-3d>-->
-    <vue-glide :perView="perView" :focusAt="focusAt" :peek="peek" :startAt="startAt">
-      <vue-glide-slide v-for="(slide, i) in slides" :index="i" :key="i">
-        <article class="portfolio-content">
-          <img :src="require('../../assets/images/list/thumnail_' + i+ '.png')"  class="portfolio__thumnail" :alt="slide.alt">
-          <div class="portfolio--hover" v-on:click="show(slide)">
-            <div class="hover-content">
-              <button class="portfolio__more-btn btn" >
-                <img src="../../assets/images/icon_plus.png" alt="더보기" width="15">
-              </button>
-              <strong class="portfolio__date">{{slide.date}}</strong>
-              <h1 class="portfolio__title">{{slide.title}}</h1>
-              <mark class="portfolio__category">{{slide.category}}</mark>
+    <div class="slide-wrap">
+      <vue-glide :perView="perView" :focusAt="focusAt" :peek="peek" :startAt="startAt">
+        <vue-glide-slide v-for="(slide, i) in slides" :index="i" :key="i">
+          <article class="portfolio-content">
+            <img :src="require('../../assets/images/list/thumnail_' + i+ '.png')"  class="portfolio__thumnail" :alt="slide.alt">
+            <div class="portfolio--hover" v-on:click="show(slide)">
+              <div class="hover-content">
+                <button class="portfolio__more-btn btn" >
+                  <img src="../../assets/images/icon_plus.png" alt="더보기" width="15">
+                </button>
+                <strong class="portfolio__date">{{slide.date}}</strong>
+                <h1 class="portfolio__title">{{slide.title}}</h1>
+                <mark class="portfolio__category">{{slide.category}}</mark>
+              </div>
             </div>
-          </div>
-        </article>
-      </vue-glide-slide>
-      <template slot="control">
-        <button data-glide-dir="<" class="prev slide-controls__btn">
-          <img src="../../assets/images/icon_prev.png" alt="이전" width="12">
-        </button>
-        <button data-glide-dir=">" class="next slide-controls__btn">
-          <img src="../../assets/images/icon_next.png" alt="다음" width="12">
-        </button>
-      </template>
-    </vue-glide>
+          </article>
+        </vue-glide-slide>
+        <template slot="control">
+          <button data-glide-dir="<" class="prev slide-controls__btn">
+            <img src="../../assets/images/icon_prev.png" alt="이전" width="12">
+          </button>
+          <button data-glide-dir=">" class="next slide-controls__btn">
+            <img src="../../assets/images/icon_next.png" alt="다음" width="12">
+          </button>
+        </template>
+      </vue-glide>
+    </div>
     <Detail :slide="slide" :detailShow.sync="detailShow"></Detail>
   </main>
 </template>
@@ -74,7 +76,7 @@ export default {
   data () {
     return {
       focusAt: 0,
-      perView: 4.5,
+      perView: 5.5,
       startAt: 0,
       peek: {
         before: 10,
@@ -308,6 +310,9 @@ export default {
 <style lang="scss">
 .glide {
   margin-top: 3em;
+}
+.slide-wrap {
+  overflow: hidden;
 }
 .portfolio-content {
   display: block;
