@@ -87,7 +87,7 @@ export default {
           category: 'Responsive Web',
           title: 'Blockchain explorer',
           alt: '동전형태의 비트코인, 이더리움이 놓여있는 이미지',
-          path: 'http://block.starcoin.tv',
+          path: 'javascript:alert(\'비공개\');',
           date: '2018.11',
           feature1: '웹표준준수, 웹접근성 준수, Responsive Web',
           feature2: '크로스브라우징(IE11, Safari, Opera, Chrome, Firefox)',
