@@ -36,6 +36,10 @@
         </button>
         <img :src="require('../../assets/images/detail/detail_bg_'+ slide.index + '.png')" alt="" class="bg">
       </div>
+      <div class="detail-view-img-area">
+        <img :src="require('../../assets/images/detail/detail_view_img_0.png')" alt="" class="bg">
+
+      </div>
     </article>
   </article>
 </template>
@@ -63,13 +67,14 @@ export default {
   .detail-content {
     transition: all 0.4s ease;
     background: #fff;
-    position: absolute;
+    position: fixed;
     top: 0%;
     width: 100%;
     right: -100%;
     opacity: 0;
     overflow: hidden;
     z-index: 2;
+    padding: 5em 0 0 9em;
     &.active {
       right: 0;
       opacity: 1;
