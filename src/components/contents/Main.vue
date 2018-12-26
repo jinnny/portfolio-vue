@@ -14,10 +14,42 @@
         2016~2018
       </p>
     </div>
-    <!--<carousel-3d :perspective="0" :space="400" :width="360" :height="465" :display="5" :border="0" :controlsVisible="true" :dir="rtl">-->
-      <!--<slide v-for="(slide, i) in slides" :index="i" :key="i">-->
-        <!--<router-link to="" class="portfolio-content">-->
-          <!--<img :src="require('../../assets/images/list/thumnail_' + i+ '.png')" alt="" class="portfolio__thumnail">-->
+    <carousel-3d :perspective="0" :space="400" :width="360" :height="465" :display="7" :border="0" :controlsVisible="true" :dir="trl" class="portfolio-slider">
+      <slide v-for="(slide, i) in slides" :index="i" :key="i">
+        <router-link to="" class="portfolio-content">
+          <img :src="require('../../assets/images/list/thumnail_' + i+ '.png')" alt="" class="portfolio__thumnail">
+          <div class="portfolio--hover" v-on:click="show(slide)">
+            <div class="hover-content">
+              <button class="portfolio__more-btn btn" >
+                <img src="../../assets/images/icon_plus.png" alt="더보기" width="15">
+              </button>
+              <strong class="portfolio__date">{{slide.date}}</strong>
+              <h1 class="portfolio__title">{{slide.title}}</h1>
+              <mark class="portfolio__category">{{slide.category}}</mark>
+            </div>
+          </div>
+        </router-link>
+      </slide>
+    </carousel-3d>
+    <!--<carousel :items="5.5" :autoHeight="true" :margin="10" :dots="false" class="portfolio-slider">-->
+      <!--<article class="portfolio-content"  v-for="(slide, i) in slides" :index="i" :key="i">-->
+        <!--<img :src="require('../../assets/images/list/thumnail_' + i+ '.png')"  class="portfolio__thumnail" :alt="slide.alt">-->
+        <!--<div class="portfolio&#45;&#45;hover" v-on:click="show(slide)">-->
+          <!--<div class="hover-content">-->
+            <!--<button class="portfolio__more-btn btn" >-->
+              <!--<img src="../../assets/images/icon_plus.png" alt="더보기" width="15">-->
+            <!--</button>-->
+            <!--<strong class="portfolio__date">{{slide.date}}</strong>-->
+            <!--<h1 class="portfolio__title">{{slide.title}}</h1>-->
+            <!--<mark class="portfolio__category">{{slide.category}}</mark>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</article>-->
+    <!--</carousel>-->
+    <!--<vue-glide :perView="perView" :focusAt="focusAt" :peek="peek" :startAt="startAt">-->
+      <!--<vue-glide-slide v-for="(slide, i) in slides" :index="i" :key="i">-->
+        <!--<article class="portfolio-content">-->
+          <!--<img :src="require('../../assets/images/list/thumnail_' + i+ '.png')"  class="portfolio__thumnail" :alt="slide.alt">-->
           <!--<div class="portfolio&#45;&#45;hover" v-on:click="show(slide)">-->
             <!--<div class="hover-content">-->
               <!--<button class="portfolio__more-btn btn" >-->
@@ -31,45 +63,49 @@
         <!--</router-link>-->
       <!--</slide>-->
     <!--</carousel-3d>-->
-    <div class="slide-wrap">
-      <vue-glide :perView="perView" :focusAt="focusAt" :peek="peek" :startAt="startAt">
-        <vue-glide-slide v-for="(slide, i) in slides" :index="i" :key="i">
-          <article class="portfolio-content">
-            <img :src="require('../../assets/images/list/thumnail_' + i+ '.png')"  class="portfolio__thumnail" :alt="slide.alt">
-            <div class="portfolio--hover" v-on:click="show(slide)">
-              <div class="hover-content">
-                <button class="portfolio__more-btn btn" >
-                  <img src="../../assets/images/icon_plus.png" alt="더보기" width="15">
-                </button>
-                <strong class="portfolio__date">{{slide.date}}</strong>
-                <h1 class="portfolio__title">{{slide.title}}</h1>
-                <mark class="portfolio__category">{{slide.category}}</mark>
-              </div>
-            </div>
-          </article>
-        </vue-glide-slide>
-        <template slot="control">
-          <button data-glide-dir="<" class="prev slide-controls__btn">
-            <img src="../../assets/images/icon_prev.png" alt="이전" width="12">
-          </button>
-          <button data-glide-dir=">" class="next slide-controls__btn">
-            <img src="../../assets/images/icon_next.png" alt="다음" width="12">
-          </button>
-        </template>
-      </vue-glide>
-    </div>
+    <!--<div class="slide-wrap">-->
+      <!--<vue-glide :perView="perView" :focusAt="focusAt" :peek="peek" :startAt="startAt">-->
+        <!--<vue-glide-slide v-for="(slide, i) in slides" :index="i" :key="i">-->
+          <!--<article class="portfolio-content">-->
+            <!--<img :src="require('../../assets/images/list/thumnail_' + i+ '.png')"  class="portfolio__thumnail" :alt="slide.alt">-->
+            <!--<div class="portfolio&#45;&#45;hover" v-on:click="show(slide)">-->
+              <!--<div class="hover-content">-->
+                <!--<button class="portfolio__more-btn btn" >-->
+                  <!--<img src="../../assets/images/icon_plus.png" alt="더보기" width="15">-->
+                <!--</button>-->
+                <!--<strong class="portfolio__date">{{slide.date}}</strong>-->
+                <!--<h1 class="portfolio__title">{{slide.title}}</h1>-->
+                <!--<mark class="portfolio__category">{{slide.category}}</mark>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</article>-->
+        <!--</vue-glide-slide>-->
+        <!--<template slot="control">-->
+          <!--<button data-glide-dir="<" class="prev slide-controls__btn">-->
+            <!--<img src="../../assets/images/icon_prev.png" alt="이전" width="12">-->
+          <!--</button>-->
+          <!--<button data-glide-dir=">" class="next slide-controls__btn">-->
+            <!--<img src="../../assets/images/icon_next.png" alt="다음" width="12">-->
+          <!--</button>-->
+        <!--</template>-->
+      <!--</vue-glide>-->
+    <!--</div>-->
     <Detail :slide="slide" :detailShow.sync="detailShow"></Detail>
   </main>
 </template>
 
 <script>
-// import { Carousel3d, Slide } from 'vue-carousel-3d'
+import { Carousel3d, Slide } from 'vue-carousel-3d'
+import carousel from 'vue-owl-carousel'
 import Detail from './Detail.vue'
 
 export default {
   name: 'Main',
   components: {
-    Detail
+    Detail,
+    carousel,
+    Carousel3d,
+    Slide
   },
   props: {
   },
@@ -308,17 +344,25 @@ export default {
 </script>
 
 <style lang="scss">
-.glide {
+
+.portfolio-slider {
   margin-top: 3em;
 }
+
 .slide-wrap {
   overflow: hidden;
+}
+.carousel-3d-container {
+  &.portfolio-slider {
+    margin: 20px 0 20px -4.5em;
+  }
 }
 .portfolio-content {
   display: block;
   overflow: hidden;
   position: relative;
-  height: 390px;
+  /*height: 390px;*/
+  height: 465px;
   .portfolio__thumnail {
     transition: all 0.4s ease;
     width: 100%;
@@ -336,6 +380,11 @@ export default {
       position: absolute;
       bottom: 2em;
       left: 1em;
+    }
+    .portfolio__more-btn {
+      img {
+        display: inline-block;
+      }
     }
   }
   &:hover {
@@ -372,8 +421,19 @@ export default {
     font-weight: 600;
   }
 }
+.current {
+  .portfolio__thumnail {
+    transform: scale(1.1);
+  }
+  .portfolio--hover {
+    cursor: pointer;
+    left: 0;
+    top: 0;
+    transition: all 0.4s ease;
+  }
+}
 //slider
-.glide__track,
+/*.glide__track,
 .glide__slides {
   overflow: inherit;
   .glide__slide {
@@ -397,28 +457,76 @@ export default {
       }
     }
   }
-}
-.slide-controls__btn {
-  height: 45px;
-  width: 45px;
-  margin-top: 8px;
-  &.next,
-  &.prev {
-    line-height: 20px !important;
-    text-align: center !important;
-    border: 1px solid #bbbbbb;
-    opacity: .8;
-    &:hover {
-      border-color: #b1b1b1;
-      opacity: 1;
+}*/
+.carousel-3d-controls {
+  a {
+    height: 45px;
+    width: 45px;
+    margin-top: 8px;
+    &.next,
+    &.prev {
+      line-height: 20px !important;
+      text-align: center !important;
+      background: #fff;
+      opacity: .78;
+      text-indent: -9999px;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      box-shadow: 0 2px 10px rgba(0,0,0,.1);
+      &:hover {
+        border-color: #b1b1b1;
+        opacity: 1;
+      }
+    }
+    &.prev {
+      background-image: url('../../assets/images/icon_prev.png');
+      left: 2px;
+    }
+    &.next {
+      background-image: url('../../assets/images/icon_next.png');
+      right: -4px;
     }
   }
-  &.prev {
-    border-right: 0;
-    margin-left: 10px;
-  }
-  &.next {
-    margin-left: -6px;
+}
+
+.portfolio-slider {
+  .owl-nav [class*='owl-'] {
+    height: 45px;
+    width: 45px;
+    margin-top: 8px;
+    border-radius: 0;
+    &.owl-prev,
+    &.owl-next {
+      line-height: 30px !important;
+      text-align: center !important;
+      border: 1px solid #bbbbbb;
+      background: #fff;
+      opacity: .55;
+      color: #bbbbbb;
+      text-transform: uppercase;
+      text-indent: -9999px;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      &:hover {
+        background-color: #fff;
+        border-color: #b1b1b1;
+        opacity: 1;
+      }
+    }
+    &.owl-prev {
+      background-image: url('../../assets/images/icon_prev.png');
+    }
+    &.owl-next {
+      background-image: url('../../assets/images/icon_next.png');
+    }
+    &.prev {
+      border-right: 0;
+      margin-left: 10px;
+    }
+    &.next {
+      margin-left: -6px;
+    }
   }
 }
+
 </style>
