@@ -1,63 +1,133 @@
 <template>
-  <article class="content detail-content" :class="{active: detailShow}">
-    <h2 class="content-text" style="">
-      PORTFIOLIO
-    </h2>
-    <h1 class="content__title">PORTFIOLIO</h1>
-    <article class="detail">
-      <strong class="detail__date">{{slide.date}}</strong>
-      <h1 class="detail__title">{{slide.title}}</h1>
-      <ul class="detail__skills">
-        <li class="skills__title">FEATURE</li>
-        <li>{{slide.feature1}}</li>
-        <li>{{slide.feature2}}</li>
-        <li>{{slide.feature3}}</li>
-        <li class="skills__title">ROLE</li>
-        <li>{{slide.role1}}</li>
-        <li>{{slide.role2}}</li>
-        <li class="skills__title">DE</li>
-        <li>{{slide.de}}</li>
-      </ul>
-      <a :href="slide.path"  class="go-site__btn" target="_blank">
-        GO SITE
-      </a>
-      <!--<div class="detail-btns">-->
-        <!--<button class="btn prev" v-if="slide.index != '0'">-->
-          <!--<img src="../../assets/images/icon_prev.png" alt="이전" width="14">-->
-        <!--</button>-->
-        <!--<button class="btn next" v-if="slide.index != '14'"  @click="next()">-->
-          <!--<img src="../../assets/images/icon_next.png" alt="다음" width="14">-->
-        <!--</button>-->
-      <!--</div>-->
-      <!--<router-link :to="" >GO SITE</router-link>-->
-      <div class="detail-img-area">
-        <button class="close__btn btn" @click="close()">
-          <img src="../../assets/images/icon_plus.png" alt="더보기" width="15">
+  <article class="detail-content">
+    <section class="detail">
+      <router-link to="/" class="close__btn btn">
+        <img src="../../assets/images/icons/icon_close.png" alt="닫기" >
+      </router-link>
+      <article class="detail-slide">
+        <img :src="require('../../assets/images/slide/'+ dataJson.slides[current].name +'_slide.png')"  class="portfolio-slider__img" alt="">
+        <div class="layout">
+          <h1 class="portfolio-slider__title">
+            <img :src="require('../../assets/images/logo/'+ dataJson.slides[current].name +'_logo.png')" alt="" class="portfolio__logo" height="32">
+            {{dataJson.slides[current].title}}
+          </h1>
+        </div>
+        <button class="detail__btn prev" v-if="this.current !== 0" @click="prev()">
+          <img src="../../assets/images/icons/icon_prev.png" alt="이전">
+          <strong class="detail__btn__text">PREV</strong>
         </button>
-        <img :src="require('../../assets/images/detail/detail_bg_'+ slide.index + '.png')" alt="" class="bg">
+        <button class="detail__btn next" v-if="this.current !== this.dataJson.slides.length - 1"  @click="next()">
+          <strong class="detail__btn__text">NEXT</strong>
+          <img src="../../assets/images/icons/icon_next.png" alt="다음">
+        </button>
+      </article>
+      <article class="detail-overview">
+        <div class="layout">
+          <div class="overview-text-area">
+            <h1 class="overview__title">Overview</h1>
+            <p class="overview__content">
+              {{dataJson.slides[current].description1}}<br>
+              {{dataJson.slides[current].description2}}
+            </p>
+          </div>
+          <img src="../../assets/images/detail/contentsdeal_phone.png" alt="" class="overview__img">
+        </div>
+      </article>
+      <article class="detail-skill">
+        <div class="layout">
+          <img src="../../assets/images/detail/contentsdeal_pc.png" :alt="dataJson.slides[current].title" class="skill__img">
+          <div class="skill-content">
+            <ul class="skill-lists">
+              <li class="skill__title">
+                W3C Standard
+                <ul>
+                  <li>{{dataJson.slides[current].feature1}}</li>
+                  <li>{{dataJson.slides[current].feature2}}</li>
+                  <li>{{dataJson.slides[current].feature3}}</li>
+                </ul>
+              </li>
+              <li class="skill__title">
+                코드의 효율성 향상
+                <ul>
+                  <li>{{dataJson.slides[current].feature1}}</li>
+                  <li>{{dataJson.slides[current].feature2}}</li>
+                  <li>{{dataJson.slides[current].feature3}}</li>
+                </ul>
+              </li>
+              <li class="skill__title">
+                새로운 기술 활용
+                <ul>
+                  <li>{{dataJson.slide.feature1}}</li>
+                  <li>{{dataJson.slide.feature2}}</li>
+                  <li>{{dataJson.slide.feature3}}</li>
+                </ul>
+              </li>
+              <li class="skill__title">
+                새로운 기술 활용
+                <ul>
+                  <li>{{dataJson.slide.feature1}}</li>
+                  <li>{{dataJson.slide.feature2}}</li>
+                  <li>{{dataJson.slide.feature3}}</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+        <!--<img :src="require('../../assets/images/detail/detail_bg_'+ slide.index + '.png')" alt="" class="bg">-->
+      <div class="detail-preview">
+        <a :href="dataJson.slide.path"  class="go-site__btn" target="_blank">
+          GO SITE
+        </a>
+        <img :src="require('../../assets/images/detail/detail_view_img_0.png')" alt="" class="preview__img">
+        <img :src="require('../../assets/images/detail/detail_view_img_0.png')" alt="" class="preview__img">
+        <img :src="require('../../assets/images/detail/detail_view_img_0.png')" alt="" class="preview__img">
+        <img :src="require('../../assets/images/detail/detail_view_img_0.png')" alt="" class="preview__img">
       </div>
-      <div class="detail-view-img-area">
-        <img :src="require('../../assets/images/detail/detail_view_img_0.png')" alt="" class="bg">
-
-      </div>
-    </article>
+    </section>
   </article>
 </template>
 
 <script>
+import json from '../../../data.json'
 
 export default {
   name: 'Detail',
-  props: [
-    'detailShow',
-    'slide'
-  ],
+  data () {
+    return {
+      dataJson: json,
+      current: parseInt(this.$route.params.index)
+    }
+  },
+  watch: {
+    current: function (newVal) {
+      this.current = newVal
+      console.log(newVal)
+    }
+  },
+  mounted () {
+    window.scrollTo(0, 0)
+  },
   methods: {
     close () {
-      this.$emit('update:detailShow', false)
+      this.$router.go(-1)
+      // this.$emit('update:detailShow', false)
     },
     next () {
-      // this.index = i
+      let nextDetail = parseInt(this.current) + 1
+      console.log(nextDetail)
+      if (nextDetail > 0 && nextDetail <= this.dataJson.slides.length) {
+        this.current = nextDetail
+        this.$router.push('/detail/' + nextDetail)
+      }
+    },
+    prev () {
+      let prevDetail = parseInt(this.current) - 1
+      if (prevDetail >= 0 && prevDetail <= this.dataJson.slides.length) {
+        this.current = prevDetail
+        this.$router.push('/detail/' + prevDetail)
+        console.log(prevDetail)
+      }
     }
   }
 }
@@ -67,20 +137,14 @@ export default {
   .detail-content {
     transition: all 0.4s ease;
     background: #fff;
-    position: fixed;
-    top: 0%;
-    width: 100%;
-    right: -100%;
-    opacity: 0;
-    overflow: hidden;
-    z-index: 2;
-    padding: 5em 0 0 9em;
-    &.active {
-      right: 0;
-      opacity: 1;
-    }
   }
+  /*첫번째 섹션*/
   .detail {
+    position: relative;
+    .portfolio-slider__title {
+      top: 38rem;
+      bottom: auto;
+    }
     .detail__date {
       color: $grey;
       font-size: 44px;
@@ -95,41 +159,11 @@ export default {
       padding: 10px;
       width: calc(100% - 740px);
     }
-    .detail__skills {
-      margin: 40px 0;
-      li {
-        color: $grey;
-        font-family: $square;
-        margin-bottom: 4px;
-        padding-left: 3px;
-      }
-      .skills__title {
-        padding-left: 0;
-        font-size: 20px;
-        font-weight: 600;
-        font-family: $mont;
-        color: $black;
-        margin-bottom: 5px;
-        margin-top: 15px;
-      }
-    }
-    .detail-img-area {
-      width: 1080px;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      right: 0;
-      overflow: hidden;
-      .close__btn {
-        position: absolute;
-        right: 1em;
-        top: 1em;
-        background: #333;
-        z-index: 2;
-        img {
-          transform: rotate(45deg);
-        }
-      }
+    .close__btn {
+      position: fixed;
+      right: 2em;
+      top: 2em;
+      z-index: 2;
     }
     .go-site__btn {
       color: $purple;
@@ -137,16 +171,118 @@ export default {
       font-weight: 700;
       padding: 10px 25px;
       border-radius: 8px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: #fff;
     }
-    .detail-btns {
-      margin-top: 30px;
-      .btn {
-        background: #e4e4e4;
-        box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.18);
+    .detail__btn {
+      transition: all 0.2s ease;
+      position: fixed;
+      z-index: 100;
+      top: 36em;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      &:focus {
+        outline: none;
+      }
+      &.next {
+        right: 0;
+        padding-left: 0px;
+      }
+      &.prev {
+        left: 0;
+        padding-right: 0px;
+      }
+      &:hover {
+        background-color: rgba(0,0,0,0.5);
+        &.next {
+          padding-left: 40px;
+        }
         &.prev {
-          margin-right: 10px;
+          padding-right: 40px;
+        }
+        .detail__btn__text {
+          display: block;
+          opacity: 1;
+          transition: all 0.2s ease;
         }
       }
+    }
+    .detail__btn__text {
+      display: none;
+      opacity: 0;
+      font-size: 2rem;
+      color: $yellow;
+      font-weight: 700;
+    }
+  }
+  //Overview
+  .detail-overview {
+    padding: 4em 0;
+    background-image: url('../../assets/images/main/overview_bg.png');
+    background-position: 80% 100%;
+    background-repeat: no-repeat;
+    background-color: #f8f8f8;
+    position: relative;
+    min-height: 520px;
+    overflow: hidden;
+    @include clearfix;
+    .overview__title {
+      color: #09a7b4;
+      font-weight: 100;
+      font-size: 4rem;
+    }
+    .overview__content {
+      font-family: $square;
+    }
+  }
+  .overview-text-area {
+    display: inline-block;
+  }
+  .overview__img {
+    position: absolute;
+    bottom: -160px;
+    right: 15rem;
+  }
+  .overview-img-area {
+    float: right;
+  }
+  //skill
+  .detail-skill {
+    padding: 6em 0;
+    background: #09a7b4;
+  }
+  .skill-content {
+    float: right;
+    width: calc(100% - 800px);
+    @include clearfix;
+    .skill-lists {
+      li {
+        color: $white;
+        font-family: $square;
+        font-weight: 100;
+        font-size: 0.95rem;
+        opacity: .8;
+        line-height: 1.6;
+      }
+      .skill__title {
+        font-weight: 600;
+        font-size: 1.1rem;
+        opacity: 1;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+  /*prev(미리보기)*/
+  .detail-preview {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    .preview__img {
+      width: 25%;
+      float: left;
     }
   }
 </style>

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Main from '@/components/contents/Main'
 import About from '@/components/contents/About'
-import Slider from '@/components/contents/Slider'
+import Detail from '@/components/contents/Detail'
 
 Vue.use(Router)
 
@@ -26,9 +26,10 @@ export default new Router({
       }
     },
     {
-      path: '/slider',
-      name: 'Slider',
-      component: Slider,
+      path: '/detail/:index',
+      name: 'Detail',
+      props: true,
+      component: Detail,
       meta: {
         plainLayout: true
       }

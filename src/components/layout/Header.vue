@@ -1,37 +1,52 @@
 <template>
   <header class="hd">
     <h1 class="logo">
-      Y
+      <router-link to="/">
+        Y
+      </router-link>
     </h1>
-    <button class="hd-menu__btn" @click="menuOpen()">
-      <i class="hd-menu__btn-line"></i>
-    </button>
-    <div class="area-menu" v-bind:class="{ active: menu }">
-      <nav class="menu">
-        <ul>
-          <li  v-on:click="menuOpen(false)">
-            <router-link to="/"  class="menu__link">home</router-link>
-          </li>
-          <li  v-on:click="menuOpen(false)">
-            <router-link to="/about" class="menu__link">ABOUT</router-link>
-          </li>
-          <li  v-on:click="menuOpen(false)">
-            <router-link to="/" class="menu__link">portfolio</router-link>
-          </li>
-        </ul>
-        <div class="area-menu-links">
-          <a href="mailto:jinny920311@gmail.com" class="menu__links">
-           <img src="../../assets/images/icon_email.png" alt="메일 보내기" width="20">
-          </a>
-          <a href="tel:01057521440"  class="menu__links">
-           <img src="../../assets/images/icon_call.png" alt="전화 하기" width="18">
-          </a>
-          <!--<a href="https://jemajin.blogspot.kr/" class="menu__links">-->
-            <!--<img src="images/icon_blog.svg" alt="블로그바로가기" width="15" height="15">-->
+    <nav class="hd-menu">
+      <ul>
+        <!--<li  v-on:click="menuOpen(false)">-->
+          <!--<router-link to="/"  class="menu__link">Home</router-link>-->
+        <!--</li>-->
+        <li class="hd-menu__list">
+          <router-link to="/about" class="hd-menu__item">About</router-link>
+        </li>
+        <li class="hd-menu__list">
+          <router-link to="/" class="hd-menu__item">Portfolio</router-link>
+        </li>
+      </ul>
+    </nav>
+    <!--<button class="hd-menu__btn" @click="menuOpen()">-->
+      <!--<i class="hd-menu__btn-line"></i>-->
+    <!--</button>-->
+    <!--<div class="area-menu" v-bind:class="{ active: menu }">-->
+      <!--<nav class="menu">-->
+        <!--<ul>-->
+          <!--<li  v-on:click="menuOpen(false)">-->
+            <!--<router-link to="/"  class="menu__link">home</router-link>-->
+          <!--</li>-->
+          <!--<li  v-on:click="menuOpen(false)">-->
+            <!--<router-link to="/about" class="menu__link">ABOUT</router-link>-->
+          <!--</li>-->
+          <!--<li  v-on:click="menuOpen(false)">-->
+            <!--<router-link to="/" class="menu__link">portfolio</router-link>-->
+          <!--</li>-->
+        <!--</ul>-->
+        <!--<div class="area-menu-links">-->
+          <!--<a href="mailto:jinny920311@gmail.com" class="menu__links">-->
+           <!--<img src="../../assets/images/icon_email.png" alt="메일 보내기" width="20">-->
           <!--</a>-->
-        </div>
-      </nav>
-    </div>
+          <!--<a href="tel:01057521440"  class="menu__links">-->
+           <!--<img src="../../assets/images/icon_call.png" alt="전화 하기" width="18">-->
+          <!--</a>-->
+          <!--&lt;!&ndash;<a href="https://jemajin.blogspot.kr/" class="menu__links">&ndash;&gt;-->
+            <!--&lt;!&ndash;<img src="images/icon_blog.svg" alt="블로그바로가기" width="15" height="15">&ndash;&gt;-->
+          <!--&lt;!&ndash;</a>&ndash;&gt;-->
+        <!--</div>-->
+      <!--</nav>-->
+    <!--</div>-->
     <!--<nav class="menu">-->
     <!--<ul>-->
     <!--<li><router-link to="/" class="menu__link">PORTFOLIO</router-link></li>-->
@@ -47,13 +62,13 @@
     <!--</a>-->
     <!--</p>-->
     <!--</nav>-->
-    <div class="notification" v-if="notify">
-      이 페이지는
-      <a href="https://www.microsoft.com/en-us/windows/microsoft-edge">Microsoft Edge</a>나
-      <a href="https://www.google.com/chrome/">Google Chrome,</a>
-      <a href="https://mozilla.org/firefox/">Firefox</a>
-      에 최적화 되어있습니다.
-    </div>
+    <!--<div class="notification" v-if="notify">-->
+      <!--이 페이지는-->
+      <!--<a href="https://www.microsoft.com/en-us/windows/microsoft-edge">Microsoft Edge</a>나-->
+      <!--<a href="https://www.google.com/chrome/">Google Chrome,</a>-->
+      <!--<a href="https://mozilla.org/firefox/">Firefox</a>-->
+      <!--에 최적화 되어있습니다.-->
+    <!--</div>-->
   </header>
 </template>
 
@@ -93,22 +108,45 @@ export default {
 
 <style scoped lang="scss">
   .hd {
-    position: relative;
-    background: rgba(255, 255, 255, 0.6);
-    position: relative;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.6);
-    padding: 2em 4em 0;
+    position: absolute;
+    width: 95%;
+    padding: 1.6em 0em 1.6em 4em;
+    z-index: 10;
     .logo {
       color: $white;
-      background: $purple;
+      background: $black;
       font-weight: 600;
-      width: 61px;
-      height: 61px;
+      width: 50px;
+      height: 50px;
       text-align: center;
       font-size: 30px;
-      line-height: 61px;
+      line-height: 50px;
       display: inline-block;
+      * {
+        color: inherit;
+        font: inherit;
+        display: block;
+      }
+    }
+    /*메뉴*/
+    .hd-menu {
+      float: right;
+      .hd-menu__list {
+        float: left;
+        .hd-menu__item {
+          padding: 12px;
+          font-weight: 600;
+          font-size: 1.2rem;
+          display: block;
+          color: $white;
+          margin-right: 18px;
+          &:active,
+          &:hover {
+            color: $black;
+            background-color: $yellow;
+          }
+        }
+      }
     }
     .hd-menu__btn {
       width: 44px;
@@ -117,9 +155,6 @@ export default {
       float: right;
       position: relative;
       z-index: 100;
-      -webkit-transition: all 0.2s ease;
-      -moz-transition: all 0.2s ease;
-      -o-transition: all 0.2s ease;
       transition: all 0.2s ease;
       text-transform: uppercase;
       letter-spacing: -1px;

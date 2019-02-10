@@ -1,409 +1,155 @@
 <template>
   <main class="content">
-    <h2 class="content-text" style="">
-      PORTFIOLIO
-    </h2>
-    <h1 class="content__title">PORTFIOLIO</h1>
-    <div class="content-info-wrap">
-      <p class="content-info">
-        <strong class="content-info__title">Latest work</strong>
-        2016~2018
-      </p>
-      <p class="content-info">
-        <strong class="content-info__title">Term</strong>
-        2016~2018
-      </p>
+    <carousel :items="1" :autoplay="true" :nav="false" :autoplayTimeout="2000" :autoplayHoverPause="true" class="portfolio-slider">
+      <article class="portfolio-slider-item"  v-for="(slide, i) in dataJson.slides" :index="i" :key="i">
+        <div class="layout">
+          <h1 class="portfolio-slider__title">
+            <img :src="require('../../assets/images/logo/'+ slide.name +'_logo.png')" alt="" class="portfolio__logo" height="32">
+            {{slide.title}}
+          </h1>
+        </div>
+        <img :src="require('../../assets/images/slide/'+ slide.name +'_slide.png')"  class="portfolio-slider__img" alt="">
+      </article>
+    </carousel>
+    <!--카테고리탭-->
+    <div class="portfolio-tab">
+      <button class="tab__btn active">ALL</button>
+      <!--<button class="tab__btn">2018</button>-->
+      <!--<button class="tab__btn">2017</button>-->
+      <!--<button class="tab__btn">2016</button>-->
     </div>
-    <carousel-3d :perspective="0" :space="400" :width="360" :height="465" :display="7" :border="0" :controlsVisible="true" :dir="trl" class="portfolio-slider">
-      <slide v-for="(slide, i) in slides" :index="i" :key="i">
-        <router-link to="" class="portfolio-content">
-          <img :src="require('../../assets/images/list/thumnail_' + i+ '.png')" alt="" class="portfolio__thumnail">
-          <div class="portfolio--hover" v-on:click="show(slide)">
-            <div class="hover-content">
-              <button class="portfolio__more-btn btn" >
-                <img src="../../assets/images/icon_plus.png" alt="더보기" width="15">
-              </button>
-              <strong class="portfolio__date">{{slide.date}}</strong>
-              <h1 class="portfolio__title">{{slide.title}}</h1>
-              <mark class="portfolio__category">{{slide.category}}</mark>
-            </div>
-          </div>
-        </router-link>
-      </slide>
-    </carousel-3d>
-    <!--<carousel :items="5.5" :autoHeight="true" :margin="10" :dots="false" class="portfolio-slider">-->
-      <!--<article class="portfolio-content"  v-for="(slide, i) in slides" :index="i" :key="i">-->
-        <!--<img :src="require('../../assets/images/list/thumnail_' + i+ '.png')"  class="portfolio__thumnail" :alt="slide.alt">-->
-        <!--<div class="portfolio&#45;&#45;hover" v-on:click="show(slide)">-->
-          <!--<div class="hover-content">-->
-            <!--<button class="portfolio__more-btn btn" >-->
-              <!--<img src="../../assets/images/icon_plus.png" alt="더보기" width="15">-->
-            <!--</button>-->
-            <!--<strong class="portfolio__date">{{slide.date}}</strong>-->
-            <!--<h1 class="portfolio__title">{{slide.title}}</h1>-->
-            <!--<mark class="portfolio__category">{{slide.category}}</mark>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</article>-->
-    <!--</carousel>-->
-    <!--<vue-glide :perView="perView" :focusAt="focusAt" :peek="peek" :startAt="startAt">-->
-      <!--<vue-glide-slide v-for="(slide, i) in slides" :index="i" :key="i">-->
-        <!--<article class="portfolio-content">-->
-          <!--<img :src="require('../../assets/images/list/thumnail_' + i+ '.png')"  class="portfolio__thumnail" :alt="slide.alt">-->
-          <!--<div class="portfolio&#45;&#45;hover" v-on:click="show(slide)">-->
-            <!--<div class="hover-content">-->
-              <!--<button class="portfolio__more-btn btn" >-->
-                <!--<img src="../../assets/images/icon_plus.png" alt="더보기" width="15">-->
-              <!--</button>-->
-              <!--<strong class="portfolio__date">{{slide.date}}</strong>-->
-              <!--<h1 class="portfolio__title">{{slide.title}}</h1>-->
-              <!--<mark class="portfolio__category">{{slide.category}}</mark>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</router-link>-->
-      <!--</slide>-->
-    <!--</carousel-3d>-->
-    <!--<div class="slide-wrap">-->
-      <!--<vue-glide :perView="perView" :focusAt="focusAt" :peek="peek" :startAt="startAt">-->
-        <!--<vue-glide-slide v-for="(slide, i) in slides" :index="i" :key="i">-->
-          <!--<article class="portfolio-content">-->
-            <!--<img :src="require('../../assets/images/list/thumnail_' + i+ '.png')"  class="portfolio__thumnail" :alt="slide.alt">-->
-            <!--<div class="portfolio&#45;&#45;hover" v-on:click="show(slide)">-->
-              <!--<div class="hover-content">-->
-                <!--<button class="portfolio__more-btn btn" >-->
-                  <!--<img src="../../assets/images/icon_plus.png" alt="더보기" width="15">-->
-                <!--</button>-->
-                <!--<strong class="portfolio__date">{{slide.date}}</strong>-->
-                <!--<h1 class="portfolio__title">{{slide.title}}</h1>-->
+    <!--카테고리탭-->
+    <section class="portfolio-lists">
+        <article class="portfolio-list"  v-for="(slide, i) in dataJson.slides" :index="i" :key="i">
+          <router-link  :to="{path: '/detail/'+ slide.index}">
+            <img :src="require('../../assets/images/slide/'+ slide.name +'_slide.png')"  class="portfolio__thumnail" alt="">
+            <div class="portfolio--hover">
+              <div class="hover-content">
+                <button class="portfolio__more-btn btn" ></button>
+                <strong class="portfolio__date">{{slide.date}}</strong>
+                <h1 class="portfolio__title">{{slide.title}}</h1>
                 <!--<mark class="portfolio__category">{{slide.category}}</mark>-->
-              <!--</div>-->
-            <!--</div>-->
-          <!--</article>-->
-        <!--</vue-glide-slide>-->
-        <!--<template slot="control">-->
-          <!--<button data-glide-dir="<" class="prev slide-controls__btn">-->
-            <!--<img src="../../assets/images/icon_prev.png" alt="이전" width="12">-->
-          <!--</button>-->
-          <!--<button data-glide-dir=">" class="next slide-controls__btn">-->
-            <!--<img src="../../assets/images/icon_next.png" alt="다음" width="12">-->
-          <!--</button>-->
-        <!--</template>-->
-      <!--</vue-glide>-->
-    <!--</div>-->
-    <Detail :slide="slide" :detailShow.sync="detailShow"></Detail>
+              </div>
+            </div>
+          </router-link>
+        </article>
+    </section>
   </main>
 </template>
 
 <script>
-import { Carousel3d, Slide } from 'vue-carousel-3d'
 import carousel from 'vue-owl-carousel'
-import Detail from './Detail.vue'
+import json from '../../../data.json'
 
 export default {
   name: 'Main',
   components: {
-    Detail,
-    carousel,
-    Carousel3d,
-    Slide
+    carousel
   },
   props: {
   },
   data () {
     return {
-      focusAt: 0,
-      perView: 5.5,
-      startAt: 0,
-      peek: {
-        before: 10,
-        after: 200
-      },
+      // animateIn: 'slideInDown',
+      // animateOut: 'slideOutDown',
       detailShow: false,
-      slide: {},
-      slides: [
-        {
-          category: 'Responsive Web',
-          title: 'Blockchain explorer',
-          alt: '동전형태의 비트코인, 이더리움이 놓여있는 이미지',
-          path: 'javascript:alert(\'비공개\');',
-          date: '2018.11',
-          feature1: '웹표준준수, 웹접근성 준수, Responsive Web',
-          feature2: '크로스브라우징(IE11, Safari, Opera, Chrome, Firefox)',
-          feature3: 'Sass 사용, Vuetify custom',
-          role1: '전 페이지 퍼블리싱',
-          role2: '디자인',
-          de: 'Vue.js 협업',
-          index: '0'
-        },
-        {
-          category: 'Responsive Web',
-          title: 'contentdeal IR',
-          alt: '레코드 이미지',
-          path: 'http://contentsdeal.net/#/',
-          date: '2018.10',
-          feature1: '웹표준준수, 웹접근성 준수, Responsive Web',
-          feature2: '크로스브라우징(IE9, Safari, Opera, Chrome, Firefox)',
-          feature3: 'Less 를 사용한 Semantic UI custom, Sass 사용, 다국어(한,영,중)',
-          role1: '스타일 가이드 및 레이아웃 설계',
-          role2: '퍼블리싱(50%) 및 퍼블리싱 총괄',
-          de: 'Vue.js 협업',
-          index: '1'
-        },
-        {
-          category: 'Responsive Web',
-          title: 'KSTAR 티켓몰 홈페이지',
-          alt: '밤, 여러명의 사람이 공연을 보며 열광하는 이미지',
-          path: 'https://www.kstar.tv/#!/home',
-          date: '2018.05',
-          feature1: '웹표준준수, 웹접근성 준수, Responsive Web',
-          feature2: '크로스브라우징(IE11 , Safari, Opera, Chrome, Firefox)',
-          feature3: 'Sass 사용, Semantic UI custom, 다국어(한,영,중,일)',
-          role1: '스타일 가이드 설계',
-          role2: '퍼블리싱 총괄 및 유지보수',
-          de: 'Angular.js 협업',
-          index: '2'
-        },
-        {
-          category: 'Responsive Web',
-          title: 'STARPAY 홈페이지',
-          alt: 'PAY 라는 글자가 적힌 화면이 휴대폰에 띄워져 있는 이미지',
-          path: 'https://www.starpay.tv/',
-          date: '2018.03',
-          feature1: '웹표준준수, 웹접근성 준수, Responsive Web',
-          feature2: '크로스브라우징(IE10, Safari, Opera, Chrome, Firefox, UC browser)',
-          feature3: 'Sass 사용, Semantic UI custom, 다국어(한,영,중,일)',
-          role1: '스타일 가이드 및 레이아웃 설계',
-          role2: '퍼블리싱(30%) 및 퍼블리싱 총괄',
-          de: 'JAVA(Spring) 협업',
-          index: '3'
-        },
-        {
-          category: 'Responsive Web',
-          title: 'STARCOIN 홈페이지',
-          alt: '동전형태의 비트코인이 갈색 책상에 놓여있는 이미지',
-          path: 'https://www.starcoin.tv/',
-          date: '2017.11',
-          feature1: '웹표준준수, 웹접근성 준수, Responsive Web',
-          feature2: '크로스브라우징(IE10, Safari, Opera, Chrome, Firefox)',
-          feature3: 'Sass 사용, 다국어(한,영,중)',
-          role1: '퍼블리싱(70%) 및 퍼블리싱 총괄',
-          role2: '사이트 유지보수',
-          de: 'JAVA(Spring) 협업',
-          index: '4'
-        },
-        {
-          category: 'Responsive Web',
-          title: '부산광역시 동구청 홈페이지 (동구청, 문화관광, 보건소, 의회, 도서관, 통합예약, 주민센터, 외국어 포함)',
-          alt: '건물을 아래서 위로 찍었을때(건물과 하늘이 보이는) 이미지',
-          path: 'http://www.bsdonggu.go.kr/index.donggu',
-          date: '2017.10',
-          feature1: '웹표준준수, 웹접근성마크획득, Responsive Web',
-          feature2: '크로스브라우징(IE9, Safari, Opera, Chrome, Firefox)',
-          feature3: '',
-          role1: '스타일 가이드 및 레이아웃 설계',
-          role2: '퍼블리싱(80%) 및 퍼블리싱 총괄',
-          de: 'JAVA(Spring) 협업',
-          index: '5'
-        },
-        {
-          category: 'Hybrid APP',
-          title: '서부산 스탬프투어 앱',
-          alt: '열기구를 타고 여행을 다니는 이미지',
-          path: 'https://play.google.com/store/apps/details?id=com.ubitec.stamp&hl=ko',
-          date: '2017.08',
-          feature1: '웹표준준수',
-          feature2: '',
-          feature3: '',
-          role1: '레이아웃 설계 전 페이지 퍼블리싱',
-          role2: '서브 페이지 디자인',
-          de: 'JAVA(Spring) 협업',
-          index: '6'
-        },
-        {
-          category: 'Web',
-          title: '부산 문화관광 홈페이지',
-          alt: '바닷가에서 액자모양(네모에 가운데가 비어있는 모양)의 종이를 들고있는 이미지',
-          path: 'http://tour.busan.go.kr/index.busan',
-          date: '2017.07',
-          feature1: '웹표준준수, 웹접근성마크획득',
-          feature2: '크로스브라우징(IE9, Safari, Opera, Chrome, Firefox)',
-          feature3: '',
-          role1: '웹표준/웹접근성 최적화 작업',
-          role2: '',
-          de: 'JAVA(Spring) 협업',
-          index: '7'
-        },
-        {
-          category: 'Responsive Web',
-          title: '부산 교육청 홈페이지(교육감, 외국어  포함)',
-          alt: '노란색 종이 위에 연필 두 자루가 대각선으로 놓여있는 이미지',
-          path: 'http://www.pen.go.kr/index.pen',
-          date: '2017.07',
-          feature1: '웹표준준수, 웹접근성마크획득, Responsive Web',
-          feature2: '크로스브라우징(IE9, Safari, Opera, Chrome, Firefox)',
-          feature3: '',
-          role1: '스타일 가이드 및 레이아웃 설계',
-          role2: '퍼블리싱(80%) 및 퍼블리싱 총괄',
-          de: 'JAVA(Spring) 협업',
-          index: '8'
-        },
-        {
-          category: 'Responsive Web',
-          title: '부산광역시 동래구청 홈페이지',
-          alt: '아래에서 위로 찍은 새파란 하늘에 흰색 관공서 이미지',
-          path: 'http://www.dongnae.go.kr/index.dongnae',
-          date: '2017.06',
-          feature1: '웹표준준수, 웹접근성마크획득, Responsive Web',
-          feature2: '크로스브라우징(IE9, Safari, Opera, Chrome, Firefox)',
-          feature3: '',
-          role1: '웹표준/웹접근성 최적화 작업',
-          role2: '퍼블리싱(20%)',
-          de: 'JAVA(Spring) 협업',
-          index: '9'
-        },
-        {
-          category: 'Mobile WEB',
-          title: '부산 문화관광 모바일 홈페이지',
-          alt: '눈이 덮인 산과 도로의 가운데 이미지',
-          path: 'http://mtour.busan.go.kr/main.htm',
-          date: '2017.05',
-          feature1: '웹표준준수',
-          feature2: '',
-          feature3: '',
-          role1: '기획, 레이아웃 설계',
-          role2: '전 페이지 퍼블리싱',
-          de: 'JAVA(Spring) 협업',
-          index: '10'
-        },
-        {
-          category: 'Responsive Web',
-          title: '부산광역시 남구청 홈페이지',
-          alt: '아래에서 위로 찍은 남색에 가까운 하늘에 상아색 관공서 이미지',
-          path: 'http://www.bsnamgu.go.kr/index.namgu',
-          date: '2017.04',
-          feature1: '웹표준, 웹접근성마크획득, Responsive Web',
-          feature2: '크로스브라우징(IE9, Safari, Opera, Chrome, Firefox)',
-          feature3: '',
-          role1: '웹표준/웹접근성 최적화',
-          role2: '팝업 디자인 및 사이트 유지보수',
-          de: 'JAVA(Spring) 협업',
-          index: '11'
-        },
-        {
-          category: 'Responsive Web',
-          title: '프랜차이즈 식당 단물곤물 홈페이지',
-          alt: '흰 벽에, 주황색 의자 8개와 테이블 2개 놓여있는 이미지',
-          path: 'http://www.xn--46-0c2iv2ruslba.com/',
-          date: '2017.01',
-          feature1: '웹표준준수, 웹접근성준수, Responsive Web',
-          feature2: '크로스브라우징(IE10,Safari, Opera, Chrome, Firefox)',
-          feature3: 'Bootstrap custom',
-          role1: '기획, 레이아웃 설계',
-          role2: '전 페이지 퍼블리싱',
-          de: 'PHP 협업',
-          index: '12'
-        },
-        {
-          category: 'Responsive Web',
-          title: '올커넥시온 홈페이지',
-          alt: '진한 파란색 컨테이너박스 3개가 교차되어있고, 아래에서 위로 찍어 맑은 하늘(하늘색)이 보이는 이미지',
-          path: 'http://allconnexion.com',
-          date: '2016.11',
-          feature1: '웹표준준수, 웹접근성준수, Responsive Web',
-          feature2: '크로스브라우징(IE9, Safari, Opera, Chrome, Firefox), 다국어(한,영)',
-          feature3: 'Bootstrap custom',
-          role1: '기획, 레이아웃 설계',
-          role2: '전 페이지 퍼블리싱',
-          de: 'PHP 협업',
-          index: '13'
-        },
-        {
-          category: 'Responsive Web',
-          title: '베이비파스텔 홈페이지',
-          alt: '조명이 천장에, 바닥에 각각 1개씩 놓여있고 반사판이 준비되어있는 이미지',
-          path: 'http://babypastel.com/main.php',
-          date: '2016.07',
-          feature1: '웹표준준수, 웹접근성준수, Responsive Web',
-          feature2: '크로스브라우징(IE10, Safari, Opera, Chrome, Firefox)',
-          feature3: '그누보드 custom',
-          role1: '기획, 레이아웃 설계',
-          role2: '전 페이지 퍼블리싱',
-          de: 'PHP 협업',
-          index: '14'
-        }
-      ]
+      dataJson: json
     }
   },
   methods: {
     show: function (slide) {
       this.slide = slide
       this.detailShow = true
+    },
+    scrollUp: function () {
+      window.scrollTo(0, 0)
     }
   }
 }
 </script>
 
 <style lang="scss">
-
 .portfolio-slider {
-  margin-top: 3em;
-}
-
-.slide-wrap {
-  overflow: hidden;
-}
-.carousel-3d-container {
-  &.portfolio-slider {
-    margin: 20px 0 20px -4.5em;
+  /*margin-top: 3em;*/
+  .owl-carousel .owl-stage {
+    height: 700px;
+    overflow: hidden;
+  }
+  .owl-carousel .owl-item {
+    height: 100%;
+    img {
+      width: auto;
+    }
+    .portfolio-slider__img {
+      width: 100%;
+    }
+  }
+  .portfolio-slider-item {
+    height: 100%;
+  }
+  .owl-theme .owl-dots {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    .owl-dot {
+      &.active span,
+      &:hover span {
+        background: $yellow;
+      }
+    }
+    span {
+      width: 80px;
+      height: 7px;
+      border-radius: 0;
+    }
   }
 }
-.portfolio-content {
+
+/*tab*/
+.portfolio-tab {
+  text-align: center;
+  margin-top: 2em;
+  .tab__btn {
+    padding: 7px 20px;
+    font-weight: 600;
+    margin-right: 5px;
+    &.active,
+    &:hover,
+    &:active {
+      background: $black;
+      color: $white;
+    }
+  }
+}
+/*포폴 list*/
+.portfolio-lists {
+  margin-top: 2em;
+  overflow: hidden;
+  padding: 1em;
+}
+.portfolio-list {
   display: block;
   overflow: hidden;
+  height: 290px;
   position: relative;
-  /*height: 390px;*/
-  height: 465px;
+  width: 32.67%;
+  float: left;
+  margin-right: 0.99%;
+  margin-bottom: 18px;
+  &:nth-child(3n) {
+    margin-right: 0;
+  }
   .portfolio__thumnail {
     transition: all 0.4s ease;
     width: 100%;
     height: 100%;
-  }
-  .portfolio--hover {
-    position: absolute;
-    top: -100%;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.65);
-    padding: 1em;
-    .hover-content {
-      position: absolute;
-      bottom: 2em;
-      left: 1em;
-    }
-    .portfolio__more-btn {
-      img {
-        display: inline-block;
-      }
-    }
-  }
-  &:hover {
-    .portfolio__thumnail {
-      transform: scale(1.1);
-    }
-    .portfolio--hover {
-      left: 0;
-      top: 0;
-      transition: all 0.4s ease;
-      cursor: pointer;
-    }
   }
   .portfolio__date {
     color: $white;
     margin-top: 10px;
     display: block;
     font-weight: 500;
-    opacity: .8;
+    opacity: .5;
   }
   .portfolio__title {
     color: $white;
@@ -414,50 +160,100 @@ export default {
     font-family: $square;
     text-transform: uppercase;
   }
-  .portfolio__category {
-    background: none;
-    color: #d6d6d6;
-    font-family: $square;
-    font-weight: 600;
-  }
-}
-.current {
-  .portfolio__thumnail {
-    transform: scale(1.1);
-  }
   .portfolio--hover {
-    cursor: pointer;
+    position: absolute;
+    top: 0%;
     left: 0;
-    top: 0;
-    transition: all 0.4s ease;
-  }
-}
-//slider
-/*.glide__track,
-.glide__slides {
-  overflow: inherit;
-  .glide__slide {
-    transition: all 0.4s ease;
-    height: 390px;
-    &.glide__slide--active {
-      width: 300px !important;
-      margin-top: -19px;
-      height: 427px;
-      .portfolio-content {
-        height: 100%;
+    height: 100%;
+    width: 100%;
+    padding: 1em;
+    .hover-content {
+      position: absolute;
+      bottom: 5em;
+      left: 1em;
+      display: none;
+      text-align: center;
+      width: 94%;
+    }
+    .portfolio__more-btn {
+      img {
+        display: inline-block;
       }
-      .portfolio__thumnail {
-        transform: scale(1.1);
-      }
-      .portfolio--hover {
-        cursor: pointer;
-        left: 0;
-        top: 0;
-        transition: all 0.4s ease;
+    }
+    &:before,
+    &:after {
+      display: block;
+      opacity: 0;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      left: 20px;
+      bottom: 20px;
+      content: '';
+    }
+    &:before {
+      border-bottom: 1px solid $white;
+      border-top: 1px solid $white;
+      transform: scale(0, 1);
+      transition: opacity 0.45s, transform 0.5s;
+    }
+    &:after {
+      border-left: 1px solid $white;
+      border-right: 1px solid $white;
+      transform: scale(1, 0);
+      transition: opacity 0.35s, transform 0.5s;
+    }
+    &:hover {
+      &:before,
+      &:after {
+        opacity: 1;
+        transform: scale(1);
+        transition: opacity 0.45s, transform 0.5s;
       }
     }
   }
-}*/
+  &:hover {
+    .portfolio__thumnail {
+      transform: scale(1.1);
+    }
+    .portfolio--hover {
+      background: rgba(0,0,0,.7);
+      left: 0;
+      top: 0;
+      transition: all 0.4s ease;
+      cursor: pointer;
+      .hover-content {
+        display: block;
+      }
+    }
+  }
+}
+
+.portfolio__more-btn {
+  width: 2px;
+  height: 20px;
+  background: $white;
+  position: relative;
+  &:after {
+    content:'';
+    left: -9px;
+    top: 9px;
+    position: absolute;
+    width: 21px;
+    height: 2px;
+    background: #ffffff;
+    display: block;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.slide-wrap {
+  overflow: hidden;
+}
+
 .carousel-3d-controls {
   a {
     height: 45px;
@@ -479,11 +275,11 @@ export default {
       }
     }
     &.prev {
-      background-image: url('../../assets/images/icon_prev.png');
+      background-image: url('../../assets/images/icons/icon_prev.png');
       left: 2px;
     }
     &.next {
-      background-image: url('../../assets/images/icon_next.png');
+      background-image: url('../../assets/images/icons/icon_next.png');
       right: -4px;
     }
   }
@@ -514,10 +310,10 @@ export default {
       }
     }
     &.owl-prev {
-      background-image: url('../../assets/images/icon_prev.png');
+      background-image: url('../../assets/images/icons/icon_prev.png');
     }
     &.owl-next {
-      background-image: url('../../assets/images/icon_next.png');
+      background-image: url('../../assets/images/icons/icon_next.png');
     }
     &.prev {
       border-right: 0;

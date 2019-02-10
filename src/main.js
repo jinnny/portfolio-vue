@@ -2,11 +2,11 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import VueGlide from 'vue-glide-js'
-import 'vue-glide-js/dist/vue-glide.css'
+// import VueGlide from 'vue-glide-js'
+// import 'vue-glide-js/dist/vue-glide.css'
 import router from './router'
 
-Vue.use(VueGlide)
+// Vue.use(VueGlide)
 // Vue.use(Carousel3d)
 
 Vue.config.productionTip = false

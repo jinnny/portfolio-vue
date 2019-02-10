@@ -2,7 +2,7 @@
   <div id="app">
     <Header v-if="$route.meta.plainLayout"></Header>
     <router-view/>
-    <!--<Footer v-if="$route.meta.plainLayout"></Footer>-->
+    <Footer v-if="$route.meta.plainLayout"></Footer>
   </div>
 </template>
 
@@ -22,8 +22,12 @@ export default {
 <style lang="scss">
   @import "assets/style/base/_reset.scss";
   @import "assets/style/base/_fonts.scss";
-  body {
-    background: url("../src/assets/images/bg_pattern.png") 100% 100% no-repeat;
+  @import "assets/style/vendors/animate.css";
+  ::selection {
+    background: $yellow;
+  }
+  ::-moz-selection {
+    background: $yellow;
   }
   html, body {
     height: 100%;
@@ -31,12 +35,15 @@ export default {
   #app {
     /*height: 100%;*/
   }
+  .layout {
+    width: 1280px;
+    margin: 0 auto;
+  }
   .content {
     width: 100%;
     height: 100%;
-    position: relative;
-    padding: 3em 0 0 9em;
-    overflow: hidden;
+    /*position: relative;*/
+    /*overflow: hidden;*/
     .content__title {
       font-size: 60px;
     }
@@ -66,17 +73,17 @@ export default {
       font-size: 1.3rem;
     }
   }
-  .btn {
-    width: 50px;
-    height: 50px;
-    line-height: 55px;
-    display: inline-block;
-    border-radius: 50%;
-    text-align: center;
-    background-color: $purple;
-    box-shadow: 3px 5px 10px 0px rgba(0, 0, 0, 0.18);
-    img {
-      width: 15px !important;
-    }
+
+  .portfolio-slider__title {
+    position: absolute;
+    bottom: 9rem;
+    color: $white;
+    font-family: $square;
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+  .portfolio__logo {
+    margin-bottom: 10px;
+    display: block;
   }
 </style>

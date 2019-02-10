@@ -22,9 +22,9 @@
 }
 
 @mixin clearfix {
-  &::after {
+  &:after {
     content: '';
-    display: table;
+    display: block;
     clear: both;
   }
 }
