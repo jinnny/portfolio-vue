@@ -24,18 +24,18 @@
       <article class="detail-overview">
         <div class="layout">
           <div class="overview-text-area">
-            <h1 class="overview__title">Overview</h1>
+            <h1 class="overview__title" v-bind:style="{color: dataJson.slides[current].color}">Overview</h1>
             <p class="overview__content">
               {{dataJson.slides[current].description1}}<br>
               {{dataJson.slides[current].description2}}
             </p>
           </div>
-          <img src="../../assets/images/detail/contentsdeal_phone.png" alt="" class="overview__img">
+          <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_visual1.png')" alt="" class="overview__img">
         </div>
       </article>
-      <article class="detail-skill">
+      <article class="detail-skill" v-bind:style="{backgroundColor: dataJson.slides[current].color}">
         <div class="layout">
-          <img src="../../assets/images/detail/contentsdeal_pc.png" :alt="dataJson.slides[current].title" class="skill__img">
+          <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_visual2.png')" :alt="dataJson.slides[current].title" class="skill__img">
           <div class="skill-content">
             <ul class="skill-lists">
               <li class="skill__title">
@@ -79,10 +79,10 @@
         <a :href="dataJson.slide.path"  class="go-site__btn" target="_blank">
           GO SITE
         </a>
-        <img :src="require('../../assets/images/detail/detail_view_img_0.png')" alt="" class="preview__img">
-        <img :src="require('../../assets/images/detail/detail_view_img_0.png')" alt="" class="preview__img">
-        <img :src="require('../../assets/images/detail/detail_view_img_0.png')" alt="" class="preview__img">
-        <img :src="require('../../assets/images/detail/detail_view_img_0.png')" alt="" class="preview__img">
+        <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_view1.png')"  alt="" class="preview__img">
+        <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_view2.png')"  alt="" class="preview__img">
+        <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_view3.png')"  alt="" class="preview__img">
+        <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_view4.png')"  alt="" class="preview__img">
       </div>
     </section>
   </article>
