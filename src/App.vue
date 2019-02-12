@@ -24,10 +24,12 @@ export default {
   @import "assets/style/base/_fonts.scss";
   @import "assets/style/vendors/animate.css";
   ::selection {
-    background: $yellow;
+    background: $black;
+    color: $white;
   }
   ::-moz-selection {
-    background: $yellow;
+    background: $black;
+    color: $white;
   }
   html, body {
     height: 100%;

@@ -1,7 +1,7 @@
 <template>
   <main class="content">
     <carousel :items="1" :autoplay="true" :nav="false" :autoplayTimeout="2000" :autoplayHoverPause="true" class="portfolio-slider">
-      <article class="portfolio-slider-item"  v-for="(slide, i) in dataJson.slides" :index="i" :key="i">
+      <article class="portfolio-slider-item"  v-for="(slide, i) in dataJson.slides.slice(0,5)" :index="i" :key="i" >
         <div class="layout">
           <h1 class="portfolio-slider__title">
             <img :src="require('../../assets/images/logo/'+ slide.name +'_logo.png')" alt="" class="portfolio__logo" height="32">

@@ -1,9 +1,5 @@
 <template>
   <main class="content about-content">
-    <h2 class="content-text" style="">
-      ABOUT
-    </h2>
-    <h1 class="content__title">ABOUT</h1>
     <div class="content-info-wrap about-wrap">
       <div class="about-info-top">
         <div class="content-info about-info">

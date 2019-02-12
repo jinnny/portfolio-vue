@@ -24,7 +24,7 @@
       <article class="detail-overview">
         <div class="layout">
           <div class="overview-text-area">
-            <h1 class="overview__title" v-bind:style="{color: dataJson.slides[current].color}">Overview</h1>
+            <h1 class="detail__title overview__title" v-bind:style="{color: dataJson.slides[current].color}">Overview</h1>
             <p class="overview__content">
               {{dataJson.slides[current].description1}}<br>
               {{dataJson.slides[current].description2}}
@@ -76,13 +76,12 @@
       </article>
         <!--<img :src="require('../../assets/images/detail/detail_bg_'+ slide.index + '.png')" alt="" class="bg">-->
       <div class="detail-preview">
-        <a :href="dataJson.slide.path"  class="go-site__btn" target="_blank">
+        <h1 class="detail__title preview__title">Preview</h1>
+        <a :href="dataJson.slide.path"  class="go-site__btn" target="_blank" v-bind:style="{color: dataJson.slides[current].color}">
           GO SITE
         </a>
-        <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_view1.png')"  alt="" class="preview__img">
-        <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_view2.png')"  alt="" class="preview__img">
-        <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_view3.png')"  alt="" class="preview__img">
-        <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_view4.png')"  alt="" class="preview__img">
+        <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_preview1.png')"  alt="" class="preview__img">
+        <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_preview2.png')"  alt="" class="preview__img">
       </div>
     </section>
   </article>
@@ -102,7 +101,6 @@ export default {
   watch: {
     current: function (newVal) {
       this.current = newVal
-      console.log(newVal)
     }
   },
   mounted () {
@@ -115,7 +113,6 @@ export default {
     },
     next () {
       let nextDetail = parseInt(this.current) + 1
-      console.log(nextDetail)
       if (nextDetail > 0 && nextDetail <= this.dataJson.slides.length) {
         this.current = nextDetail
         this.$router.push('/detail/' + nextDetail)
@@ -126,7 +123,6 @@ export default {
       if (prevDetail >= 0 && prevDetail <= this.dataJson.slides.length) {
         this.current = prevDetail
         this.$router.push('/detail/' + prevDetail)
-        console.log(prevDetail)
       }
     }
   }
@@ -152,29 +148,15 @@ export default {
       margin: 80px 0 30px;
     }
     .detail__title {
-      background: $purple;
-      color: $white;
-      font-family: $square;
-      font-size: 30px;
-      padding: 10px;
-      width: calc(100% - 740px);
+      color: $black;
+      font-weight: 100;
+      font-size: 4rem;
     }
     .close__btn {
       position: fixed;
       right: 2em;
       top: 2em;
       z-index: 2;
-    }
-    .go-site__btn {
-      color: $purple;
-      border: 2px solid $purple;
-      font-weight: 700;
-      padding: 10px 25px;
-      border-radius: 8px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      background: #fff;
     }
     .detail__btn {
       transition: all 0.2s ease;
@@ -229,11 +211,6 @@ export default {
     min-height: 520px;
     overflow: hidden;
     @include clearfix;
-    .overview__title {
-      color: #09a7b4;
-      font-weight: 100;
-      font-size: 4rem;
-    }
     .overview__content {
       font-family: $square;
     }
@@ -280,9 +257,33 @@ export default {
     position: relative;
     display: inline-block;
     width: 100%;
+    padding: 6em 15em;
+    .preview__title {
+      margin-bottom: 1.5rem;
+    }
     .preview__img {
-      width: 25%;
+      width: 49%;
       float: left;
+      box-shadow: 0 2px 10px rgba(0,0,0,.15);
+      &:nth-child(3) {
+        margin-right: 2%;
+      }
+    }
+    .go-site__btn {
+      color: $purple;
+      border: 2px solid;
+      font-weight: 700;
+      padding: 10px 25px;
+      border-radius: 8px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -61px;
+      margin-top: -23px;
+      cursor: pointer;
+      &:hover {
+        background-color: $white;
+      }
     }
   }
 </style>
