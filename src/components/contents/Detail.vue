@@ -77,11 +77,13 @@
         <!--<img :src="require('../../assets/images/detail/detail_bg_'+ slide.index + '.png')" alt="" class="bg">-->
       <div class="detail-preview">
         <h1 class="detail__title preview__title">Preview</h1>
-        <a :href="dataJson.slide.path"  class="go-site__btn" target="_blank" v-bind:style="{color: dataJson.slides[current].color}">
-          GO SITE
-        </a>
         <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_preview1.png')"  alt="" class="preview__img">
         <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_preview2.png')"  alt="" class="preview__img">
+        <div class="preview-btn-area">
+          <a :href="dataJson.slides[current].path"  class="go-site__btn" target="_blank" v-bind:style="{color: dataJson.slides[current].color}">
+            GO SITE
+          </a>
+        </div>
       </div>
     </section>
   </article>
@@ -265,9 +267,16 @@ export default {
       width: 49%;
       float: left;
       box-shadow: 0 2px 10px rgba(0,0,0,.15);
-      &:nth-child(3) {
+      &:nth-child(2) {
         margin-right: 2%;
       }
+    }
+    .preview-btn-area {
+      @include clearfix;
+      text-align: center;
+      float: left;
+      width: 100%;
+      margin: 2em 0 0;
     }
     .go-site__btn {
       color: $purple;
@@ -275,12 +284,8 @@ export default {
       font-weight: 700;
       padding: 10px 25px;
       border-radius: 8px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-left: -61px;
-      margin-top: -23px;
       cursor: pointer;
+      display: inline-block;
       &:hover {
         background-color: $white;
       }
