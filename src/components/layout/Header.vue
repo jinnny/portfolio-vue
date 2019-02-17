@@ -112,6 +112,11 @@ export default {
     width: 95%;
     padding: 1.6em 0em 1.6em 4em;
     z-index: 10;
+    &.about {
+      background: #1b1b1b;
+      width: 100%;
+      padding: 1.6em 4em;
+    }
     .logo {
       color: $white;
       background: $black;

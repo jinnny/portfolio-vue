@@ -12,16 +12,6 @@
       </i>
       010-5752-1440
     </a>
-    <a href="https://jinnny.github.io/blog/" class="ft__contact">
-      <i class="contact__icon">
-        <img src="../../assets/images/icons/icon_blog.png" alt="" width="15">
-      </i>
-    </a>
-    <a href="https://github.com/jinnny" class="ft__contact">
-      <i class="contact__icon">
-        <img src="../../assets/images/icons/logo_github.png" alt="" width="16">
-      </i>
-    </a>
   </footer>
 </template>
 
@@ -37,9 +27,14 @@ export default {
   padding: 2em 0;
   text-align: center;
   .ft__contact {
-    color: white;
+    color: $white;
     font-size: 15px;
     margin: 0 1em;
+    &:hover,
+    &:active,
+    &:focus {
+      color: $yellow;
+    }
     .contact__icon {
       display: inline-block;
       width: 28px;

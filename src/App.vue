@@ -83,6 +83,7 @@ export default {
     font-family: $square;
     font-size: 1.8rem;
     font-weight: 600;
+    text-shadow: 0 0 10px #252525;
   }
   .portfolio__logo {
     margin-bottom: 10px;

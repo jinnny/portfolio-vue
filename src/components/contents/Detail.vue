@@ -35,39 +35,27 @@
       </article>
       <article class="detail-skill" v-bind:style="{backgroundColor: dataJson.slides[current].color}">
         <div class="layout">
-          <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_visual2.png')" :alt="dataJson.slides[current].title" class="skill__img">
+          <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_visual2.png')" height="500" :alt="dataJson.slides[current].title" class="skill__img">
           <div class="skill-content">
             <ul class="skill-lists">
               <li class="skill__title">
-                W3C Standard
+                ROLE
+                <ul>
+                  <li>{{dataJson.slides[current].role}}</li>
+                </ul>
+              </li>
+              <li class="skill__title">
+                WORK
                 <ul>
                   <li>{{dataJson.slides[current].feature1}}</li>
-                  <li>{{dataJson.slides[current].feature2}}</li>
-                  <li>{{dataJson.slides[current].feature3}}</li>
-                </ul>
-              </li>
-              <li class="skill__title">
-                코드의 효율성 향상
-                <ul>
-                  <li>{{dataJson.slides[current].feature1}}</li>
-                  <li>{{dataJson.slides[current].feature2}}</li>
-                  <li>{{dataJson.slides[current].feature3}}</li>
-                </ul>
-              </li>
-              <li class="skill__title">
-                새로운 기술 활용
-                <ul>
-                  <li>{{dataJson.slide.feature1}}</li>
-                  <li>{{dataJson.slide.feature2}}</li>
-                  <li>{{dataJson.slide.feature3}}</li>
-                </ul>
-              </li>
-              <li class="skill__title">
-                새로운 기술 활용
-                <ul>
-                  <li>{{dataJson.slide.feature1}}</li>
-                  <li>{{dataJson.slide.feature2}}</li>
-                  <li>{{dataJson.slide.feature3}}</li>
+                  <li v-if="dataJson.slides[current].feature2 !== ''">{{dataJson.slides[current].feature2}}</li>
+                  <li v-if="dataJson.slides[current].feature3 !== ''">{{dataJson.slides[current].feature3}}</li>
+                  <li v-if="dataJson.slides[current].feature4 !== ''">{{dataJson.slides[current].feature4}}</li>
+                  <li v-if="dataJson.slides[current].feature5 !== ''">{{dataJson.slides[current].feature5}}</li>
+                  <li v-if="dataJson.slides[current].feature6 !== ''">{{dataJson.slides[current].feature6}}</li>
+                  <li v-if="dataJson.slides[current].feature7 !== ''">{{dataJson.slides[current].feature7}}</li>
+                  <li v-if="dataJson.slides[current].feature8 !== ''">{{dataJson.slides[current].feature8}}</li>
+                  <li>{{dataJson.slides[current].de}}</li>
                 </ul>
               </li>
             </ul>
@@ -206,7 +194,7 @@ export default {
   .detail-overview {
     padding: 4em 0;
     background-image: url('../../assets/images/main/overview_bg.png');
-    background-position: 80% 100%;
+    background-position: 95% 100%;
     background-repeat: no-repeat;
     background-color: #f8f8f8;
     position: relative;
@@ -215,6 +203,10 @@ export default {
     @include clearfix;
     .overview__content {
       font-family: $square;
+      width: 46%;
+      line-height: 1.4rem;
+      margin-top: 1em;
+      word-break: keep-all;
     }
   }
   .overview-text-area {
@@ -223,7 +215,7 @@ export default {
   .overview__img {
     position: absolute;
     bottom: -160px;
-    right: 15rem;
+    right: 12rem;
   }
   .overview-img-area {
     float: right;
@@ -232,10 +224,15 @@ export default {
   .detail-skill {
     padding: 6em 0;
     background: #09a7b4;
+    .layout {
+      display: flex;
+      justify-content: space-around;
+    }
   }
   .skill-content {
     float: right;
     width: calc(100% - 800px);
+    margin-top: 2em;
     @include clearfix;
     .skill-lists {
       li {
@@ -243,7 +240,6 @@ export default {
         font-family: $square;
         font-weight: 100;
         font-size: 0.95rem;
-        opacity: .8;
         line-height: 1.6;
       }
       .skill__title {
