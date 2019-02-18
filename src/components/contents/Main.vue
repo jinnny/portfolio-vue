@@ -99,14 +99,17 @@ export default {
     .owl-dot {
       &.active span,
       &:hover span {
-        background: $yellow;
+        opacity: 1;
+        background: $white;
       }
     }
     .owl-dot {
       span {
-        width: 80px;
-        height: 7px;
+        width: 70px;
+        height: 6px;
         border-radius: 0;
+        opacity: .6;
+        background: $white;
       }
     }
     @media all and (max-width: 500px) {
@@ -114,7 +117,7 @@ export default {
       .owl-dot {
         span {
           width: 30px;
-          height: 4px;
+          height: 3px;
           margin: 0 4px;
         }
       }

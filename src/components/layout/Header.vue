@@ -155,10 +155,24 @@ export default {
           display: block;
           color: $white;
           margin-right: 18px;
+          position: relative;
+          &:after {
+            content: '';
+            display: block;
+            /* width: 82%; */
+            height: 2px;
+            background: #fff;
+            position: absolute;
+            left: 12px;
+            width: 0%;
+            bottom: 7px;
+          }
           &:active,
           &:hover {
-            color: $black;
-            background-color: $yellow;
+            &:after {
+              width: calc(100% - 24px);
+              transition: all 0.3s ease-in-out;
+            }
           }
           @media all and (max-width: 500px) {
             margin-right: 0;
@@ -185,12 +199,7 @@ export default {
         margin: 0 auto;
         background: #3d4268;
         display: block;
-        -webkit-transition: all 0.3s ease-in-out;
-        -moz-transition: all 0.3s ease-in-out;
-        -o-transition: all 0.3s ease-in-out;
         transition: all 0.3s ease-in-out;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
         border-radius: 3px;
         &:before,
         &:after {
@@ -198,14 +207,9 @@ export default {
           height: 2px;
           background: inherit;
           display: block;
-          -webkit-transition: all 0.3s ease-in-out;
-          -moz-transition: all 0.3s ease-in-out;
-          -o-transition: all 0.3s ease-in-out;
           transition: all 0.3s ease-in-out;
           content: "";
           position: absolute;
-          -webkit-border-radius: 3px;
-          -moz-border-radius: 3px;
           border-radius: 3px;
         }
         &:before {
