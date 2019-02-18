@@ -28,7 +28,7 @@ export default {
   text-align: center;
   .ft__contact {
     color: $white;
-    font-size: 15px;
+    font-size: .95rem;
     margin: 0 1em;
     &:hover,
     &:active,
@@ -44,6 +44,16 @@ export default {
       margin-right: 5px;
       img {
         margin-top: 5px;
+      }
+    }
+    @media all and (max-width: 360px) {
+      margin: 0 3px;
+      .contact__icon {
+        width: 24px;
+        height: 24px;
+        img {
+          width: 12px;
+        }
       }
     }
   }

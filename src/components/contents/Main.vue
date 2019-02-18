@@ -2,8 +2,8 @@
   <main class="content">
     <carousel :items="1" :autoplay="true" :nav="false" :autoplayTimeout="2000" :autoplayHoverPause="true" class="portfolio-slider">
       <article class="portfolio-slider-item"  v-for="(slide, i) in dataJson.slides.slice(0,5)" :index="i" :key="i" >
-        <div class="layout">
-          <h1 class="portfolio-slider__title">
+        <div class="layout" >
+          <h1 class="portfolio-slider__title" data-aos="fade-in">
             <img :src="require('../../assets/images/logo/'+ slide.name +'_logo.png')" alt="" class="portfolio__logo" height="32">
             {{slide.title}}
           </h1>
@@ -20,7 +20,7 @@
     </div>
     <!--카테고리탭-->
     <section class="portfolio-lists">
-        <article class="portfolio-list"  v-for="(slide, i) in dataJson.slides" :index="i" :key="i">
+        <article class="portfolio-list" v-for="(slide, i) in dataJson.slides" :index="i" :key="i" data-aos="fade-in" data-aos-offset="0">
           <router-link  :to="{path: '/detail/'+ slide.index}">
             <img :src="require('../../assets/images/slide/'+ slide.name +'_slide.png')"  class="portfolio__thumnail" alt="">
             <div class="portfolio--hover">
@@ -74,6 +74,9 @@ export default {
   .owl-carousel .owl-stage {
     height: 700px;
     overflow: hidden;
+    @media all and (max-width: 1300px) {
+      height: auto;
+    }
   }
   .owl-carousel .owl-item {
     height: 100%;
@@ -101,6 +104,13 @@ export default {
       width: 80px;
       height: 7px;
       border-radius: 0;
+    }
+    @media all and (max-width: 500px) {
+      bottom: 7px;
+      span {
+        width: 40px;
+        height: 4px;
+      }
     }
   }
 }
@@ -153,7 +163,7 @@ export default {
   }
   .portfolio__title {
     color: $white;
-    font-size: 22px;
+    font-size: 1.22rem;
     margin-top: 7px;
     letter-spacing: -.3px;
     margin-bottom: 6px;
@@ -203,7 +213,9 @@ export default {
       transform: scale(1, 0);
       transition: opacity 0.35s, transform 0.5s;
     }
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active {
       &:before,
       &:after {
         opacity: 1;
@@ -212,7 +224,9 @@ export default {
       }
     }
   }
-  &:hover {
+  &:hover,
+  &:focus,
+  &:active {
     .portfolio__thumnail {
       transform: scale(1.1);
     }
@@ -227,6 +241,24 @@ export default {
       }
     }
   }
+  @media all and (max-width: 1300px) {
+    width: 49.5%;
+    margin-right: 0;
+    margin-bottom: 12px;
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+    &:nth-child(2n-1) {
+      margin-right: 1%;
+    }
+  }
+  @media all and (max-width: 500px) {
+    width: 100%;
+    height: 200px;
+    &:nth-child(2n-1) {
+      margin-right: 0;
+    }
+  }
 }
 
 .portfolio__more-btn {
@@ -234,8 +266,9 @@ export default {
   height: 20px;
   background: $white;
   position: relative;
+  overflow: visible;
   &:after {
-    content:'';
+    content: "";
     left: -9px;
     top: 9px;
     position: absolute;
@@ -243,9 +276,6 @@ export default {
     height: 2px;
     background: #ffffff;
     display: block;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
   }
 }

@@ -7,7 +7,7 @@
       <article class="detail-slide">
         <img :src="require('../../assets/images/slide/'+ dataJson.slides[current].name +'_slide.png')"  class="portfolio-slider__img" alt="">
         <div class="layout">
-          <h1 class="portfolio-slider__title">
+          <h1 class="portfolio-slider__title" data-aos="fade-up" data-aos-delay="100">
             <img :src="require('../../assets/images/logo/'+ dataJson.slides[current].name +'_logo.png')" alt="" class="portfolio__logo" height="32">
             {{dataJson.slides[current].title}}
           </h1>
@@ -24,21 +24,20 @@
       <article class="detail-overview">
         <div class="layout">
           <div class="overview-text-area">
-            <h1 class="detail__title overview__title" v-bind:style="{color: dataJson.slides[current].color}">Overview</h1>
-            <p class="overview__content">
-              {{dataJson.slides[current].description1}}<br>
-              {{dataJson.slides[current].description2}}
+            <h1 class="detail__title overview__title" v-bind:style="{color: dataJson.slides[current].color}" data-aos="fade-in" >Overview</h1>
+            <p class="overview__content" data-aos="fade-up">
+              {{dataJson.slides[current].description1}}
             </p>
           </div>
-          <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_visual1.png')" alt="" class="overview__img">
+          <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_visual1.png')" alt="" class="overview__img" data-aos="slide-up">
         </div>
       </article>
       <article class="detail-skill" v-bind:style="{backgroundColor: dataJson.slides[current].color}">
         <div class="layout">
-          <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_visual2.png')" height="500" :alt="dataJson.slides[current].title" class="skill__img">
+          <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_visual2.png')" height="500" :alt="dataJson.slides[current].title" class="skill__img" data-aos="slide-up">
           <div class="skill-content">
-            <ul class="skill-lists">
-              <li class="skill__title">
+            <ul class="skill-lists" data-aos="fade-up" data-aos-delay="100">
+              <li class="skill__title" >
                 ROLE
                 <ul>
                   <li>{{dataJson.slides[current].role}}</li>
@@ -64,13 +63,15 @@
       </article>
         <!--<img :src="require('../../assets/images/detail/detail_bg_'+ slide.index + '.png')" alt="" class="bg">-->
       <div class="detail-preview">
-        <h1 class="detail__title preview__title">Preview</h1>
-        <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_preview1.png')"  alt="" class="preview__img">
-        <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_preview2.png')"  alt="" class="preview__img">
-        <div class="preview-btn-area">
-          <a :href="dataJson.slides[current].path"  class="go-site__btn" target="_blank" v-bind:style="{color: dataJson.slides[current].color}">
-            GO SITE
-          </a>
+        <div class="layout">
+          <h1 class="detail__title preview__title">Preview</h1>
+          <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_preview1.png')"  alt="" class="preview__img" data-aos="fade-left" >
+          <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_preview2.png')"  alt="" class="preview__img" data-aos="fade-right" data-aos-delay="100" >
+          <div class="preview-btn-area">
+            <a :href="dataJson.slides[current].path"  class="go-site__btn" target="_blank" v-bind:style="{color: dataJson.slides[current].color}" data-aos="fade-up" data-aos-delay="100" >
+              GO SITE
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -127,9 +128,37 @@ export default {
   /*첫번째 섹션*/
   .detail {
     position: relative;
+    .detail-slide {
+      .portfolio-slider__img {
+        @media all and (max-width: 1300px) {
+          height: 550px;
+        }
+        @media all and (max-width: 600px) {
+          height: 400px;
+        }
+        @media all and (max-width: 450px) {
+          height: 330px;
+        }
+        @media all and (max-width: 360px) {
+          height: 280px;
+        }
+      }
+    }
     .portfolio-slider__title {
       top: 38rem;
       bottom: auto;
+      @media all and (max-width: 1600px) {
+        top: 30rem;
+      }
+      @media all and (max-width: 1300px) {
+        top: 24rem;
+      }
+      @media all and (max-width: 450px) {
+        top: 19rem;
+      }
+      @media all and (max-width: 360px) {
+        top: 16rem;
+      }
     }
     .detail__date {
       color: $grey;
@@ -141,12 +170,21 @@ export default {
       color: $black;
       font-weight: 100;
       font-size: 4rem;
+      @media all and (max-width: 430px) {
+        font-size: 3rem;
+      }
     }
     .close__btn {
       position: fixed;
       right: 2em;
       top: 2em;
       z-index: 2;
+      @media all and (max-width: 600px) {
+        right: 1em;
+        img {
+          width: 20px;
+        }
+      }
     }
     .detail__btn {
       transition: all 0.2s ease;
@@ -181,6 +219,11 @@ export default {
           transition: all 0.2s ease;
         }
       }
+      @media all and (max-width: 600px) {
+        img {
+          width: 60px;
+        }
+      }
     }
     .detail__btn__text {
       display: none;
@@ -208,6 +251,21 @@ export default {
       margin-top: 1em;
       word-break: keep-all;
     }
+    @media all and (max-width: 1300px) {
+      background-image: none;
+      height: 600px;
+      .overview__content {
+        width: 100%;
+      }
+    }
+    @media all and (max-width: 600px) {
+      padding: 3em 0;
+      height: 480px;
+      min-height: auto;
+    }
+    @media all and (max-width: 430px) {
+      height: 400px;
+    }
   }
   .overview-text-area {
     display: inline-block;
@@ -216,6 +274,19 @@ export default {
     position: absolute;
     bottom: -160px;
     right: 12rem;
+    @media all and (max-width: 1600px) {
+      right: 6rem;
+    }
+    @media all and (max-width: 1300px) {
+      right: 1%;
+      float: right;
+      position: relative;
+      bottom: auto;
+    }
+    @media all and (max-width: 600px) {
+      margin-top: 1em;
+      width: 60%;
+    }
   }
   .overview-img-area {
     float: right;
@@ -227,6 +298,12 @@ export default {
     .layout {
       display: flex;
       justify-content: space-around;
+      @media all and (max-width: 1300px) {
+        flex-direction: column;
+        .skill__img {
+          height: auto;
+        }
+      }
     }
   }
   .skill-content {
@@ -234,6 +311,9 @@ export default {
     width: calc(100% - 800px);
     margin-top: 2em;
     @include clearfix;
+    @media all and (max-width: 1300px) {
+      width: 100%;
+    }
     .skill-lists {
       li {
         color: $white;
@@ -255,7 +335,7 @@ export default {
     position: relative;
     display: inline-block;
     width: 100%;
-    padding: 6em 15em;
+    padding: 6em 0;
     .preview__title {
       margin-bottom: 1.5rem;
     }
@@ -265,6 +345,13 @@ export default {
       box-shadow: 0 2px 10px rgba(0,0,0,.15);
       &:nth-child(2) {
         margin-right: 2%;
+      }
+      @media all and (max-width: 600px) {
+        width: 100%;
+        &:nth-child(2) {
+          margin-right: 0;
+          margin-bottom: 2%;
+        }
       }
     }
     .preview-btn-area {

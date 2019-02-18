@@ -133,6 +133,16 @@ export default {
         display: block;
       }
     }
+    @media all and (max-width: 500px) {
+      padding: 1.2em 0em 1.2em 1.2em;
+      width: 90%;
+      .logo {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        line-height: 40px;
+      }
+    }
     /*메뉴*/
     .hd-menu {
       float: right;
@@ -149,6 +159,9 @@ export default {
           &:hover {
             color: $black;
             background-color: $yellow;
+          }
+          @media all and (max-width: 500px) {
+            margin-right: 0;
           }
         }
       }

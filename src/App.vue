@@ -40,6 +40,10 @@ export default {
   .layout {
     width: 1280px;
     margin: 0 auto;
+    @media all and (max-width: 1300px) {
+      width: 100%;
+      padding: 0 1em;
+    }
   }
   .content {
     width: 100%;
@@ -84,9 +88,25 @@ export default {
     font-size: 1.8rem;
     font-weight: 600;
     text-shadow: 0 0 10px #252525;
+    @media all and (max-width: 1300px) {
+      left: 4rem;
+      bottom: 4rem;
+      font-size: 1.5rem;
+    }
+    @media all and (max-width: 500px) {
+      left: 3rem;
+      bottom: 3rem;
+      font-size: 1.2rem;
+    }
   }
   .portfolio__logo {
     margin-bottom: 10px;
     display: block;
+    @media all and (max-width: 1300px) {
+      height: 22px;
+    }
+    @media all and (max-width: 500px) {
+      margin-bottom: 4px;
+    }
   }
 </style>
