@@ -1,14 +1,16 @@
 <template>
   <main class="content">
-    <carousel :items="1" :autoplay="true" :nav="false" :autoplayTimeout="2000" :autoplayHoverPause="true" class="portfolio-slider">
+    <carousel :items="1" :autoplay="true" :nav="false" :autoplayTimeout="2000" :animateOut="animateOut" :autoplayHoverPause="true" class="portfolio-slider">
       <article class="portfolio-slider-item"  v-for="(slide, i) in dataJson.slides.slice(0,5)" :index="i" :key="i" >
-        <div class="layout" >
-          <h1 class="portfolio-slider__title" data-aos="fade-in">
-            <img :src="require('../../assets/images/logo/'+ slide.name +'_logo.png')" alt="" class="portfolio__logo" height="32">
-            {{slide.title}}
-          </h1>
-        </div>
-        <img :src="require('../../assets/images/slide/'+ slide.name +'_slide.png')"  class="portfolio-slider__img" alt="">
+        <router-link :to="{path: '/detail/'+ slide.index}">
+          <div class="layout" >
+            <h1 class="portfolio-slider__title" data-aos="fade-in">
+              <img :src="require('../../assets/images/logo/'+ slide.name +'_logo.png')" alt="" class="portfolio__logo" height="32">
+              {{slide.title}}
+            </h1>
+          </div>
+          <img :src="require('../../assets/images/slide/'+ slide.name +'_slide.png')"  class="portfolio-slider__img" alt="">
+        </router-link>
       </article>
     </carousel>
     <!--카테고리탭-->
@@ -21,7 +23,7 @@
     <!--카테고리탭-->
     <section class="portfolio-lists">
         <article class="portfolio-list" v-for="(slide, i) in dataJson.slides" :index="i" :key="i" data-aos="fade-in" data-aos-offset="0">
-          <router-link  :to="{path: '/detail/'+ slide.index}">
+          <router-link :to="{path: '/detail/'+ slide.index}">
             <img :src="require('../../assets/images/slide/'+ slide.name +'_slide.png')"  class="portfolio__thumnail" alt="">
             <div class="portfolio--hover">
               <div class="hover-content">
@@ -51,7 +53,7 @@ export default {
   data () {
     return {
       // animateIn: 'slideInDown',
-      // animateOut: 'slideOutDown',
+      animateOut: 'fadeOut',
       detailShow: false,
       dataJson: json
     }
@@ -279,42 +281,9 @@ export default {
     transition: all 0.3s ease-in-out;
   }
 }
-
 .slide-wrap {
   overflow: hidden;
 }
-
-.carousel-3d-controls {
-  a {
-    height: 45px;
-    width: 45px;
-    margin-top: 8px;
-    &.next,
-    &.prev {
-      line-height: 20px !important;
-      text-align: center !important;
-      background: #fff;
-      opacity: .78;
-      text-indent: -9999px;
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
-      box-shadow: 0 2px 10px rgba(0,0,0,.1);
-      &:hover {
-        border-color: #b1b1b1;
-        opacity: 1;
-      }
-    }
-    &.prev {
-      background-image: url('../../assets/images/icons/icon_prev.png');
-      left: 2px;
-    }
-    &.next {
-      background-image: url('../../assets/images/icons/icon_next.png');
-      right: -4px;
-    }
-  }
-}
-
 .portfolio-slider {
   .owl-nav [class*='owl-'] {
     height: 45px;
