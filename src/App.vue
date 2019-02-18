@@ -82,7 +82,7 @@ export default {
 
   .portfolio-slider__title {
     position: absolute;
-    bottom: 9rem;
+    bottom: 6rem;
     color: $white;
     font-family: $square;
     font-size: 1.8rem;

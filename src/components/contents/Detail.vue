@@ -295,13 +295,22 @@ export default {
   .detail-skill {
     padding: 6em 0;
     background: #09a7b4;
+    display: inline-block;
+    width: 100%;
     .layout {
       display: flex;
       justify-content: space-around;
-      @media all and (max-width: 1300px) {
+    }
+    @media all and (max-width: 1300px) {
+      padding: 4em 0 3em;
+      .layout {
         flex-direction: column;
         .skill__img {
           height: auto;
+          padding: 2em;
+          @media all and (max-width: 500px) {
+            padding: 1em;
+          }
         }
       }
     }
@@ -336,6 +345,7 @@ export default {
     display: inline-block;
     width: 100%;
     padding: 6em 0;
+    overflow: hidden;
     .preview__title {
       margin-bottom: 1.5rem;
     }

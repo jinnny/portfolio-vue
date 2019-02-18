@@ -102,16 +102,21 @@ export default {
         background: $yellow;
       }
     }
-    span {
-      width: 80px;
-      height: 7px;
-      border-radius: 0;
+    .owl-dot {
+      span {
+        width: 80px;
+        height: 7px;
+        border-radius: 0;
+      }
     }
     @media all and (max-width: 500px) {
-      bottom: 7px;
-      span {
-        width: 40px;
-        height: 4px;
+      bottom: 6px;
+      .owl-dot {
+        span {
+          width: 30px;
+          height: 4px;
+          margin: 0 4px;
+        }
       }
     }
   }
