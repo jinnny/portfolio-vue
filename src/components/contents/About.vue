@@ -37,7 +37,6 @@
           <img src="../../assets/images/icons/icon_css.png" alt="">
           <strong class="skill__title">CSS/전처리기</strong>
           <ul>
-            <li>BEM 방법론의 네이밍</li>
             <li>CSS3</li>
             <li>Sass</li>
             <li>Less</li>
