@@ -27,8 +27,8 @@
           <img src="../../assets/images/icons/icon_html5.png" alt="">
           <strong class="skill__title">HTML5 & 웹표준& 웹접근성</strong>
           <ul>
-            <li>W3C HTML5 기술표준명세서 준수</li>
-            <li>W3C 웹콘텐츠 접근성 지침 2.0 준수</li>
+            <li>W3C HTML5 Recommendation 준수</li>
+            <li>한국형 W3C 웹콘텐츠 접근성 지침 2.1 준수</li>
             <li>크로스브라우징 이슈 핸들링</li>
             <li><small>( Ie8 / Firefox / Chrome / Opera / Safari )</small></li>
           </ul>
