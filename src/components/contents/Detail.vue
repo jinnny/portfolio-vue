@@ -39,7 +39,7 @@
             <ul class="skill-lists" data-aos="fade-up" data-aos-delay="100">
               <li class="skill__title" >
                 ROLE
-                <ul>
+                <ul class="role__item-lists">
                   <li>{{dataJson.slides[current].role}}</li>
                 </ul>
               </li>
@@ -308,6 +308,7 @@ export default {
         .skill__img {
           height: auto;
           padding: 2em;
+          width: 100%;
           @media all and (max-width: 500px) {
             padding: 1em;
           }
@@ -336,6 +337,15 @@ export default {
         font-size: 1.1rem;
         opacity: 1;
         margin-bottom: 1rem;
+      }
+      ul:not(.role__item-lists) li {
+        padding-left: 1rem;
+        position: relative;
+        &:before {
+          content: '-';
+          position: absolute;
+          left: .2rem;
+        }
       }
     }
   }
