@@ -4,8 +4,7 @@
       <router-link to="/" class="close__btn btn">
         <img src="../../assets/images/icons/icon_close.png" alt="닫기" >
       </router-link>
-      <article class="detail-slide">
-        <img :src="require('../../assets/images/slide/'+ dataJson.slides[current].name +'_slide.png')"  class="portfolio-slider__img" alt="">
+      <article class="detail-slide" :style="{'background-image': 'url(' + require('../../assets/images/slide/'+ dataJson.slides[current].name +'_slide.png')}">
         <div class="layout">
           <h1 class="portfolio-slider__title" data-aos="fade-up" data-aos-delay="100">
             <img :src="require('../../assets/images/logo/'+ dataJson.slides[current].name +'_logo.png')" alt="" class="portfolio__logo" height="32">
@@ -29,7 +28,7 @@
               {{dataJson.slides[current].description1}}
             </p>
           </div>
-          <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_visual1.png')" alt="" class="overview__img" data-aos="slide-up">
+          <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_visual1.png')" alt="" class="overview__img" data-aos="fade-up">
         </div>
       </article>
       <article class="detail-skill" v-bind:style="{backgroundColor: dataJson.slides[current].color}">
@@ -107,6 +106,7 @@ export default {
       if (nextDetail > 0 && nextDetail <= this.dataJson.slides.length) {
         this.current = nextDetail
         this.$router.push('/detail/' + nextDetail)
+        window.scrollTo(0, 0)
       }
     },
     prev () {
@@ -114,6 +114,7 @@ export default {
       if (prevDetail >= 0 && prevDetail <= this.dataJson.slides.length) {
         this.current = prevDetail
         this.$router.push('/detail/' + prevDetail)
+        window.scrollTo(0, 0)
       }
     }
   }
@@ -129,35 +130,19 @@ export default {
   .detail {
     position: relative;
     .detail-slide {
-      .portfolio-slider__img {
-        @media all and (max-width: 1300px) {
-          height: 550px;
-        }
-        @media all and (max-width: 600px) {
-          height: 400px;
-        }
-        @media all and (max-width: 450px) {
-          height: 330px;
-        }
-        @media all and (max-width: 360px) {
-          height: 280px;
-        }
+      height: 91vh;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      position: relative;
+      @media all and (max-width: 600px) {
+        height: 60vh;
       }
     }
     .portfolio-slider__title {
-      top: 38rem;
-      bottom: auto;
-      @media all and (max-width: 1600px) {
-        top: 30rem;
-      }
-      @media all and (max-width: 1300px) {
-        top: 24rem;
-      }
-      @media all and (max-width: 450px) {
-        top: 19rem;
-      }
-      @media all and (max-width: 360px) {
-        top: 16rem;
+      bottom: 12vh;
+      @media all and (max-width: 600px) {
+        bottom: 7vh;
       }
     }
     .detail__date {
@@ -206,17 +191,19 @@ export default {
         padding-right: 0px;
       }
       &:hover {
-        background-color: rgba(0,0,0,0.5);
-        &.next {
-          padding-left: 40px;
-        }
-        &.prev {
-          padding-right: 40px;
-        }
-        .detail__btn__text {
-          display: block;
-          opacity: 1;
-          transition: all 0.2s ease;
+        @media all and (min-width: 900px) {
+          background-color: rgba(0, 0, 0, 0.5);
+          &.next {
+            padding-left: 40px;
+          }
+          &.prev {
+            padding-right: 40px;
+          }
+          .detail__btn__text {
+            display: block;
+            opacity: 1;
+            transition: all 0.2s ease;
+          }
         }
       }
       @media all and (max-width: 600px) {
