@@ -38,7 +38,7 @@
       "feature6": "크로스브라우징 (IE11, Safari, Opera, Chrome, Firefox, Firefox mobile)",
       "feature7": "Google SEO 적용",
       "de": "Vue.js 협업",
-      "index": "0",
+      "index": "1",
       "color": "#975AF7"
     },
     {
@@ -59,7 +59,7 @@
       "feature7": "크로스브라우징 (IE9, Safari, Opera, Chrome, Firefox)",
       "feature8": "Google SEO 적용",
       "de": "Vue.js 협업",
-      "index": "1",
+      "index": "2",
       "color": "#09a7b4"
     },
     {
@@ -79,7 +79,7 @@
       "feature6": "크로스브라우징 (IE11, Safari, Opera, Chrome, Firefox, Android & ios 웹뷰, UC Browser)",
       "feature7": "Google, Naver SEO 적용",
       "de": "Angular.js 협업",
-      "index": "2",
+      "index": "3",
       "color": "#60519E"
     },
     {
@@ -100,7 +100,7 @@
       "feature7": "크로스브라우징 (IE10, Safari, Opera, Chrome, Firefox, UC Browser, iOS/Android 웹뷰)",
       "feature8": "Google, Naver SEO 적용",
       "de": "JAVA(Spring) 협업",
-      "index": "3",
+      "index": "4",
       "color": "#4D34D0"
     },
     {
@@ -120,7 +120,7 @@
       "feature6": "크로스브라우징 (IE10, Safari, Opera, Chrome, Firefox, iOS/Android 웹뷰)",
       "feature7": "Google, Naver SEO 적용",
       "de": "JAVA(Spring) 협업",
-      "index": "4",
+      "index": "5",
       "color": "#725ABC"
     },
     {
@@ -138,7 +138,7 @@
       "feature4": "크로스브라우징 (IE9, Safari, Opera, Chrome, Firefox)",
       "feature5": "Google SEO 적용",
       "de": "JAVA(Spring) 협업",
-      "index": "5",
+      "index": "6",
       "color": "#347FBB"
     },
     {
@@ -152,7 +152,7 @@
       "role": "UI 개발 (참여율: 100%) 및\n서브 페이지 디자인 (참여율: 70%)",
       "feature1": "웹표준준수 (W3C HTML5 Recommendation 기준)",
       "de": "JAVA(Spring) 협업",
-      "index": "6",
+      "index": "7",
       "color": "#25ac6c"
     },
     {
@@ -167,7 +167,7 @@
       "feature1": "웹접근성준수 (W3C 웹콘텐츠 접근성 지침 2.0 기준) 및 웹접근성품질인증 획득",
       "feature2": "크로스브라우징 (IE9, Safari, Opera, Chrome, Firefox)",
       "de": "JAVA(Spring) 협업",
-      "index": "7",
+      "index": "8",
       "color": "#FFA337"
     },
     {
@@ -185,7 +185,7 @@
       "feature4": "크로스브라우징 (IE9, Safari, Opera, Chrome, Firefox)",
       "feature5": "Google SEO 적용",
       "de": "JAVA(Spring) 협업",
-      "index": "8",
+      "index": "9",
       "color": "#0A9499"
     },
     {
@@ -203,7 +203,7 @@
       "feature6": "크로스브라우징 (IE9, Safari, Opera, Chrome, Firefox)",
       "feature7": "Google SEO 적용",
       "de": "JAVA(Spring) 협업",
-      "index": "9",
+      "index": "10",
       "color": "#3F73CC"
     },
     {
@@ -218,7 +218,7 @@
       "feature1": "웹표준준수 (W3C HTML5 Recommendation 기준)",
       "feature7": "다국어 (한,중,영,일) 지원",
       "de": "JAVA(Spring) 협업",
-      "index": "10",
+      "index": "11",
       "color": "#FFA337"
     },
     {
@@ -234,7 +234,7 @@
       "feature2": "웹접근성준수 (W3C 웹콘텐츠 접근성 지침 2.0 기준) 및 웹접근성품질인증 획득",
       "feature6": "크로스브라우징 (IE9, Safari, Opera, Chrome, Firefox)",
       "de": "JAVA(Spring) 협업",
-      "index": "11",
+      "index": "12",
       "color": "#004A91"
     },
     {
@@ -251,7 +251,7 @@
       "feature6": "크로스브라우징 (IE10, Safari, Opera, Chrome, Firefox)",
       "feature7": "Google, Naver SEO 적용",
       "de": "PHP 협업",
-      "index": "12",
+      "index": "13",
       "color": "#ffd200"
     },
     {
@@ -270,7 +270,7 @@
       "feature6": "크로스브라우징 (IE10, Safari, Opera, Chrome, Firefox)\n",
       "feature7": "Google, Naver SEO 적용",
       "de": "PHP 협업",
-      "index": "13",
+      "index": "14",
       "color": "#f9914a"
     },
     {
@@ -290,7 +290,7 @@
       "feature6": "크로스브라우징 (IE9, Safari, Opera, Chrome, Firefox)",
       "feature7": "Google, Naver SEO 적용",
       "de": "PHP 협업",
-      "index": "14",
+      "index": "15",
       "color": "#FDCA00"
     },
     {
@@ -310,7 +310,7 @@
       "feature6": "크로스브라우징 (IE10, Safari, Opera, Chrome, Firefox)",
       "feature7": "Google, Naver SEO 적용",
       "de": "PHP 협업",
-      "index": "15",
+      "index": "16",
       "color": "#F88A76"
     }
   ]
