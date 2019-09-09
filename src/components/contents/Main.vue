@@ -2,7 +2,7 @@
   <main class="content">
     <carousel :items="1" :autoplay="true" :nav="false" :autoplayTimeout="2000" :animateOut="animateOut" :autoplayHoverPause="true" class="portfolio-slider">
       <article class="portfolio-slider-item"  v-for="(slide, i) in dataJson.slides.slice(0,5)" :index="i" :key="i" >
-        <router-link :to="{path: '/detail/'+ slide.index}">
+        <router-link :to="{path: '/detail/'+ i}">
           <div class="layout" >
             <h1 class="portfolio-slider__title" data-aos="fade-in">
               <img :src="require('../../assets/images/logo/'+ slide.name +'_logo.png')" alt="" class="portfolio__logo" height="32">
@@ -22,8 +22,8 @@
     </div>
     <!--카테고리탭-->
     <section class="portfolio-lists">
-        <article class="portfolio-list" v-for="(slide, i) in dataJson.slides" :index="i" :key="i" data-aos="fade-in" data-aos-offset="0">
-          <router-link :to="{path: '/detail/'+ slide.index}">
+        <article class="portfolio-list" v-for="(slide, i) in dataJson.slides" :index="i" :key="slide.title + i" data-aos="fade-in" data-aos-offset="0">
+          <router-link :to="{path: '/detail/'+ i}">
             <img :src="require('../../assets/images/slide/'+ slide.name +'_slide.png')"  class="portfolio__thumnail" alt="">
             <div class="portfolio--hover">
               <div class="hover-content">
@@ -59,11 +59,11 @@ export default {
     }
   },
   methods: {
-    show: function (slide) {
+    show (slide) {
       this.slide = slide
       this.detailShow = true
     },
-    scrollUp: function () {
+    scrollUp () {
       window.scrollTo(0, 0)
     }
   }

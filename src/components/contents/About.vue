@@ -103,7 +103,7 @@ export default {
 
 <style scoped lang="scss">
   .about-content {
-    background: #f3f3f3;
+    /*background: #f3f3f3;*/
     .about-info-hd {
       background: $black;
       padding: 10em 0 4em;

@@ -1,9 +1,9 @@
 <template>
   <main class="content">
     <h2 class="content-text" style="">
-      PORTFIOLIO
+      PORTFOLIO
     </h2>
-    <h1 class="content__title">PORTFIOLIO</h1>
+    <h1 class="content__title">PORTFOLIO</h1>
     <div class="content-info-wrap">
       <p class="content-info">
         <strong class="content-info__title">Latest work</strong>

@@ -7,7 +7,8 @@
       <article class="detail-slide" :style="{'background-image': 'url(' + require('../../assets/images/slide/'+ dataJson.slides[current].name +'_slide.png')}">
         <div class="layout">
           <h1 class="portfolio-slider__title" data-aos="fade-up" data-aos-delay="100">
-            <img :src="require('../../assets/images/logo/'+ dataJson.slides[current].name +'_logo.png')" alt="" class="portfolio__logo" height="32">
+            <img :src="require('../../assets/images/logo/'+ dataJson.slides[current].name +'_logo.png')"
+                 alt="" class="portfolio__logo" height="32">
             {{dataJson.slides[current].title}}
           </h1>
         </div>
@@ -23,17 +24,20 @@
       <article class="detail-overview">
         <div class="layout">
           <div class="overview-text-area">
-            <h1 class="detail__title overview__title" v-bind:style="{color: dataJson.slides[current].color}" data-aos="fade-in" >Overview</h1>
+            <h1 class="detail__title overview__title" :style="{color: dataJson.slides[current].color}"
+                data-aos="fade-in" >Overview</h1>
             <p class="overview__content" data-aos="fade-up">
               {{dataJson.slides[current].description1}}
             </p>
           </div>
-          <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_visual1.png')" alt="" class="overview__img" data-aos="fade-up">
+          <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_visual1.png')"
+               alt="" class="overview__img" data-aos="fade-up">
         </div>
       </article>
-      <article class="detail-skill" v-bind:style="{backgroundColor: dataJson.slides[current].color}">
+      <article class="detail-skill" :style="{backgroundColor: dataJson.slides[current].color}">
         <div class="layout">
-          <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_visual2.png')" height="500" :alt="dataJson.slides[current].title" class="skill__img" data-aos="slide-up">
+          <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_visual2.png')"
+               height="500" :alt="dataJson.slides[current].title" class="skill__img" data-aos="slide-up">
           <div class="skill-content">
             <ul class="skill-lists" data-aos="fade-up" data-aos-delay="100">
               <li class="skill__title" >
@@ -64,10 +68,13 @@
       <div class="detail-preview">
         <div class="layout">
           <h1 class="detail__title preview__title">Preview</h1>
-          <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_preview1.png')"  alt="" class="preview__img" data-aos="fade-left" >
-          <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_preview2.png')"  alt="" class="preview__img" data-aos="fade-right" data-aos-delay="100" >
+          <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_preview1.png')"
+               alt="" class="preview__img" data-aos="fade-left" >
+          <img :src="require('../../assets/images/detail/'+ dataJson.slides[current].name +'_preview2.png')"
+               alt="" class="preview__img" data-aos="fade-right" data-aos-delay="100" >
           <div class="preview-btn-area">
-            <a :href="dataJson.slides[current].path"  class="go-site__btn" target="_blank" v-bind:style="{color: dataJson.slides[current].color}" data-aos="fade-up" data-aos-delay="100" >
+            <a :href="dataJson.slides[current].path"  class="go-site__btn" target="_blank"
+               :style="{color: dataJson.slides[current].color}" data-aos="fade-up" data-aos-delay="100" >
               GO SITE
             </a>
           </div>
