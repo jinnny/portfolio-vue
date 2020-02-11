@@ -24,7 +24,8 @@
     "vue-glide-js": "^1.2.0",
     "vue-owl-carousel": "^2.0.3",
     "vue-router": "^3.0.1",
-    "vue-slick": "^1.1.15"
+    "vue-slick": "^1.1.15",
+    "webpack-dev-server": "^2.9.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -95,7 +96,6 @@
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.2",
-    "webpack-dev-server": "3.1.11",
     "webpack-merge": "^4.1.0"
   },
   "engines": {
