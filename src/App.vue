@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Header v-if="$route.meta.plainLayout"></Header>
+    <Header v-if="$route.meta.plainLayout"/>
     <router-view/>
-    <Footer v-if="$route.meta.plainLayout"></Footer>
+    <Footer v-if="$route.meta.plainLayout"/>
   </div>
 </template>
 

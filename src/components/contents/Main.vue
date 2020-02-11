@@ -22,8 +22,8 @@
     </div>
     <!--카테고리탭-->
     <section class="portfolio-lists">
-        <article class="portfolio-list" v-for="(slide, i) in dataJson.slides" :index="i" :key="slide.title + i" data-aos="fade-in" data-aos-offset="0">
-          <router-link :to="{path: '/detail/'+ i}">
+        <article class="portfolio-list" v-for="(slide, i) in dataJson.slides"  :index="i" :key="slide.title + i" data-aos="fade-in" data-aos-offset="0">
+          <router-link :to="{path: '/detail/'+ i}" :slide="slide">
             <img :src="require('../../assets/images/slide/'+ slide.name +'_slide.png')"  class="portfolio__thumnail" alt="">
             <div class="portfolio--hover">
               <div class="hover-content">
