@@ -4,12 +4,12 @@
       <router-link to="/" class="close__btn btn">
         <img src="../../assets/images/icons/icon_close.png" alt="닫기" >
       </router-link>
-      <article class="detail-slide" :style="{'background-image': 'url(' + require('../../assets/images/slide/'+ slide.name +'_slide.png')}">
+      <article class="detail-slide" :style="{'background-image': 'url(' + require('../../assets/images/slide/'+ slideItem.name +'_slide.png')}">
         <div class="layout">
           <h1 class="portfolio-slider__title" data-aos="fade-up" data-aos-delay="100">
-            <img :src="require('../../assets/images/logo/'+ slide.name +'_logo.png')"
+            <img :src="require('../../assets/images/logo/'+ slideItem.name +'_logo.png')"
                  alt="" class="portfolio__logo" height="32">
-            {{slide.title}}
+            {{slideItem.title}}
           </h1>
         </div>
         <button class="detail__btn prev" v-if="this.current !== 0" @click="prev()">
@@ -24,57 +24,57 @@
       <article class="detail-overview">
         <div class="layout">
           <div class="overview-text-area">
-            <h1 class="detail__title overview__title" :style="{color: slide.color}"
+            <h1 class="detail__title overview__title" :style="{color: slideItem.color}"
                 data-aos="fade-in" >Overview</h1>
             <p class="overview__content" data-aos="fade-up">
-              {{slide.description1}}
+              {{slideItem.description1}}
             </p>
           </div>
-          <img :src="require('../../assets/images/detail/'+ slide.name +'_visual1.png')"
+          <img :src="require('../../assets/images/detail/'+ slideItem.name +'_visual1.png')"
                alt="" class="overview__img" data-aos="fade-up">
         </div>
       </article>
-      <article class="detail-skill" :style="{backgroundColor: slide.color}">
+      <article class="detail-skill" :style="{backgroundColor: slideItem.color}">
         <div class="layout">
-          <img :src="require('../../assets/images/detail/'+ slide.name +'_visual2.png')"
-               height="500" :alt="slide.title" class="skill__img" data-aos="slide-up">
+          <img :src="require('../../assets/images/detail/'+ slideItem.name +'_visual2.png')"
+               height="500" :alt="slideItem.title" class="skill__img" data-aos="slide-up">
           <div class="skill-content">
             <ul class="skill-lists" data-aos="fade-up" data-aos-delay="100">
               <li class="skill__title" >
                 ROLE
                 <ul class="role__item-lists">
-                  <li>{{slide.role}}</li>
+                  <li>{{slideItem.role}}</li>
                 </ul>
               </li>
               <li class="skill__title">
                 WORK
                 <ul>
-                  <li>{{slide.feature1}}</li>
-                  <li v-if="slide.feature2 !== ''">{{slide.feature2}}</li>
-                  <li v-if="slide.feature3 !== ''">{{slide.feature3}}</li>
-                  <li v-if="slide.feature4 !== ''">{{slide.feature4}}</li>
-                  <li v-if="slide.feature5 !== ''">{{slide.feature5}}</li>
-                  <li v-if="slide.feature6 !== ''">{{slide.feature6}}</li>
-                  <li v-if="slide.feature7 !== ''">{{slide.feature7}}</li>
-                  <li v-if="slide.feature8 !== ''">{{slide.feature8}}</li>
-                  <li>{{slide.de}}</li>
+                  <li>{{slideItem.feature1}}</li>
+                  <li v-if="slideItem.feature2 !== ''">{{slideItem.feature2}}</li>
+                  <li v-if="slideItem.feature3 !== ''">{{slideItem.feature3}}</li>
+                  <li v-if="slideItem.feature4 !== ''">{{slideItem.feature4}}</li>
+                  <li v-if="slideItem.feature5 !== ''">{{slideItem.feature5}}</li>
+                  <li v-if="slideItem.feature6 !== ''">{{slideItem.feature6}}</li>
+                  <li v-if="slideItem.feature7 !== ''">{{slideItem.feature7}}</li>
+                  <li v-if="slideItem.feature8 !== ''">{{slideItem.feature8}}</li>
+                  <li>{{slideItem.de}}</li>
                 </ul>
               </li>
             </ul>
           </div>
         </div>
       </article>
-        <!--<img :src="require('../../assets/images/detail/detail_bg_'+ slide.index + '.png')" alt="" class="bg">-->
+        <!--<img :src="require('../../assets/images/detail/detail_bg_'+ slideItem.index + '.png')" alt="" class="bg">-->
       <div class="detail-preview">
         <div class="layout">
           <h1 class="detail__title preview__title">Preview</h1>
-          <img :src="require('../../assets/images/detail/'+ slide.name +'_preview1.png')"
+          <img :src="require('../../assets/images/detail/'+ slideItem.name +'_preview1.png')"
                alt="" class="preview__img" data-aos="fade-left" >
-          <img :src="require('../../assets/images/detail/'+ slide.name +'_preview2.png')"
+          <img :src="require('../../assets/images/detail/'+ slideItem.name +'_preview2.png')"
                alt="" class="preview__img" data-aos="fade-right" data-aos-delay="100" >
           <div class="preview-btn-area">
-            <a :href="slide.path"  class="go-site__btn" target="_blank"
-               :style="{color: slide.color}" data-aos="fade-up" data-aos-delay="100" >
+            <a :href="slideItem.path"  class="go-site__btn" target="_blank"
+               :style="{color: slideItem.color}" data-aos="fade-up" data-aos-delay="100" >
               GO SITE
             </a>
           </div>
@@ -86,16 +86,17 @@
 
 <script>
 import json from '../../../data.json'
-import { ref, onMounted, watch } from '@vue/composition-api'
+import { ref, onMounted, watch, computed } from '@vue/composition-api'
 
 export default {
   name: 'Detail',
   props: {
     slide: Object
   },
-  setup () {
+  setup (props, { root }) {
     // 데이터
     const current = ref(parseInt(this.$route.params.index))
+    console.log(typeof current)
 
     const close = () => {
       this.$router.go(-1)
@@ -116,15 +117,22 @@ export default {
         window.scrollTo(0, 0)
       }
     };
+    const slideItem = computed(() => {
+      root.$store.getters.slideItem
+    })
 
     watch(current, (newEl) => {
       current.value = newEl
     });
 
-    onMounted(() => window.scrollTo(0, 0))
+    onMounted(() => {
+      root.$store.commit('SET_ITEM', current.value)
+      window.scrollTo(0, 0)
+    })
 
     return {
       current,
+      slideItem,
       close,
       next,
       prev
