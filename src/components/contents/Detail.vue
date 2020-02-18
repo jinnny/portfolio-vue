@@ -89,14 +89,12 @@ import json from '../../../data.json'
 import { ref, onMounted, watch, computed } from '@vue/composition-api'
 
 export default {
-  name: 'Detail',
   props: {
     slide: Object
   },
   setup (props, { root }) {
     // 데이터
-    const current = ref(parseInt(this.$route.params.index))
-    console.log(typeof current)
+    const current = ref(parseInt(root.$route.params.index))
 
     const close = () => {
       this.$router.go(-1)
