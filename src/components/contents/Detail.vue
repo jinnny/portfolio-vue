@@ -4,10 +4,10 @@
       <router-link to="/" class="close__btn btn">
         <img src="../../assets/images/icons/icon_close.png" alt="닫기" >
       </router-link>
-      <article class="detail-slide" :style="{'background-image': 'url(' + require('../../assets/images/slide/'+ slideItem.name +'_slide.png')}">
+      <article class="detail-slide" :style="{'background-image': 'url(require(`../../assets/images/slide/${slideItem.name}_slide.png`))'}">
         <div class="layout">
           <h1 class="portfolio-slider__title" data-aos="fade-up" data-aos-delay="100">
-            <img :src="require('../../assets/images/logo/'+ slideItem.name +'_logo.png')"
+            <img :src="`require(../../assets/images/logo/${slideItem.name}_logo.png)`"
                  alt="" class="portfolio__logo" height="32">
             {{slideItem.title}}
           </h1>
@@ -16,7 +16,7 @@
           <img src="../../assets/images/icons/icon_prev.png" alt="이전">
           <strong class="detail__btn__text">PREV</strong>
         </button>
-        <button class="detail__btn next" v-if="this.current !== this.dataJson.slides.length - 1"  @click="next">
+        <button class="detail__btn next" v-if="this.current !== this.slideList.length - 1"  @click="next">
           <strong class="detail__btn__text">NEXT</strong>
           <img src="../../assets/images/icons/icon_next.png" alt="다음">
         </button>
@@ -30,13 +30,13 @@
               {{slideItem.description1}}
             </p>
           </div>
-          <img :src="require('../../assets/images/detail/'+ slideItem.name +'_visual1.png')"
+          <img :src="`require(../../assets/images/detail/'${slideItem.name}_visual1.png)`"
                alt="" class="overview__img" data-aos="fade-up">
         </div>
       </article>
       <article class="detail-skill" :style="{backgroundColor: slideItem.color}">
         <div class="layout">
-          <img :src="require('../../assets/images/detail/'+ slideItem.name +'_visual2.png')"
+          <img :src="`require(../../assets/images/detail/'${slideItem.name}_visual2.png)`"
                height="500" :alt="slideItem.title" class="skill__img" data-aos="slide-up">
           <div class="skill-content">
             <ul class="skill-lists" data-aos="fade-up" data-aos-delay="100">
@@ -68,9 +68,9 @@
       <div class="detail-preview">
         <div class="layout">
           <h1 class="detail__title preview__title">Preview</h1>
-          <img :src="require('../../assets/images/detail/'+ slideItem.name +'_preview1.png')"
+          <img :src="`require(../../assets/images/detail/'${slideItem.name}_preview1.png)`"
                alt="" class="preview__img" data-aos="fade-left" >
-          <img :src="require('../../assets/images/detail/'+ slideItem.name +'_preview2.png')"
+          <img :src="`require('../../assets/images/detail/${slideItem.name}_preview2.png')`"
                alt="" class="preview__img" data-aos="fade-right" data-aos-delay="100" >
           <div class="preview-btn-area">
             <a :href="slideItem.path"  class="go-site__btn" target="_blank"
@@ -85,13 +85,9 @@
 </template>
 
 <script>
-import json from '../../../data.json'
 import { ref, onMounted, watch, computed } from '@vue/composition-api'
 
 export default {
-  props: {
-    slide: Object
-  },
   setup (props, { root }) {
     // 데이터
     const current = ref(parseInt(root.$route.params.index))
@@ -115,22 +111,25 @@ export default {
         window.scrollTo(0, 0)
       }
     };
-    const slideItem = computed(() => {
+    const slideItem = computed(() =>
       root.$store.getters.slideItem
-    })
+    )
+    const slideList = root.$store.getters.slideList;
 
     watch(current, (newEl) => {
       current.value = newEl
     });
 
+    root.$store.commit('SET_ITEM', current.value)
+
     onMounted(() => {
-      root.$store.commit('SET_ITEM', current.value)
       window.scrollTo(0, 0)
     })
 
     return {
       current,
       slideItem,
+      slideList,
       close,
       next,
       prev
