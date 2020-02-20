@@ -1,24 +1,24 @@
 <template>
   <article class="detail-content">
     <section class="detail">
-      <router-link to="/" class="close__btn btn">
-        <img src="../../assets/images/icons/icon_close.png" alt="닫기" >
+      <router-link to="/" class="close__button button">
+        <img src="src/assets/images/icons/icon_close.png" alt="닫기" >
       </router-link>
-      <article class="detail-slide" :style="{'background-image': 'url('+require(`../../assets/images/slide/${slideItem.name}_slide.png`)}">
+      <article class="detail-slide" :style="{'background-image': 'url('+require(`../assets/images/slide/${slideItem.name}_slide.png`)}">
         <div class="layout">
           <h1 class="portfolio-slider__title" data-aos="fade-up" data-aos-delay="100">
-            <img :src="require(`../../assets/images/logo/${slideItem.name}_logo.png`)"
+            <img :src="require(`../assets/images/logo/${slideItem.name}_logo.png`)"
                  alt="" class="portfolio__logo" height="32">
             {{slideItem.title}}
           </h1>
         </div>
-        <button class="detail__btn prev" v-if="this.current !== 0" @click="prev()">
-          <img src="../../assets/images/icons/icon_prev.png" alt="이전">
-          <strong class="detail__btn__text">PREV</strong>
+        <button class="detail__button prev" v-if="this.current !== 0" @click="prev()">
+          <img src="src/assets/images/icons/icon_prev.png" alt="이전">
+          <strong class="detail__button__text">PREV</strong>
         </button>
-        <button class="detail__btn next" v-if="this.current !== this.slideList.length - 1"  @click="next">
-          <strong class="detail__btn__text">NEXT</strong>
-          <img src="../../assets/images/icons/icon_next.png" alt="다음">
+        <button class="detail__button next" v-if="this.current !== this.slideList.length - 1"  @click="next">
+          <strong class="detail__button__text">NEXT</strong>
+          <img src="src/assets/images/icons/icon_next.png" alt="다음">
         </button>
       </article>
       <article class="detail-overview">
@@ -30,13 +30,13 @@
               {{slideItem.description1}}
             </p>
           </div>
-          <img :src="require(`../../assets/images/detail/${slideItem.name}_visual1.png`)"
+          <img :src="require(`../assets/images/detail/${slideItem.name}_visual1.png`)"
                alt="" class="overview__img" data-aos="fade-up">
         </div>
       </article>
       <article class="detail-skill" :style="{backgroundColor: slideItem.color}">
         <div class="layout">
-          <img :src="require(`../../assets/images/detail/${slideItem.name}_visual2.png`)"
+          <img :src="require(`../assets/images/detail/${slideItem.name}_visual2.png`)"
                height="500" :alt="slideItem.title" class="skill__img" data-aos="slide-up">
           <div class="skill-content">
             <ul class="skill-lists" data-aos="fade-up" data-aos-delay="100">
@@ -68,12 +68,12 @@
       <div class="detail-preview">
         <div class="layout">
           <h1 class="detail__title preview__title">Preview</h1>
-          <img :src="require(`../../assets/images/detail/${slideItem.name}_preview1.png`)"
+          <img :src="require(`../assets/images/detail/${slideItem.name}_preview1.png`)"
                alt="" class="preview__img" data-aos="fade-left" >
-          <img :src="require(`../../assets/images/detail/${slideItem.name}_preview2.png`)"
+          <img :src="require(`../assets/images/detail/${slideItem.name}_preview2.png`)"
                alt="" class="preview__img" data-aos="fade-right" data-aos-delay="100" >
-          <div class="preview-btn-area">
-            <a :href="slideItem.path"  class="go-site__btn" target="_blank"
+          <div class="preview-button-area">
+            <a :href="slideItem.path"  class="go-site__button" target="_blank"
                :style="{color: slideItem.color}" data-aos="fade-up" data-aos-delay="100" >
               GO SITE
             </a>
@@ -180,7 +180,7 @@ export default createComponent({
         font-size: 3rem;
       }
     }
-    .close__btn {
+    .close__button {
       position: fixed;
       right: 2em;
       top: 2em;
@@ -192,7 +192,7 @@ export default createComponent({
         }
       }
     }
-    .detail__btn {
+    .detail__button {
       transition: all 0.2s ease;
       position: fixed;
       z-index: 100;
@@ -220,7 +220,7 @@ export default createComponent({
           &.prev {
             padding-right: 40px;
           }
-          .detail__btn__text {
+          .detail__button__text {
             display: block;
             opacity: 1;
             transition: all 0.2s ease;
@@ -233,7 +233,7 @@ export default createComponent({
         }
       }
     }
-    .detail__btn__text {
+    .detail__button__text {
       display: none;
       opacity: 0;
       font-size: 2rem;
@@ -244,7 +244,7 @@ export default createComponent({
   //Overview
   .detail-overview {
     padding: 4em 0;
-    background-image: url('../../assets/images/main/overview_bg.png');
+    background-image: url('../assets/images/main/overview_bg.png');
     background-position: 95% 100%;
     background-repeat: no-repeat;
     background-color: #f8f8f8;
@@ -382,14 +382,14 @@ export default createComponent({
         }
       }
     }
-    .preview-btn-area {
+    .preview-button-area {
       @include clearfix;
       text-align: center;
       float: left;
       width: 100%;
       margin: 2em 0 0;
     }
-    .go-site__btn {
+    .go-site__button {
       color: $purple;
       border: 2px solid;
       font-weight: 700;

@@ -2,16 +2,16 @@
   <main class="content about-content">
     <header class="about-info-hd">
       <div class="layout">
-        <img src="../../assets/images/main/photo.png" alt="" class="about-photo" data-aos="fade-up">
+        <img src="src/assets/images/main/photo.png" alt="" class="about-photo" data-aos="fade-up">
         <aside data-aos="fade-up">
           <a href="https://jinnny.github.io/blog/" class="about__contact">
             <i class="contact__icon">
-              <img src="../../assets/images/icons/icon_blog.png" alt="" width="15">
+              <img src="src/assets/images/icons/icon_blog.png" alt="" width="15">
             </i>
           </a>
           <a href="https://github.com/jinnny" class="about__contact">
             <i class="contact__icon">
-              <img src="../../assets/images/icons/icon_github.png" alt="" width="16">
+              <img src="src/assets/images/icons/icon_github.png" alt="" width="16">
             </i>
           </a>
         </aside>
@@ -24,7 +24,7 @@
       <div class="skill-info about-info layout">
         <h2 class="content-info__title about" data-aos="fade-in" data-aos-delay="200" data-aos-offset="0">SKILLS</h2>
         <div class="skill-content" data-aos="fade-up" data-aos-delay="50">
-          <img src="../../assets/images/icons/icon_html5.png" alt="">
+          <img src="src/assets/images/icons/icon_html5.png" alt="">
           <strong class="skill__title">HTML5 & 웹표준& 웹접근성</strong>
           <ul>
             <li>W3C HTML5 Recommendation 준수</li>
@@ -34,7 +34,7 @@
           </ul>
         </div>
         <div class="skill-content" data-aos="fade-up" data-aos-delay="100">
-          <img src="../../assets/images/icons/icon_css.png" alt="">
+          <img src="src/assets/images/icons/icon_css.png" alt="">
           <strong class="skill__title">CSS/전처리기</strong>
           <ul>
             <li>CSS3</li>
@@ -43,7 +43,7 @@
           </ul>
         </div>
         <div class="skill-content" data-aos="fade-up" data-aos-delay="150">
-          <img src="../../assets/images/icons/icon_javascript.png" alt="">
+          <img src="src/assets/images/icons/icon_javascript.png" alt="">
           <strong class="skill__title">Java Script & Jquery & Vue.js</strong>
           <ul>
             <li>DOM,BOM 제어</li>
@@ -51,7 +51,7 @@
           </ul>
         </div>
         <div class="skill-content" data-aos="fade-up" data-aos-delay="200">
-          <img src="../../assets/images/icons/icon_cms.png" alt="">
+          <img src="src/assets/images/icons/icon_cms.png" alt="">
           <strong class="skill__title">CMS</strong>
           <ul>
             <li>Xe</li>
@@ -60,7 +60,7 @@
           </ul>
         </div>
         <div class="skill-content" data-aos="fade-up" data-aos-delay="250">
-          <img src="../../assets/images/icons/icon_bootstrap.png" alt="">
+          <img src="src/assets/images/icons/icon_bootstrap.png" alt="">
           <strong class="skill__title">UI Framework & Library</strong>
           <ul>
             <li>Bootstrap</li>
@@ -70,7 +70,7 @@
           </ul>
         </div>
         <div class="skill-content" data-aos="fade-up" data-aos-delay="300">
-          <img src="../../assets/images/icons/icon_php.png" alt="">
+          <img src="src/assets/images/icons/icon_php.png" alt="">
             <strong class="skill__title">협업가능한 개발환경</strong>
           <ul>
             <li>JAVA(Spring)</li>
@@ -80,7 +80,7 @@
           </ul>
         </div>
         <div class="skill-content" data-aos="fade-up" data-aos-delay="350">
-          <img src="../../assets/images/icons/icon_git.png" alt="">
+          <img src="src/assets/images/icons/icon_git.png" alt="">
           <strong class="skill__title">Etc</strong>
           <ul>
             <li>Git, SVN 형상관리</li>

@@ -31,27 +31,12 @@ export default {
     background: $black;
     color: $white;
   }
-  html, body {
-    height: 100%;
-  }
-  #app {
-    /*height: 100%;*/
-  }
   .layout {
     width: 1280px;
     margin: 0 auto;
     @media all and (max-width: 1300px) {
       width: 100%;
       padding: 0 1em;
-    }
-  }
-  .content {
-    width: 100%;
-    height: 100%;
-    /*position: relative;*/
-    /*overflow: hidden;*/
-    .content__title {
-      font-size: 60px;
     }
   }
   .content-text {

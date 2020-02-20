@@ -1,25 +1,25 @@
 <template>
-  <header class="hd">
-    <h1 class="logo">
+  <header class="header">
+    <h1 class="header__logo">
       <router-link to="/">
         Y
       </router-link>
     </h1>
-<!--    <nav class="hd-menu">-->
+<!--    <nav class="header-menu">-->
 <!--      <ul>-->
 <!--        &lt;!&ndash;<li  v-on:click="menuOpen(false)">&ndash;&gt;-->
 <!--          &lt;!&ndash;<router-link to="/"  class="menu__link">Home</router-link>&ndash;&gt;-->
 <!--        &lt;!&ndash;</li>&ndash;&gt;-->
-<!--        <li class="hd-menu__list">-->
-<!--          <router-link to="/about" class="hd-menu__item">About</router-link>-->
+<!--        <li class="header-menu__list">-->
+<!--          <router-link to="/about" class="header-menu__item">About</router-link>-->
 <!--        </li>-->
-<!--        <li class="hd-menu__list">-->
-<!--          <router-link to="/" class="hd-menu__item">Portfolio</router-link>-->
+<!--        <li class="header-menu__list">-->
+<!--          <router-link to="/" class="header-menu__item">Portfolio</router-link>-->
 <!--        </li>-->
 <!--      </ul>-->
 <!--    </nav>-->
-    <button class="hd-menu__btn" @click="menuOpen()">
-      <i class="hd-menu__btn-line"></i>
+    <button class="header-menu__button" @click="menuOpen">
+      <i class="header-menu__button-line"></i>
     </button>
     <div class="area-menu" v-bind:class="{ active: menu }">
       <nav class="menu">
@@ -66,37 +66,41 @@
 </template>
 
 <script>
-export default {
-  name: 'Header',
-  data () {
+import { createComponent, ref } from '@vue/composition-api';
+
+export default createComponent({
+  setup(_,props){
+    const notify = ref(false);
+    const menu = ref(false);
+
+    const menuOpen = () => {
+      menu.value = !menu.value;
+    };
+    const closeMenu = () => {
+      menu.value = false;
+    };
     return {
-      notify: false,
-      menu: false
-    }
-  },
-  methods: {
-    menuOpen: function () {
-      this.menu = !this.menu
-    },
-    closeMenu: function () {
-      this.menu = false
+      notify,
+      menu,
+      menuOpen,
+      closeMenu
     }
   }
-}
+})
 </script>
 
 <style scoped lang="scss">
-  .hd {
+  .header {
     position: fixed;
-    width: 95%;
-    padding: 1.6em 0em 1.6em 4em;
+    width: calc(100% - 3rem);
+    padding: 1.5rem;
     z-index: 10;
     &.about {
       background: #1b1b1b;
       width: 100%;
       padding: 1.6em 4em;
     }
-    .logo {
+    .header__logo {
       color: $white;
       background: $black;
       font-weight: 600;
@@ -123,11 +127,11 @@ export default {
       }
     }
     /*메뉴*/
-    .hd-menu {
+    .header-menu {
       float: right;
-      .hd-menu__list {
+      .header-menu__list {
         float: left;
-        .hd-menu__item {
+        .header-menu__item {
           padding: 12px;
           font-weight: 600;
           font-size: 1.2rem;
@@ -159,7 +163,7 @@ export default {
         }
       }
     }
-    .hd-menu__btn {
+    .header-menu__button {
       width: 44px;
       height: 44px;
       display: block;
@@ -172,11 +176,11 @@ export default {
       background: transparent;
       border: 0;
       text-align: center;
-      .hd-menu__btn-line {
+      .header-menu__button-line {
         width: 83%;
         height: 2px;
         margin: 0 auto;
-        background: #3d4268;
+        background: #333333;
         display: block;
         transition: all 0.3s ease-in-out;
         border-radius: 3px;

@@ -3,5 +3,6 @@ import data from '../../data'
 
 export const state = reactive({
   slides: data.slides,
-  item: {}
+  item: {},
+  years: data.years
 })

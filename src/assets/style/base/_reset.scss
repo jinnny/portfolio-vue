@@ -5,14 +5,11 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-*, body, html, body, div, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, ol, ul, li, blockquote, pre, button, fieldset, form, legend, table, caption, tbody, tfoot, thead, tr, th, td, iframe, article, aside, canvas, details, embed, figure, figcaption, header, footer, menu, nav, section, summary, audio, video {
+body, html, body, div, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, ol, ul, li, blockquote, pre, button, fieldset, form, legend, table, caption, tbody, tfoot, thead, tr, th, td, iframe, article, aside, canvas, details, embed, figure, figcaption, header, footer, menu, nav, section, summary, audio, video {
   font-family: $mont;
   font-size: 18px;
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   color: $black;
   @media screen and (max-width: 1080px) {
     font-size: 15px;
@@ -22,8 +19,10 @@ footer, header, hgroup, menu, nav, section {
   }
 }
 
-ul, li {
+ul, ol {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 a,
@@ -39,8 +38,43 @@ img {
   max-width: 100%;
 }
 
+fieldset {
+  border: 0;
+}
+
 button {
-  cursor: pointer;
   border: 0;
   background: none;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+}
+
+strong,
+b {
+  color: inherit;
+  font-size: inherit;
+}
+
+i,
+em {
+  font-style: normal;
+}
+
+mark {
+  color: inherit;
+  background: none;
+}
+
+button {
+  -webkit-appearance: none;
+}
+
+input,
+input:matches([type="password"], [type="search"]),
+input[type=text],
+textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
 }

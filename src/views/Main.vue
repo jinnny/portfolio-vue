@@ -1,20 +1,18 @@
 <template>
   <main class="content">
-    <!--카테고리탭-->
-    <div class="portfolio-tab">
-      <button class="tab__btn active">ALL</button>
-      <!--<button class="tab__btn">2018</button>-->
-      <!--<button class="tab__btn">2017</button>-->
-      <!--<button class="tab__btn">2016</button>-->
-    </div>
-    <!--카테고리탭-->
+    <header class="content-header">
+      <h1 class="content__title">PORTFOLIO</h1>
+      <!--카테고리탭-->
+      <menu-tab :years-data="years"/>
+      <!--카테고리탭-->
+    </header>
     <section class="portfolio-lists">
         <article class="portfolio-list" v-for="(slide, i) in slideList"  :index="i" :key="slide.title + i">
           <router-link :to="{path: '/detail/'+ i}" :slide="slide">
-            <img :src="require('../../assets/images/slide/'+ slide.name +'_slide.png')"  class="portfolio__thumnail" alt="">
+            <img :src="require('../assets/images/slide/'+ slide.name +'_slide.png')"  class="portfolio__thumnail" alt="">
             <div class="portfolio--hover">
               <div class="hover-content">
-                <button class="portfolio__more-btn btn" ></button>
+                <button class="portfolio__more-button button" ></button>
                 <strong class="portfolio__date">{{slide.date}}</strong>
                 <h1 class="portfolio__title">{{slide.title}}</h1>
                 <!--<mark class="portfolio__category">{{slide.category}}</mark>-->
@@ -28,112 +26,62 @@
 
 <script>
 import { createComponent, computed } from '@vue/composition-api'
+import MenuTab from '../components/contents/MenuTab';
 
 export default createComponent({
+  components: {
+    MenuTab
+  },
  setup(_, { root }){
    const slideList = computed(() =>
      root.$store.getters.slideList
    );
+   const years = computed(() =>
+     root.$store.state.years
+   );
    return {
-     slideList
+     slideList,
+     years
    }
  }
 })
 </script>
 
-<style lang="scss">
-.portfolio-slider {
-  /*margin-top: 3em;*/
-  .owl-carousel .owl-stage {
-    height: 700px;
-    overflow: hidden;
-    @media all and (max-width: 1300px) {
-      height: auto;
-    }
-  }
-  .owl-carousel .owl-item {
-    height: 100%;
-    img {
-      width: auto;
-    }
-    .portfolio-slider__img {
-      width: 100%;
-    }
-  }
-  .portfolio-slider-item {
-    height: 100%;
-  }
-  .owl-theme .owl-dots {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    .owl-dot {
-      &.active span,
-      &:hover span {
-        opacity: 1;
-        background: $white;
-      }
-    }
-    .owl-dot {
-      span {
-        width: 70px;
-        height: 6px;
-        border-radius: 0;
-        opacity: .6;
-        background: $white;
-      }
-    }
-    @media all and (max-width: 500px) {
-      bottom: 6px;
-      .owl-dot {
-        span {
-          width: 30px;
-          height: 3px;
-          margin: 0 4px;
-        }
-      }
-    }
-  }
+<style lang="scss" scoped>
+.content {
+  padding-top: 50px;
+}
+.content-header {
+  text-align: center;
+}
+.content__title {
+  display: inline-block;
+  padding: 7px 20px;
+  font-weight: 600;
+  color: $lblack;
+  border-bottom: 1px solid $lblack;
+  font-size: 1rem;
 }
 
-/*tab*/
-.portfolio-tab {
-  text-align: center;
-  margin-top: 2em;
-  .tab__btn {
-    padding: 7px 20px;
-    font-weight: 600;
-    margin-right: 5px;
-    &.active,
-    &:hover,
-    &:active {
-      background: $black;
-      color: $white;
-    }
-  }
-}
 /*포폴 list*/
 .portfolio-lists {
-  margin-top: 2em;
   overflow: hidden;
   padding: 1em;
+  max-width: 1500px;
+  margin: 3rem auto;
 }
 .portfolio-list {
   display: block;
   overflow: hidden;
-  height: 290px;
+  /*height: 290px;*/
   position: relative;
-  width: 32.67%;
+  width: 33.33%;
+  height: 30rem;
   float: left;
-  margin-right: 0.99%;
-  margin-bottom: 18px;
-  &:nth-child(3n) {
-    margin-right: 0;
-  }
   .portfolio__thumnail {
     transition: all 0.4s ease;
-    width: 100%;
     height: 100%;
+    object-fit: cover;
   }
   .portfolio__date {
     color: $white;
@@ -166,7 +114,7 @@ export default createComponent({
       text-align: center;
       width: 94%;
     }
-    .portfolio__more-btn {
+    .portfolio__more-button {
       img {
         display: inline-block;
       }
@@ -223,15 +171,7 @@ export default createComponent({
     }
   }
   @media all and (max-width: 1300px) {
-    width: 49.5%;
-    margin-right: 0;
-    margin-bottom: 12px;
-    &:nth-child(2n) {
-      margin-right: 0;
-    }
-    &:nth-child(2n-1) {
-      margin-right: 1%;
-    }
+    width: 50%;
   }
   @media all and (max-width: 500px) {
     width: 100%;
@@ -242,7 +182,7 @@ export default createComponent({
   }
 }
 
-.portfolio__more-btn {
+.portfolio__more-button {
   width: 2px;
   height: 20px;
   background: $white;
@@ -263,44 +203,6 @@ export default createComponent({
 .slide-wrap {
   overflow: hidden;
 }
-.portfolio-slider {
-  .owl-nav [class*='owl-'] {
-    height: 45px;
-    width: 45px;
-    margin-top: 8px;
-    border-radius: 0;
-    &.owl-prev,
-    &.owl-next {
-      line-height: 30px !important;
-      text-align: center !important;
-      border: 1px solid #bbbbbb;
-      background: #fff;
-      opacity: .55;
-      color: #bbbbbb;
-      text-transform: uppercase;
-      text-indent: -9999px;
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
-      &:hover {
-        background-color: #fff;
-        border-color: #b1b1b1;
-        opacity: 1;
-      }
-    }
-    &.owl-prev {
-      background-image: url('../../assets/images/icons/icon_prev.png');
-    }
-    &.owl-next {
-      background-image: url('../../assets/images/icons/icon_next.png');
-    }
-    &.prev {
-      border-right: 0;
-      margin-left: 10px;
-    }
-    &.next {
-      margin-left: -6px;
-    }
-  }
-}
+
 
 </style>

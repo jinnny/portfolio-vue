@@ -21,7 +21,7 @@
           <img :src="require('../../assets/images/list/thumnail_' + i+ '.png')" alt="" class="portfolio__thumnail">
           <div class="portfolio--hover" v-on:click="show(slide)">
             <div class="hover-content">
-              <button class="portfolio__more-btn btn" >
+              <button class="portfolio__more-button button" >
                 <img src="../../assets/images/icon_plus.png" alt="더보기" width="15">
               </button>
               <strong class="portfolio__date">{{slide.date}}</strong>
@@ -38,7 +38,7 @@
 
 <script>
 import { Carousel3d, Slide } from 'vue-carousel-3d'
-import Detail from './Detail.vue'
+import Detail from '../../views/Detail.vue'
 
 export default {
   name: 'Slider',
