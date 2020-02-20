@@ -93,12 +93,13 @@
 </template>
 
 <script>
-export default {
-  name: 'About',
-  mounted () {
+import {createComponent} from '@vue/composition-api'
+
+export default createComponent({
+  setup() {
     window.scrollTo(0, 0)
   }
-}
+})
 </script>
 
 <style scoped lang="scss">

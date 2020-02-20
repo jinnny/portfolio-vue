@@ -1,18 +1,5 @@
 <template>
   <main class="content">
-    <carousel :items="1" :autoplay="true" :nav="false" :autoplayTimeout="2000" :animateOut="animateOut" :autoplayHoverPause="true" class="portfolio-slider">
-      <article class="portfolio-slider-item"  v-for="(slide, i) in slideList.slice(0,5)" :index="i" :key="i" >
-        <router-link :to="{path: '/detail/'+ i}">
-          <div class="layout" >
-            <h1 class="portfolio-slider__title" data-aos="fade-in">
-              <img :src="require('../../assets/images/logo/'+ slide.name +'_logo.png')" alt="" class="portfolio__logo" height="32">
-              {{slide.title}}
-            </h1>
-          </div>
-          <img :src="require('../../assets/images/slide/'+ slide.name +'_slide.png')"  class="portfolio-slider__img" alt="">
-        </router-link>
-      </article>
-    </carousel>
     <!--카테고리탭-->
     <div class="portfolio-tab">
       <button class="tab__btn active">ALL</button>
@@ -22,7 +9,7 @@
     </div>
     <!--카테고리탭-->
     <section class="portfolio-lists">
-        <article class="portfolio-list" v-for="(slide, i) in slideList"  :index="i" :key="slide.title + i" data-aos="fade-in" data-aos-offset="0">
+        <article class="portfolio-list" v-for="(slide, i) in slideList"  :index="i" :key="slide.title + i">
           <router-link :to="{path: '/detail/'+ i}" :slide="slide">
             <img :src="require('../../assets/images/slide/'+ slide.name +'_slide.png')"  class="portfolio__thumnail" alt="">
             <div class="portfolio--hover">
@@ -40,34 +27,18 @@
 </template>
 
 <script>
-import carousel from 'vue-owl-carousel'
-import { mapGetters } from 'vuex'
+import { createComponent, computed } from '@vue/composition-api'
 
-export default {
-  name: 'Main',
-  components: {
-    carousel
-  },
-  props: {
-  },
-  data () {
-    return {
-      // animateIn: 'slideInDown',
-      animateOut: 'fadeOut',
-      detailShow: false
-    }
-  },
-  computed: {
-    ...mapGetters([
-      'slideList'
-    ])
-  },
-  methods: {
-    scrollUp () {
-      window.scrollTo(0, 0)
-    }
-  }
-}
+export default createComponent({
+ setup(_, { root }){
+   const slideList = computed(() =>
+     root.$store.getters.slideList
+   );
+   return {
+     slideList
+   }
+ }
+})
 </script>
 
 <style lang="scss">

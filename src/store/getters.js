@@ -1,8 +1,8 @@
 export default {
-  slideList(state) {
+  slideList (state) {
     return state.slides
   },
-  slideItem(state) {
-    return state.item;
+  slideItem (state) {
+    return state.item
   }
 }

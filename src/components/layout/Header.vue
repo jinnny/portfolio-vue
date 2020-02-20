@@ -5,78 +5,67 @@
         Y
       </router-link>
     </h1>
-    <nav class="hd-menu">
-      <ul>
-        <!--<li  v-on:click="menuOpen(false)">-->
-          <!--<router-link to="/"  class="menu__link">Home</router-link>-->
-        <!--</li>-->
-        <li class="hd-menu__list">
-          <router-link to="/about" class="hd-menu__item">About</router-link>
-        </li>
-        <li class="hd-menu__list">
-          <router-link to="/" class="hd-menu__item">Portfolio</router-link>
-        </li>
-      </ul>
-    </nav>
-    <!--<button class="hd-menu__btn" @click="menuOpen()">-->
-      <!--<i class="hd-menu__btn-line"></i>-->
-    <!--</button>-->
-    <!--<div class="area-menu" v-bind:class="{ active: menu }">-->
-      <!--<nav class="menu">-->
-        <!--<ul>-->
-          <!--<li  v-on:click="menuOpen(false)">-->
-            <!--<router-link to="/"  class="menu__link">home</router-link>-->
-          <!--</li>-->
-          <!--<li  v-on:click="menuOpen(false)">-->
-            <!--<router-link to="/about" class="menu__link">ABOUT</router-link>-->
-          <!--</li>-->
-          <!--<li  v-on:click="menuOpen(false)">-->
-            <!--<router-link to="/" class="menu__link">portfolio</router-link>-->
-          <!--</li>-->
-        <!--</ul>-->
-        <!--<div class="area-menu-links">-->
-          <!--<a href="mailto:jinny920311@gmail.com" class="menu__links">-->
-           <!--<img src="../../assets/images/icon_email.png" alt="메일 보내기" width="20">-->
+<!--    <nav class="hd-menu">-->
+<!--      <ul>-->
+<!--        &lt;!&ndash;<li  v-on:click="menuOpen(false)">&ndash;&gt;-->
+<!--          &lt;!&ndash;<router-link to="/"  class="menu__link">Home</router-link>&ndash;&gt;-->
+<!--        &lt;!&ndash;</li>&ndash;&gt;-->
+<!--        <li class="hd-menu__list">-->
+<!--          <router-link to="/about" class="hd-menu__item">About</router-link>-->
+<!--        </li>-->
+<!--        <li class="hd-menu__list">-->
+<!--          <router-link to="/" class="hd-menu__item">Portfolio</router-link>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </nav>-->
+    <button class="hd-menu__btn" @click="menuOpen()">
+      <i class="hd-menu__btn-line"></i>
+    </button>
+    <div class="area-menu" v-bind:class="{ active: menu }">
+      <nav class="menu">
+        <ul>
+          <li  v-on:click="menuOpen(false)">
+            <router-link to="/"  class="menu__link">home</router-link>
+          </li>
+          <li  v-on:click="menuOpen(false)">
+            <router-link to="/about" class="menu__link">ABOUT</router-link>
+          </li>
+          <li  v-on:click="menuOpen(false)">
+            <router-link to="/" class="menu__link">portfolio</router-link>
+          </li>
+        </ul>
+        <div class="area-menu-links">
+          <a href="mailto:jinny920311@gmail.com" class="menu__links">
+<!--           <img src="../../assets/images/icon_email.png" alt="메일 보내기" width="20">-->
+          </a>
+          <a href="tel:01057521440"  class="menu__links">
+<!--           <img src="../../assets/images/icon_call.png" alt="전화 하기" width="18">-->
+          </a>
+          <!--<a href="https://jemajin.blogspot.kr/" class="menu__links">-->
+            <!--<img src="images/icon_blog.svg" alt="블로그바로가기" width="15" height="15">-->
           <!--</a>-->
-          <!--<a href="tel:01057521440"  class="menu__links">-->
-           <!--<img src="../../assets/images/icon_call.png" alt="전화 하기" width="18">-->
-          <!--</a>-->
-          <!--&lt;!&ndash;<a href="https://jemajin.blogspot.kr/" class="menu__links">&ndash;&gt;-->
-            <!--&lt;!&ndash;<img src="images/icon_blog.svg" alt="블로그바로가기" width="15" height="15">&ndash;&gt;-->
-          <!--&lt;!&ndash;</a>&ndash;&gt;-->
-        <!--</div>-->
-      <!--</nav>-->
-    <!--</div>-->
-    <!--<nav class="menu">-->
-    <!--<ul>-->
-    <!--<li><router-link to="/" class="menu__link">PORTFOLIO</router-link></li>-->
-    <!--<li><router-link to="/about" class="menu__link">ABOUT</router-link></li>-->
-    <!--&lt;!&ndash;<li><router-link to="/slider" class="menu__link">Slider2</router-link></li>&ndash;&gt;-->
-    <!--</ul>-->
-    <!--<p class="contact">-->
-    <!--<a href="mailto:jinny920311@gmail.com">-->
-    <!--<img src="../../assets/images/icon_email.png" alt="">-->
-    <!--</a>-->
-    <!--<a href="tel:01057521440">-->
-    <!--<img src="../../assets/images/icon_call.png" alt="">-->
-    <!--</a>-->
-    <!--</p>-->
-    <!--</nav>-->
-    <!--<div class="notification" v-if="notify">-->
-      <!--이 페이지는-->
-      <!--<a href="https://www.microsoft.com/en-us/windows/microsoft-edge">Microsoft Edge</a>나-->
-      <!--<a href="https://www.google.com/chrome/">Google Chrome,</a>-->
-      <!--<a href="https://mozilla.org/firefox/">Firefox</a>-->
-      <!--에 최적화 되어있습니다.-->
-    <!--</div>-->
+        </div>
+      </nav>
+    </div>
+<!--    <nav class="menu">-->
+<!--    <ul>-->
+<!--    <li><router-link to="/" class="menu__link">PORTFOLIO</router-link></li>-->
+<!--    <li><router-link to="/about" class="menu__link">ABOUT</router-link></li>-->
+<!--    &lt;!&ndash;<li><router-link to="/slider" class="menu__link">Slider2</router-link></li>&ndash;&gt;-->
+<!--    </ul>-->
+<!--    <p class="contact">-->
+<!--    <a href="mailto:jinny920311@gmail.com">-->
+<!--    <img src="../../assets/images/icon_email.png" alt="">-->
+<!--    </a>-->
+<!--    <a href="tel:01057521440">-->
+<!--    <img src="../../assets/images/icon_call.png" alt="">-->
+<!--    </a>-->
+<!--    </p>-->
+<!--    </nav>-->
   </header>
 </template>
 
 <script>
-import {detect} from 'detect-browser'
-
-const browser = detect()
-
 export default {
   name: 'Header',
   data () {
@@ -86,21 +75,11 @@ export default {
     }
   },
   methods: {
-    notifyShow: function () {
-      this.notify = true
-    },
     menuOpen: function () {
       this.menu = !this.menu
     },
     closeMenu: function () {
       this.menu = false
-    }
-  },
-  created () {
-    if (browser && browser.name === 'ie') {
-      this.notify = true
-    } else {
-      this.notify = false
     }
   }
 }
@@ -108,7 +87,7 @@ export default {
 
 <style scoped lang="scss">
   .hd {
-    position: absolute;
+    position: fixed;
     width: 95%;
     padding: 1.6em 0em 1.6em 4em;
     z-index: 10;

@@ -4,10 +4,10 @@
       <router-link to="/" class="close__btn btn">
         <img src="../../assets/images/icons/icon_close.png" alt="닫기" >
       </router-link>
-      <article class="detail-slide" :style="{'background-image': 'url(require(`../../assets/images/slide/${slideItem.name}_slide.png`))'}">
+      <article class="detail-slide" :style="{'background-image': 'url('+require(`../../assets/images/slide/${slideItem.name}_slide.png`)}">
         <div class="layout">
           <h1 class="portfolio-slider__title" data-aos="fade-up" data-aos-delay="100">
-            <img :src="`require(../../assets/images/logo/${slideItem.name}_logo.png)`"
+            <img :src="require(`../../assets/images/logo/${slideItem.name}_logo.png`)"
                  alt="" class="portfolio__logo" height="32">
             {{slideItem.title}}
           </h1>
@@ -30,13 +30,13 @@
               {{slideItem.description1}}
             </p>
           </div>
-          <img :src="`require(../../assets/images/detail/'${slideItem.name}_visual1.png)`"
+          <img :src="require(`../../assets/images/detail/${slideItem.name}_visual1.png`)"
                alt="" class="overview__img" data-aos="fade-up">
         </div>
       </article>
       <article class="detail-skill" :style="{backgroundColor: slideItem.color}">
         <div class="layout">
-          <img :src="`require(../../assets/images/detail/'${slideItem.name}_visual2.png)`"
+          <img :src="require(`../../assets/images/detail/${slideItem.name}_visual2.png`)"
                height="500" :alt="slideItem.title" class="skill__img" data-aos="slide-up">
           <div class="skill-content">
             <ul class="skill-lists" data-aos="fade-up" data-aos-delay="100">
@@ -68,9 +68,9 @@
       <div class="detail-preview">
         <div class="layout">
           <h1 class="detail__title preview__title">Preview</h1>
-          <img :src="`require(../../assets/images/detail/'${slideItem.name}_preview1.png)`"
+          <img :src="require(`../../assets/images/detail/${slideItem.name}_preview1.png`)"
                alt="" class="preview__img" data-aos="fade-left" >
-          <img :src="`require('../../assets/images/detail/${slideItem.name}_preview2.png')`"
+          <img :src="require(`../../assets/images/detail/${slideItem.name}_preview2.png`)"
                alt="" class="preview__img" data-aos="fade-right" data-aos-delay="100" >
           <div class="preview-btn-area">
             <a :href="slideItem.path"  class="go-site__btn" target="_blank"
@@ -85,93 +85,61 @@
 </template>
 
 <script>
-import { ref, onMounted, watch, computed } from '@vue/composition-api'
+import { ref, createComponent, watch, computed, onMounted } from '@vue/composition-api'
 
-export default {
+export default createComponent({
   setup (props, { root }) {
     // 데이터
-    const current = ref(parseInt(root.$route.params.index))
-
+    const current = ref(parseInt(root.$route.params.index));
     const close = () => {
       this.$router.go(-1)
     };
     const next = () => {
-      let nextDetail = parseInt(current.value) + 1
-      if (nextDetail > 0 && nextDetail <= this.dataJson.slides.length) {
-        current.value = nextDetail
-        this.$router.push('/detail/' + nextDetail)
-        window.scrollTo(0, 0)
+      let nextDetail = parseInt(current.value) + 1;
+      if (nextDetail > 0 && nextDetail <= slideList.length) {
+        current.value = nextDetail;
+        root.$router.push('/detail/' + nextDetail);
+        root.$store.commit('SET_ITEM', current.value);
+        goTop();
       }
     };
     const prev = () => {
-      let prevDetail = parseInt(current.value) - 1
-      if (prevDetail >= 0 && prevDetail <= this.dataJson.slides.length) {
-        current.value = prevDetail
-        this.$router.push('/detail/' + prevDetail)
-        window.scrollTo(0, 0)
+      let prevDetail = parseInt(current.value) - 1;
+      if (prevDetail >= 0 && prevDetail <= slideList.length) {
+        current.value = prevDetail;
+        root.$router.push('/detail/' + prevDetail);
+        root.$store.commit('SET_ITEM', current.value);
+        goTop();
       }
     };
     const slideItem = computed(() =>
       root.$store.getters.slideItem
-    )
+    );
     const slideList = root.$store.getters.slideList;
-
+    const goTop = () => {
+      window.scrollTo(0, 0)
+    }
     watch(current, (newEl) => {
       current.value = newEl
     });
 
-    root.$store.commit('SET_ITEM', current.value)
+    root.$store.commit('SET_ITEM', current.value);
 
     onMounted(() => {
-      window.scrollTo(0, 0)
-    })
+      goTop();
+    });
 
     return {
       current,
       slideItem,
       slideList,
+      goTop,
       close,
       next,
       prev
     }
   }
-  // data () {
-  //   return {
-  //     dataJson: json,
-  //     current: parseInt(this.$route.params.index)
-  //   }
-  // },
-  // watch: {
-  //   current: function (newVal) {
-  //     this.current = newVal
-  //   }
-  // },
-  // mounted () {
-  //   window.scrollTo(0, 0)
-  // },
-  // methods: {
-  //   close () {
-  //     this.$router.go(-1)
-  //     // this.$emit('update:detailShow', false)
-  //   },
-  //   next () {
-  //     let nextDetail = parseInt(this.current) + 1
-  //     if (nextDetail > 0 && nextDetail <= this.dataJson.slides.length) {
-  //       this.current = nextDetail
-  //       this.$router.push('/detail/' + nextDetail)
-  //       window.scrollTo(0, 0)
-  //     }
-  //   },
-  //   prev () {
-  //     let prevDetail = parseInt(this.current) - 1
-  //     if (prevDetail >= 0 && prevDetail <= this.dataJson.slides.length) {
-  //       this.current = prevDetail
-  //       this.$router.push('/detail/' + prevDetail)
-  //       window.scrollTo(0, 0)
-  //     }
-  //   }
-  // }
-}
+})
 </script>
 
 <style scoped lang="scss">
