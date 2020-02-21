@@ -7,7 +7,8 @@
     </h1>
 <!--    <nav class="header-menu">-->
 <!--      <ul>-->
-<!--        &lt;!&ndash;<li  v-on:click="menuOpen(false)">&ndash;&gt;-->
+<!--        &lt;!&ndash;<li  v-on:click="menuOpen(false)">&
+ndash;&gt;-->
 <!--          &lt;!&ndash;<router-link to="/"  class="menu__link">Home</router-link>&ndash;&gt;-->
 <!--        &lt;!&ndash;</li>&ndash;&gt;-->
 <!--        <li class="header-menu__list">-->

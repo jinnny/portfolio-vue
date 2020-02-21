@@ -2,7 +2,7 @@
   <article class="detail-content">
     <section class="detail">
       <router-link to="/" class="close__button button">
-        <img src="src/assets/images/icons/icon_close.png" alt="닫기" >
+        <y-icon icon-name="icon-delete"/>
       </router-link>
       <article class="detail-slide" :style="{'background-image': 'url('+require(`../assets/images/slide/${slideItem.name}_slide.png`)}">
         <div class="layout">
@@ -86,8 +86,11 @@
 
 <script>
 import { ref, createComponent, watch, computed, onMounted } from '@vue/composition-api'
-
+import YIcon from '../components/common-ui/YIcon';
 export default createComponent({
+  components: {
+    YIcon
+  },
   setup (props, { root }) {
     // 데이터
     const current = ref(parseInt(root.$route.params.index));

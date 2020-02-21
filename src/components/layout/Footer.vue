@@ -1,32 +1,33 @@
 <template>
-  <footer class="ft">
-    <a href="mailto:jemajin7@gmail.com" class="ft__contact">
+  <footer class="footer">
+    <a href="mailto:jemajin7@gmail.com" class="footer__contact">
       <i class="contact__icon">
         <img src="../../assets/images/icons/icon_email.png" alt="" width="15">
       </i>
-      jemajin7@gmail.com
     </a>
-    <a href="tel:010-5752-1440" class="ft__contact">
+    <a href="tel:010-5752-1440" class="footer__contact">
       <i class="contact__icon">
         <img src="../../assets/images/icons/icon_call.png" alt="" width="15">
       </i>
-      010-5752-1440
     </a>
+    <p class="footer__copyright">
+      COPYRIGHT 2012-2020 STUDIO-JT. ALL RIGHTS RESERVED.
+    </p>
   </footer>
 </template>
 
 <script>
-export default {
-  name: 'Footer'
-}
+import { createComponent } from '@vue/composition-api';
+export default createComponent({
+})
 </script>
 
 <style lang="scss" scoped>
-.ft {
+.footer {
   background-color: $black;
   padding: 2em 0;
   text-align: center;
-  .ft__contact {
+  .footer__contact {
     color: $white;
     font-size: .95rem;
     margin: 0 1em;

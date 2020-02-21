@@ -103,12 +103,12 @@ export default createComponent({
     position: absolute;
     top: 0%;
     left: 0;
-    height: 100%;
-    width: 100%;
-    padding: 1em;
+    height: calc(100% - 2rem);
+    width: calc(100% - 2rem);
+    padding: 1rem;
     .hover-content {
       position: absolute;
-      bottom: 5em;
+      bottom: 43%;
       left: 1em;
       display: none;
       text-align: center;
@@ -124,10 +124,10 @@ export default createComponent({
       display: block;
       opacity: 0;
       position: absolute;
-      top: 20px;
+      top: 30%;
       right: 20px;
       left: 20px;
-      bottom: 20px;
+      bottom: 35%;
       content: '';
     }
     &:before {
@@ -137,8 +137,8 @@ export default createComponent({
       transition: opacity 0.45s, transform 0.5s;
     }
     &:after {
-      border-left: 1px solid $white;
-      border-right: 1px solid $white;
+/*      border-left: 1px solid $white;
+      border-right: 1px solid $white;*/
       transform: scale(1, 0);
       transition: opacity 0.35s, transform 0.5s;
     }
